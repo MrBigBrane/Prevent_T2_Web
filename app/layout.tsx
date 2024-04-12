@@ -1,4 +1,5 @@
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
+import NavBar from '@/components/NavBar.jsx';
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className="bg-background text-foreground">
         <AppRouterCacheProvider>
         <main className="min-h-screen flex flex-col items-center">
+          <NavBar />
           {children}
         </main>
         </AppRouterCacheProvider>

@@ -15,9 +15,9 @@ export default function LifestylePage() {
         <h1>Lifestyle Log</h1>
         <form action={formAction}>
           <p className={classes.paragraph}>
-            Attendance: 
-            <br />
+            Attendance:
             <label>
+                <br />
               <input name="attendance" type="radio" />
               Online
             </label>

@@ -36,8 +36,7 @@ export default async function tableAction(prevState, formData) {
 
   const { data, error } = await supabase
     .from("lifestyle_coach_log")
-    .upsert({
-      id: 1,
+    .insert({
       minutes: 2,
       current_weight: 5,
       attendance: "yes",
