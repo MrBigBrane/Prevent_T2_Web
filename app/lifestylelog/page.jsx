@@ -45,7 +45,7 @@ export default function LifestylePage() {
             </label>
           </p>
           <p>
-            <button type="submit">Submit</button>
+            <button type="submit" onSubmit={formAction}>Submit</button>
           </p>
         </form>
       </>
