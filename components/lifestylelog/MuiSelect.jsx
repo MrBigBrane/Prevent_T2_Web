@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function BasicSelect({ name }) {
+export default function BasicSelect({ name, field, field1, field2, field3 }) {
   const [attendance, setAttendance] = React.useState('');
 
   const handleChange = (event) => {
@@ -17,7 +17,7 @@ export default function BasicSelect({ name }) {
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
-        <InputLabel id="label">Attendance</InputLabel>
+        <InputLabel id="label">{field}</InputLabel>
         <Select
           labelId="label"
           id="attendance"
@@ -26,9 +26,9 @@ export default function BasicSelect({ name }) {
           onChange={handleChange}
           name={name}
         >
-          <MenuItem value={"yes"}>Yes</MenuItem>
-          <MenuItem value={"no"}>No</MenuItem>
-          <MenuItem value={"online"}>Online</MenuItem>
+          <MenuItem value={field1}>{field1}</MenuItem>
+          <MenuItem value={field2}>{field2}</MenuItem>
+          <MenuItem value={field3}>{field3}</MenuItem>
         </Select>
       </FormControl>
     </Box>
