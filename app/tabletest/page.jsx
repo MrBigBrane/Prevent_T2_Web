@@ -4,7 +4,7 @@ import { createClient } from '@/utils/supabase/server';
 
   export default async function Notes() {
     const supabase = createClient();
-    const { data: lifestyle_coach_log } = await supabase.from("lifestyle_coach_log").select();
+    const { data: activity_log } = await supabase.from("activity_log").select();
 
-    return <pre>{JSON.stringify(lifestyle_coach_log, null, 2)}</pre>
+    return <pre>{JSON.stringify(activity_log, null, 2)}</pre>
   }

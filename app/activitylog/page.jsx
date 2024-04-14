@@ -1,15 +1,21 @@
-import InputField from "../../components/lifestylelog/InputField";
+'use client';
 
-export default function ActivityPage() {
+import MuiSelect from '@/components/lifestylelog/MuiSelect.jsx';
+import MuiTextField from '@/components/lifestylelog/MuiTextField.jsx'
+import { useFormState } from 'react-dom';
+import tableAction from '@/lib/activitiesTableAction.jsx';
+import { Button } from '@mui/material';
+
+export default function LifestyleCoachLogPage() {
+    const [state, formAction] = useFormState(tableAction, { message: null })
+
     return (
         <>
-            <form>
-                <InputField name="excercise" type="text">Excercise Type</InputField>
-                {/* Will add dropdown menu for exercise types: cardio, strength, etc. */}
-                <InputField name="minutes" type="number">Minutes</InputField>
-                <InputField name="difficulty" type="text">Difficulty</InputField>
-                {/* Will add select dropdown for difficulty levels */}
-                <button type="submit">Add</button>
+            <form action={formAction}>
+                <MuiTextField name="activity" id="activity" label="Activity Name" variant="filled" />
+                <MuiTextField name="minutes" id="minutes" label="Activity Minutes" variant="filled" />
+                <MuiSelect name="difficulty" field="Perceived Difficulty" field1="Easy" field2="Medium" field3="Difficult" />
+                <Button variant="contained" type="submit">Submit</Button>
             </form>
         </>
     )
