@@ -40,7 +40,9 @@ export default async function BasicTable() {
               key={row[1].id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell align="right">{row[1].created_at}</TableCell>  
+              <TableCell align="right">{row[1].created_at.slice(0, 10)}</TableCell> 
+             {/* Data for date is sliced so that only year, month, and date are shown
+             to decrease messiness  */}
               <TableCell component="th" scope="row">
                 {row[1].activity}
               </TableCell>
