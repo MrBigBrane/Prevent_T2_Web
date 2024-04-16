@@ -11,16 +11,18 @@ export default async function tableAction(prevState, formData) {
       data: { user },
     } = await supabase.auth.getUser();
 
+    console.log(user.id);
+    
     const { data, error } = await supabase
-      .from("activity_log")
-      .insert({
+    .from('activity_log')
+    .insert({ 
         minutes: formData.get('minutes'),
         difficulty: formData.get('difficulty'),
-        activity: formData.get("activity"),
+        activity: formData.get('activity'),
         user: user.id
-      })
-      .select();
+     })
+     .select()
 
-    redirect('/tabletest'); 
+    redirect('/activities'); 
     
 }

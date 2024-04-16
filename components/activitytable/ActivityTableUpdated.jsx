@@ -27,8 +27,16 @@ export default async function TestTable({ table, field1, title1, field2, title2,
     ];
  
   return (
-    <div style={{ height: 300, width: '100%' }}>
-      <DataGrid rows={rows} columns={columns} />
+    <div style={{ height: 300, width: "100%" }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        initialState={{
+          sorting: {
+            sortModel: [{ field: "created_at", sort: "desc" }],
+          },
+        }}
+      />
     </div>
   );
 }
