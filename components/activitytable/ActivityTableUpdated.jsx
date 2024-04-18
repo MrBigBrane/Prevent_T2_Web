@@ -17,6 +17,7 @@ export default async function TestTable({ table, field1, title1, field2, title2,
     .select()
     .eq("user", user.id);
 
+
   const rows = data;
 
   const columns = [

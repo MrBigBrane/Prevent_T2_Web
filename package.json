@@ -11,6 +11,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.15",
     "@mui/material-nextjs": "^5.15.11",
+    "@mui/x-charts": "^7.2.0",
     "@mui/x-data-grid": "^7.2.0",
     "@mui/x-data-grid-generator": "^7.2.0",
     "@supabase/ssr": "latest",
