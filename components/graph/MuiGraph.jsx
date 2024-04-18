@@ -2,14 +2,16 @@
 
 import { LineChart } from '@mui/x-charts/LineChart';
 
-export default async function GridDemo({ weightData, dateData }) {
+export default function GridDemo({ weightData, dateData }) {
   return (
     <LineChart
-      xAxis={[{ data: [0, 1, 2, 3, 4] }]}
+      xAxis={[{ 
+        scaleType: 'band',
+        data: dateData }]}
       series={[
         {
             curve: "linear",
-          data: [0, 1, 2, 3, 4],
+          data: weightData,
         },
       ]}
       height={300}

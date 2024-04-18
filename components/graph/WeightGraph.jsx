@@ -1,30 +1,28 @@
 'use server';
 
 import fetcher from '@/components/fetcher';
-import fetcherCopy from '@/components/fetcherCopy';
-import MuiGraph from '@/components/MuiGraph.jsx';
-import Graphtest from '@/components/Graphtester'
+import MuiGraph from '@/components/graph/MuiGraph'
 // import TestComponent from '@/components/TestComponent'
 
 export default async function GraphPage() {
-    console.log('Test 1')
+    // console.log('Test 1')
     let weightData = []
     let dateData = []
 
-    let weightCopy = Object.assign({}, await fetcher());
-    console.log('Test 2')
+    let weightCopy = Object.assign({}, await fetcher('lifestyle_coach_log', 'current_weight'));
+    // console.log('Test 2')
     Object.entries(weightCopy).map((row) => {
         const weight = row[1].current_weight;
         weightData.push(weight);
-        console.log(weight);
+        // console.log(weight);
     })
-    console.log('Test 3')
-    let dateCopy = Object.assign({}, await fetcherCopy());
+    // console.log(dateData)
+    let dateCopy = Object.assign({}, await fetcher('lifestyle_coach_log', 'created_at'));
     Object.entries(dateCopy).map((row) => {
         const weight = row[1].created_at;
         dateData.push(weight);
-        console.log(weight);
+        // console.log(weight);
     });
-    console.log('Test 4');
+    // console.log(weightData);
     return <MuiGraph weightData={weightData} dateData={dateData} />
 }
