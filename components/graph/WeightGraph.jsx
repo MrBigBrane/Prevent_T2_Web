@@ -1,6 +1,6 @@
 'use server';
 
-import fetcher from '@/components/fetcher';
+import fetcher from '@/components/serverfunctions/fetcher';
 import MuiGraph from '@/components/graph/MuiGraph'
 // import TestComponent from '@/components/TestComponent'
 

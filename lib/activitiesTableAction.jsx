@@ -10,8 +10,6 @@ export default async function tableAction(prevState, formData) {
     const {
       data: { user },
     } = await supabase.auth.getUser();
-
-    console.log(user.id);
     
     const { data, error } = await supabase
     .from('activity_log')
