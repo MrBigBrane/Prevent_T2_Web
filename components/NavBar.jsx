@@ -18,10 +18,11 @@ export default async function NavBar() {
         {/* <Link href={user ? "/lifestylelog" : "/login"}>Weekly Log</Link>
           <Link href={user ? "/coach" : "/login"}>Coach Log</Link> */}
         <Link href="/">Home</Link>
-        <Link href="lifestylelog">Weekly Logger</Link>
+        <Link href={user ? "/dashboard" : "/login"}>Dashboard</Link>
+        {/* <Link href="lifestylelog">Weekly Logger</Link>
         <Link href="activitylog">Add Activities</Link>
         <Link href="coach">Coach Log</Link>
-        <Link href="activities">Activity Logs</Link>
+        <Link href="activities">Activity Logs</Link> */}
         <AuthButton />
       </div>
     </nav>

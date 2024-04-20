@@ -1,14 +1,14 @@
 'use client';
 
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useState } from 'react';
 
-export default function BasicSelect({ name, field, field1, field2, field3 }) {
-  const [attendance, setAttendance] = React.useState('');
+export default function BasicSelect({ name, field, field1, field2, field3, defaultValue }) {
+  const [attendance, setAttendance] = useState(defaultValue);
 
   const handleChange = (event) => {
     setAttendance(event.target.value);
