@@ -21,6 +21,6 @@ export default async function tableAction(prevState, formData) {
      })
      .select()
 
-    redirect('/activities'); 
+    redirect('/dashboard/activities'); 
     
 }

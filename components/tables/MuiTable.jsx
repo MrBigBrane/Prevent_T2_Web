@@ -40,7 +40,7 @@ export default function TestTable({
     return (
       <>
         <GridFooter />
-        {rowId && <><EditButton /><DeleteButton table={table} id={rowId} page={page} /></>}
+        {rowId && <><EditButton table={table} id={rowId} /><DeleteButton table={table} id={rowId} page={page} /></>}
       </>
     );
   }

@@ -8,5 +8,5 @@ export default async function deleter({ table, id, page }) {
 
     const { data, error } = await supabase.from(table).delete().eq('id', id);
 
-    redirect(`/${page}`);
+    redirect(`${page}`);
 }

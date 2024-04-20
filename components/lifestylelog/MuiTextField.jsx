@@ -1,11 +1,11 @@
 'use client'
 
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { useState } from 'react';
 
 export default function BasicTextFields({ id, label, variant, name }) {
-    const [input, setInput] = React.useState('')
+    const [input, setInput] = useState('')
 
   return (
     // <Box
