@@ -24,5 +24,5 @@ export default async function GraphPage() {
         // console.log(weight);
     });
     // console.log(weightData);
-    return <MuiGraph weightData={weightData} dateData={dateData} />
+    return <MuiGraph yData={weightData} xData={dateData} />
 }

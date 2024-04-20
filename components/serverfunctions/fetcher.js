@@ -10,7 +10,8 @@ export default async function fetcher(table, filter) {
     const { data, error } = await supabase
     .from(table)
     .select(filter)
-    .eq("user", user.id);
+    .eq("user", user.id)
+    .order('created_at', { ascending: true });
 
     // console.log(data);
     return data;

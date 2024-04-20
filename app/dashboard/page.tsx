@@ -2,6 +2,7 @@
 
 import AddButton from '@/components/buttons/AddButton';
 import LinkButton from '@/components/buttons/LinkButton';
+import MinutesGraph from '@/components/graph/MinutesGraph';
 import WeightGraph from '@/components/graph/WeightGraph';
 
 export default async function Index() {
@@ -10,6 +11,8 @@ export default async function Index() {
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
       <h1>Weight Progress</h1>
       <WeightGraph />
+      <h1>Exercise Minutes</h1>
+      <MinutesGraph />
       <div>
           <h1 style={{
             float: 'left'
