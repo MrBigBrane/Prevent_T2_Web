@@ -1,5 +1,5 @@
 import ActivityTable from "../../../components/tables/ActivityTable";
-import AddButton from '../../../components/buttons/AddButton'
+import MuiModal from '../../../components/forms/MuiModal'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LinkButton from "@/components/buttons/LinkButton";
 
@@ -8,7 +8,7 @@ export default function ActivityTablePage() {
       <>
         <LinkButton href="/dashboard" label="Back" type={null} startIcon={<ArrowBackIcon />} />
         <h1>Activity Logs</h1>
-        <AddButton page="activitylog" />
+        <MuiModal edit={false} title="Activity Logger" rowId={false} field1='' field2='' field3='' />
         <ActivityTable table="activity_log" />
       </>
       

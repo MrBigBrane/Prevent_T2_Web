@@ -1,5 +1,3 @@
-'use server';
-
 import fetcher from "./fetcher";
 
 export default async function dateCreator() {

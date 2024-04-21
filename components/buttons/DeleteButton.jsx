@@ -12,3 +12,9 @@ export default function DeleteButton(table, rowId, page) {
         <IconButton onClick={handleClick} color="warning"><DeleteIcon /></IconButton>
     )
 }
+
+export function DeleteButtonIcon({ click }) {
+    return (
+        <IconButton onClick={click} color="warning"><DeleteIcon /></IconButton>
+    )
+}

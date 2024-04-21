@@ -14,19 +14,21 @@ export default async function CoachTable({ table }) {
       .from(table)
       // try with {} if doesn't work without
       .select()
-      .eq("user", user.id);
+      .eq("user", user.id)
+      .order('created_at', { ascending: true });
 
       return (
         <MuiTable
       page="coach"
+      title={null}
       table={table}
       data={data}
-      field1="attendance"
-      title1="Attendance"
+      field3="attendance"
+      title3="Attendance"
       field2="current_weight"
       title2="Weight"
-      field3="minutes"
-      title3="Exercise Minutes"
+      field1="minutes"
+      title1="Exercise Minutes"
     />
 
       )
