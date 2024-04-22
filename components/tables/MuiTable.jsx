@@ -2,11 +2,12 @@
 
 import { DataGrid, GridFooter, useGridApiContext, useGridApiEventHandler } from '@mui/x-data-grid';
 import { useState } from 'react';
-import EditButton from '../buttons/EditButton';
-import DeleteButton from '../buttons/DeleteButton'
+import MuiDeleteModal from '../buttons/MuiDeleteModal'
+import MuiModal from '../forms/MuiModal'
 
-export default function TestTable({
+export default function MuiTable({
   page,
+  title,
   table,
   data,
   field1,
@@ -29,18 +30,29 @@ export default function TestTable({
 
   function Footer() {
     const [rowId, setRowId] = useState('');
+    const [firstField, setFirstField] = useState('')
+    const [secondField, setSecondField] = useState('')
+    const [thirdField, setThirdField] = useState('')
     const apiRef = useGridApiContext();
   
     const handleRowClick = (params) => {
       setRowId(params.row.id);
+      setFirstField(params.row[field1])
+      setSecondField(params.row[field2])
+      setThirdField(params.row[field3])
     };
   
     useGridApiEventHandler(apiRef, 'rowClick', handleRowClick);
-  
+
     return (
       <>
         <GridFooter />
-        {rowId && <><EditButton table={table} id={rowId} /><DeleteButton table={table} id={rowId} page={page} /></>}
+        {rowId && (
+          <>
+            <MuiModal edit={true} title={title} rowId={rowId} field1={firstField} field2={secondField} field3={thirdField}  />
+            <MuiDeleteModal table={table} rowId={rowId} page={page} />
+          </>
+        )}
       </>
     );
   }
@@ -49,7 +61,7 @@ export default function TestTable({
   
 
   return (
-    <div style={{ height: 300, width: "100%" }}>
+    <div style={{ height: 500, width: "100%" }}>
       <DataGrid
         disableColumnSelector
         columnVisibilityModel={{

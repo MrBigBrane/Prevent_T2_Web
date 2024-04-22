@@ -4,13 +4,12 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { IconButton } from '@mui/material';
 import Link from 'next/link';
 
-export default function AddButton({ page }) {
+export default function AddButton({ page, click }) {
 
     return (
-      <Link href={page}>
-        <IconButton color="success">
+        <IconButton color="success" onClick={click}>
             <AddCircleOutlineIcon />
         </IconButton>
-      </Link>
+  
     );
 }
