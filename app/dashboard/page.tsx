@@ -4,8 +4,11 @@ import MuiModal from '@/components/forms/MuiModal'
 import LinkButton from '@/components/buttons/LinkButton';
 import MinutesGraph from '@/components/graph/MinutesGraph';
 import WeightGraph from '@/components/graph/WeightGraph';
+import minutesPerWeek from '@/components/serverfunctions/minutesPerWeek'
 
 export default async function Index() {
+  let minutesData = Array.from(await minutesPerWeek())
+  const weeksMinutes = minutesData[0][minutesData[0].length - 1]
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
@@ -29,7 +32,7 @@ export default async function Index() {
         <h1 style={{
           float: "left"
         }}>Lifestyle Logs</h1>
-        <MuiModal edit={false} title={null} rowId={false} field1='' field2='' field3='' />
+        <MuiModal edit={false} title={null} rowId={false} field1={weeksMinutes} field2='' field3='' />
         <LinkButton href="dashboard/coach"
         type={null}
         label="View Lifestyle Log"

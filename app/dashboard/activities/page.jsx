@@ -4,6 +4,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LinkButton from "@/components/buttons/LinkButton";
 
 export default function ActivityTablePage() {
+
     return (
       <>
         <LinkButton href="/dashboard" label="Back" type={null} startIcon={<ArrowBackIcon />} />

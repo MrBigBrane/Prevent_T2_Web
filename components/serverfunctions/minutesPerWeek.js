@@ -29,7 +29,7 @@ export default async function dateCreator() {
     let step = 0;
     // first array element
     if(dates[step]){
-        while (step < dates.length - 1) {
+        while (step < dates.length) {
             const dateSet = [dates[step]];
             // gets first date entry of the new loop
             const minuteSet = [minuteDataArray[step]];
