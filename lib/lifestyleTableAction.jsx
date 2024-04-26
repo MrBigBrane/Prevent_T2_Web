@@ -21,7 +21,7 @@ export default async function tableAction(prevState, formData) {
       })
       .select();
 
-    redirect('/dashboard/coach/'); 
+    redirect('/dashboard/coachlog/'); 
     
     
 }

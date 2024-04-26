@@ -7,7 +7,7 @@ import editTableAction from '@/lib/editCoachTableAction.jsx';
 import tableAction from '@/lib/lifestyleTableAction';
 import MuiButton from '@/components/buttons/MuiButton';
 
-export default function LifestyleCoachLogPage({ field1, field2, field3, rowId }) {
+export default function LifestyleCoachLogPage({ field1, field2, field3, rowId, click }) {
     const [state, formAction] = useFormState(rowId ?  editTableAction : tableAction, { message: null })
 
     return (
@@ -17,7 +17,7 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, rowId })
                 <MuiTextField defaultValue={field1} name="minutesShown" id="minutesShown" label="Exercise Minutes" variant="filled" type='' disabled={true} />
                 <MuiTextField defaultValue={field2} name="weight" id="weight" label="Current Weight" variant="filled" type='' />
                 <MuiSelect defaultValue={field3} name="attendance" field="Attendance" field1="Yes" field2="No" field3="Online" />
-                <MuiButton label={rowId ? "Confirm Edit" : "Submit"} type="submit" startIcon={null} />
+                <MuiButton label={rowId ? "Confirm Edit" : "Submit"} type="submit" startIcon={null} click={click}/>
                 <MuiTextField defaultValue={rowId} name="rowId" id="rowId" label='id' variant='filled' type='hidden' />
             </form>
         </>

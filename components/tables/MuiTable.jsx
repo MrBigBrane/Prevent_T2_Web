@@ -16,6 +16,7 @@ export default function MuiTable({
   title2,
   field3,
   title3,
+  footer
 }) {
   const rows = data;
 
@@ -68,7 +69,7 @@ export default function MuiTable({
           id: false,
         }}
         rows={rows}
-        slots={{ footer: Footer }}
+        slots={footer ? null : { footer: Footer }}
         columns={columns}
         initialState={{
           sorting: {
