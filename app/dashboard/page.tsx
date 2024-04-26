@@ -33,7 +33,7 @@ export default async function Index() {
           float: "left"
         }}>Lifestyle Logs</h1>
         <MuiModal edit={false} title={null} rowId={false} field1={weeksMinutes} field2='' field3='' />
-        <LinkButton href="dashboard/coach"
+        <LinkButton href="dashboard/coachlog"
         type={null}
         label="View Lifestyle Log"
         startIcon={null}

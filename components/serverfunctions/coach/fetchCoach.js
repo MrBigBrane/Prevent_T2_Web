@@ -1,6 +1,6 @@
 import { createClient } from '@/utils/supabase/server';
 
-export default async function fetcher(table, filter) {
+export default async function fetchCoach(table) {
     const supabase = createClient();
 
     const {
@@ -10,18 +10,17 @@ export default async function fetcher(table, filter) {
     if(user){
         const { data, error } = await supabase
         .from(table)
-        .select(filter)
-        .eq("user", user.id)
+        .select()
+        .eq("coach_user", user.id)
         .order('created_at', { ascending: true });
+
         return data;
     }
-    else{
+    else {
         const userFalse = {
             user: false
         }
         return userFalse;
     }
     
-
-    // console.log(data);
 }

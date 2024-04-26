@@ -1,10 +1,9 @@
-'use client';
+// 'use client';
 
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { IconButton } from '@mui/material';
-import Link from 'next/link';
 
-export default function AddButton({ page, click }) {
+export default function AddButton({ click }) {
 
     return (
         <IconButton color="success" onClick={click}>

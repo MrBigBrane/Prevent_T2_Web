@@ -32,8 +32,8 @@ export default function FormDialog({ edit, title, rowId, field1, field2, field3 
         <DialogTitle>{title ? title : 'Lifestyle Coach Log'}</DialogTitle>
         <DialogContent>
           {title ? 
-          <ActivityForm field1={field1} field2={field2} field3={field3} rowId={rowId} />
-          : <CoachForm field1={field1} field2={field2} field3={field3} rowId={rowId} />}
+          <ActivityForm field1={field1} field2={field2} field3={field3} rowId={rowId} click={handleClose}/>
+          : <CoachForm field1={field1} field2={field2} field3={field3} rowId={rowId} click={handleClose} />}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

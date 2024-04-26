@@ -20,7 +20,7 @@ export default function BasicSelect({ name, field, field1, field2, field3, defau
         <InputLabel id="label">{field}</InputLabel>
         <Select
           labelId="label"
-          id="attendance"
+          id={name}
           value={attendance}
           label="Attendance"
           onChange={handleChange}
