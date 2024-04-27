@@ -1,7 +1,9 @@
 'use server';
 
+import LeaveClass from '@/components/buttons/coaching/LeaveClassModal'
 import { createClient } from '@/utils/supabase/server';
 import { Chip } from '@mui/material';
+
 
 export default async function YourCoachPage() {
     const supabase = createClient();
@@ -16,7 +18,7 @@ export default async function YourCoachPage() {
     .eq("user", user.id);
 
     let datum;
-    
+
     if(data){
         datum = data[0].class_codes
     }
@@ -28,6 +30,7 @@ export default async function YourCoachPage() {
         <>
             <h1>Your Current Class</h1>
             <Chip label={datum} variant="outlined" />
+            <LeaveClass />
         </>
     )
 }

@@ -10,9 +10,15 @@ export default function GridDemo({ yData, xData, yData2 }) {
         data: xData }]}
       series={[
         {
+          label: "Exercise Minutes",
             curve: "linear",
           data: yData,
         },
+        {
+          label: "Weight",
+          curve: "linear",
+          data: yData2,
+        }
         
       ]}
       height={300}

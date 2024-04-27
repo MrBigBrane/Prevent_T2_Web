@@ -1,7 +1,9 @@
-import fetcher from "./fetcher";
-import getCurrentUser from "./getCurrentUser";
+import fetchUserData from './fetchUserData'
+import weightCreator from '../../weightPerWeek'
 
-export default async function dateCreator() {
+
+export default async function dateCreator(userId) {
+
     let dates = []
     // tracks date by number representing YYYY/MM/DD
     let daysOfWeek = []
@@ -11,15 +13,11 @@ export default async function dateCreator() {
     let finalMinutes = []
     let finalDates = []
 
-    let dateData;
-    let minuteData;
+    let creationDate = Object.assign({}, await fetchUserData('profiles', 'user_created_at', userId))
+    let dateData = Object.assign({}, await fetchUserData('activity_log', 'created_at', userId))
+    let minuteData = Object.assign({}, await fetchUserData('activity_log', 'minutes', userId))
 
-    let userData = Object.assign({}, await getCurrentUser());
-   
-    dateData = Object.assign({}, await fetcher('activity_log', 'created_at'));
-    minuteData = Object.assign({}, await fetcher('activity_log', 'minutes'));
-    
-    let createDate = new Date(userData.created_at)
+    let createDate = new Date(creationDate[0].user_created_at)
     let createDay = createDate.getDay()
     createDate = createDate.getTime() / (1000 * 3600 * 24)
     
