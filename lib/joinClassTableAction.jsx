@@ -9,8 +9,6 @@ export default async function tableAction(prevState, formData) {
     const supabase = createClient();
 
     let classCodeVerification = Object.assign({}, await classCodeVerify('coach_codes', formData.get('classcode')));
-    
-    console.log(classCodeVerification)
 
     if(classCodeVerification){
         const {
@@ -22,6 +20,7 @@ export default async function tableAction(prevState, formData) {
         .insert({ 
             class_codes: formData.get('classcode'),
             user: user.id,
+            user_created_at: user.created_at,
             first_name: user.user_metadata.first_name,
             last_name: user.user_metadata.last_name
         })

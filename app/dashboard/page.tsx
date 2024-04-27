@@ -5,6 +5,7 @@ import LinkButton from '@/components/buttons/LinkButton';
 import MinutesGraph from '@/components/graph/MinutesGraph';
 import WeightGraph from '@/components/graph/WeightGraph';
 import minutesPerWeek from '@/components/serverfunctions/minutesPerWeek'
+import TableViewIcon from '@mui/icons-material/TableView';
 
 export default async function Index() {
   let minutesData = Array.from(await minutesPerWeek())
@@ -25,7 +26,7 @@ export default async function Index() {
           <LinkButton href="dashboard/activities" 
             type={null}
             label="View Activities"
-            startIcon={null}
+            startIcon={<TableViewIcon />}
           />
       </div>
       <div>
@@ -36,7 +37,7 @@ export default async function Index() {
         <LinkButton href="dashboard/coachlog"
         type={null}
         label="View Lifestyle Log"
-        startIcon={null}
+        startIcon={<TableViewIcon/>}
         />
       </div>
       

@@ -7,9 +7,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
-import InviteButton from './InviteButton';
+import leaveClass from '@/lib/coach/leaveClass'
+import MuiButton from '../MuiButton'
+import LogoutIcon from '@mui/icons-material/Logout';
 
-export default function DeleteModal({ classInfo }) {
+export default function LeaveClassModal() {
+    function handleClick() {
+        leaveClass();
+    }
 
   const [open, setOpen] = useState(false);
 
@@ -23,9 +28,7 @@ export default function DeleteModal({ classInfo }) {
 
   return (
     <>
-      <InviteButton
-        click={handleClickOpen}
-      />
+      <MuiButton startIcon={<LogoutIcon />} label="Leave Class" type={null} click={handleClickOpen} color="error" />
       <Dialog
         open={open}
         onClose={handleClose}
@@ -33,21 +36,17 @@ export default function DeleteModal({ classInfo }) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Invite Fellow Fitness Members!"}
+          {"Leave Current Class"}
         </DialogTitle>
         <DialogContent>
-            {classInfo.map((row) => {
-                return (
-                    <DialogContentText key={row[0]} id="alert-dialog-description">
-                        Class Name: {row[1]} Join Code: {row[0]}
-                    </DialogContentText>
-                )
-                
-            })}
-          
+            <DialogContentText>
+              This Action Cannot Be Undone  
+            </DialogContentText>
+            
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
+            <MuiButton startIcon={<LogoutIcon />} label="Leave Class" type='' click={handleClick} color="error" />
+          <Button onClick={handleClose}>Cancel</Button>
         </DialogActions>
       </Dialog>
     </>

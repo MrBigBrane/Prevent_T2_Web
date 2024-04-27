@@ -5,13 +5,18 @@ export default async function coachUserList() {
     let classData = []
     let codeData = []
     
+    let viewClassData = []
+    let viewStudentData = []
+
     let nameCodeMasterData = []
     let masterData = []
 
     let classCopy = Object.assign({}, await fetchCoach('coach_codes'));
+    
     // Getting the number of classes a coach has
 
     // console.log(classCopy)
+
 
     Object.entries(classCopy).map((row) => {
         let nameCodeData = []
@@ -21,6 +26,17 @@ export default async function coachUserList() {
         label: row[1].class_name,
         children: null
     }
+    const viewClass = {
+        id: `${row[1].code}class`,
+        label: 'View Class'
+    }
+    const viewStudents = {
+        id: `${row[1].code}student`,
+        label: 'View Students',
+        children: null
+    }
+    viewClassData.push(viewClass);
+    viewStudentData.push(viewStudents);
     codeData.push(row[1].code)
     nameCodeData.push(row[1].code)
     nameCodeData.push(row[1].class_name)
@@ -35,7 +51,7 @@ export default async function coachUserList() {
     const supabase = createClient();
 
     for(let i = 0; i < classData.length; i++){
-        let muiDataArray = []
+        let childrenArray = []
 
         const { data, error } = await supabase
             .from('profiles')
@@ -50,17 +66,24 @@ export default async function coachUserList() {
                 id: row.user,
                 label: label
             }
-            muiDataArray.push(userData)
+            childrenArray.push(userData)
         })
-        
 
+        let muiDataArray = []
+
+        muiDataArray.push(viewClassData[i])
+
+        if(childrenArray[0]) {
+            muiDataArray.push(viewStudentData[i])
+            muiDataArray[1].children = childrenArray
+        }
         classData[i].children = muiDataArray
         
         
     }
     masterData.push(classData);
     masterData.push(nameCodeMasterData);
-    
+
     return masterData;
     
 

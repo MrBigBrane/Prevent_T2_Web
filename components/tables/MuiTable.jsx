@@ -77,7 +77,6 @@ export default function MuiTable({
           },
         }}
       />
-      {/* {rowId ? null : <button>testing</button>} */}
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import Box from '@mui/material/Box';
 import userViewInitialize from '../serverfunctions/coach/coachview/userViewInitialize'
 import { RichTreeView } from '@mui/x-tree-view/RichTreeView';
-import { useState } from 'react';
+import classViewInitialize from '../serverfunctions/coach/classview/classViewInitialize'
 
 // Will add an "invite" button somewhere on the screen that will redirect to page specifying invite code for each class
 
@@ -18,15 +18,25 @@ export default function BasicRichTreeView({ data, codes }) {
 
   const handleItemSelectionToggle = (event, itemId, isSelected) => {
     if(isSelected) {
+      let viewClass = false;
       let matches = false;
       for(let i = 0; i < codes.length; i++){
-        if(itemId === codes[i]){
-          matches = true;
-          break;
+        if(itemId.includes(codes[i])){
+          if((itemId === codes[i]) || (itemId.includes('student'))){
+            matches = true;
+            break;
+          }
+          else if(itemId.includes('class')) {
+            viewClass = true;
+            break;
+          }
         }
       }
     if(!matches){
       userViewInitialize(itemId);
+    }
+    if(viewClass){
+      classViewInitialize(itemId);
     }
   }
     
@@ -34,7 +44,7 @@ export default function BasicRichTreeView({ data, codes }) {
 
   return (
     <>
-        <Box sx={{ minHeight: 200, minWidth: 300, flexGrow: 1 }}>
+        <Box sx={{ minHeight: 200, minWidth: 500, flexGrow: 1 }}>
           <RichTreeView
             items={data}
             onItemSelectionToggle={handleItemSelectionToggle}
