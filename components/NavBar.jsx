@@ -33,7 +33,7 @@ export default async function NavBar() {
           <Link href={user ? "/dashboard/becomecoach" : "/login"}>Become a Coach</Link>
         )}
         {userClassCopy[0] ? (
-          <Link href="/dashboard/yourcoach">Your Class</Link>
+          null
         ) : (
           <Link href={user ? "/dashboard/joinclass" : "/login"}>Join a Class</Link>
         )}

@@ -13,10 +13,9 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, rowId, c
     return (
         <>
             <form action={formAction}>
-                <MuiTextField defaultValue={field1} name="minutes" id="minutes" label="Exercise Minutes" variant="filled" type='hidden' disabled={null} />
-                <MuiTextField defaultValue={field1} name="minutesShown" id="minutesShown" label="Exercise Minutes" variant="filled" type='' disabled={true} />
-                <MuiTextField defaultValue={field2} name="weight" id="weight" label="Current Weight" variant="filled" type='' />
-                <MuiSelect defaultValue={field3} name="attendance" field="Attendance" field1="Yes" field2="No" field3="Online" />
+                {field3 ? <MuiTextField defaultValue={field3} name="minutesShown" id="minutesShown" label="Exercise Minutes" variant="filled" type='' disabled={true} /> : null}
+                <MuiTextField defaultValue={field1} name="weight" id="weight" label="Current Weight" variant="filled" type='number' required={true} />
+                <MuiSelect defaultValue={field2} name="attendance" field="Attendance" field1="Yes" field2="No" field3="Online" required={true} />
                 <MuiButton label={rowId ? "Confirm Edit" : "Submit"} type="submit" startIcon={null} click={click}/>
                 <MuiTextField defaultValue={rowId} name="rowId" id="rowId" label='id' variant='filled' type='hidden' />
             </form>

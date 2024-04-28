@@ -19,12 +19,12 @@ export default async function CoachTable({ id }) {
       title={null}
       table='lifestyle_coach_log'
       data={data}
-      field3="attendance"
-      title3="Attendance"
-      field2="current_weight"
-      title2="Weight"
-      field1="minutes"
-      title1="Exercise Minutes"
+      field2="attendance"
+      title2="Attendance"
+      field1="current_weight"
+      title1="Weight"
+      field3={null}
+      title3={null}
       footer={true}
     />
 

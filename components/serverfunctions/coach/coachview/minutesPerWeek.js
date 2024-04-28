@@ -3,7 +3,6 @@ import weightCreator from '../../weightPerWeek'
 
 
 export default async function dateCreator(userId) {
-
     let dates = []
     // tracks date by number representing YYYY/MM/DD
     let daysOfWeek = []
@@ -21,7 +20,7 @@ export default async function dateCreator(userId) {
     let createDay = createDate.getDay()
     createDate = createDate.getTime() / (1000 * 3600 * 24)
     
-    let startOfCreation = Math.trunc(createDate - createDay);
+    let startOfCreation = Math.trunc(createDate - createDay) + 1;
 
     Object.entries(minuteData).map((row) => {
         const minutes = row[1].minutes;

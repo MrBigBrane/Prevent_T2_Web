@@ -24,7 +24,7 @@ export default async function weightCreator() {
     let createDay = createDate.getDay()
     createDate = createDate.getTime() / (1000 * 3600 * 24)
     
-    let startOfCreation = Math.trunc(createDate - createDay);
+    let startOfCreation = Math.trunc(createDate - createDay) + 1;
 
     Object.entries(weightData).map((row) => {
         const weight = row[1].current_weight;

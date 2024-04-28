@@ -23,12 +23,12 @@ export default async function CoachTable({ table }) {
       title={null}
       table={table}
       data={data}
-      field3="attendance"
-      title3="Attendance"
-      field2="current_weight"
-      title2="Weight"
-      field1="minutes"
-      title1="Exercise Minutes"
+      field2="attendance"
+      title2="Attendance"
+      field3={null}
+      title3={null}
+      field1="current_weight"
+      title1="Weight"
     />
 
       )

@@ -13,8 +13,7 @@ export default async function tableAction(prevState, formData) {
     
     const { data, error } = await supabase
     .from('lifestyle_coach_log')
-    .update({ 
-        minutes: formData.get('minutes'),
+    .update({
         current_weight: formData.get('weight'),
         attendance: formData.get("attendance"),
         user: user.id
