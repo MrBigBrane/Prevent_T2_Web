@@ -16,7 +16,7 @@ export default function GridDemo({ yData, xData, yData2 }) {
         
       ]}
       height={300}
-      margin={{ left: 30, right: 30, top: 30, bottom: 30 }}
+      margin={{ left: 50, right: 50, top: 30, bottom: 30 }}
       grid={{ vertical: true, horizontal: true }}
     />
   );
