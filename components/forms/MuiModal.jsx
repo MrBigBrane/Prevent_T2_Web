@@ -6,9 +6,9 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
-import ActivityForm from './EditingActivityForm'
+import ActivityForm from './ActivityForm'
 import EditButton from '../buttons/EditButton';
-import CoachForm from './EditingCoachLog'
+import CoachForm from './CoachForm'
 import AddButton from '../buttons/AddButton';
 
 export default function FormDialog({ edit, title, rowId, field1, field2, field3 }) {

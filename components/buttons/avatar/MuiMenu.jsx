@@ -14,8 +14,10 @@ import Logout from '@mui/icons-material/Logout';
 import { useState } from 'react';
 
 import MuiAvatar from './MuiAvatar'
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
-export default function AccountMenu({ name, logout }) {
+export default function AccountMenu({ name, logout, createNewAccount }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -79,25 +81,33 @@ export default function AccountMenu({ name, logout }) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> My account
-        </MenuItem>
+        <Link href="/profile">
+            <MenuItem onClick={handleClose}>
+            <Avatar /> Profile
+            </MenuItem>
+        </Link>
+        <Link href="/profile/yourclass">
+            <MenuItem onClick={handleClose}>
+                <Avatar /> My Class
+            </MenuItem>
+        </Link>
+        
         <Divider />
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => createNewAccount()}>
           <ListItemIcon>
             <PersonAdd fontSize="small" />
           </ListItemIcon>
           Add another account
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem>
+        <Link href="/profile/settings">
+            <MenuItem onClick={handleClose}>
+                <ListItemIcon>
+                    <Settings fontSize="small" />
+                </ListItemIcon>
+                Settings
+            </MenuItem>
+        </Link>
+        
         <MenuItem onClick={() => logout()}>
           <ListItemIcon>
             <Logout fontSize="small" />

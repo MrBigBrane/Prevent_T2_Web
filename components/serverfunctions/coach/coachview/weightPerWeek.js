@@ -15,12 +15,12 @@ export default async function weightCreator(userId) {
     let creationDate = Object.assign({}, await fetchUserData('profiles', 'user_created_at', userId))
     let dateData = Object.assign({}, await fetchUserData('lifestyle_coach_log', 'created_at', userId))
     let weightData = Object.assign({}, await fetchUserData('lifestyle_coach_log', 'current_weight', userId))
-    
+
     let createDate = new Date(creationDate[0].user_created_at)
     let createDay = createDate.getDay()
     createDate = createDate.getTime() / (1000 * 3600 * 24)
 
-    let startOfCreation = Math.trunc(createDate - createDay);
+    let startOfCreation = Math.trunc(createDate - createDay) + 1;
 
     Object.entries(weightData).map((row) => {
         const weight = row[1].current_weight;
@@ -116,7 +116,6 @@ export default async function weightCreator(userId) {
                     step++;
                     continue;
                 }
-
                 // finalDates.push(weekStart.toString)
                 // FIX THE DATES CORRESPONDING TO EACH WEEK
 
@@ -161,6 +160,5 @@ export default async function weightCreator(userId) {
     }
 
     const weightGraph = [finalWeight, finalDates]
-
     return weightGraph;
 }

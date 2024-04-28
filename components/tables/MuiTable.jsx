@@ -20,13 +20,25 @@ export default function MuiTable({
 }) {
   const rows = data;
 
-  const columns = [
-    { field: "created_at", headerName: "Date", width: 150 },
-    { field: "id", headerName: "Date", width: 150 },
-    { field: field1, headerName: title1, width: 150 },
-    { field: field2, headerName: title2, width: 150 },
-    { field: field3, headerName: title3, width: 150 },
-  ];
+  let columns;
+
+  if(field3){
+    columns = [
+      { field: "created_at", headerName: "Date", width: 150 },
+      { field: "id", headerName: "Date", width: 150 },
+      { field: field1, headerName: title1, width: 150 },
+      { field: field2, headerName: title2, width: 150 },
+      { field: field3, headerName: title3, width: 150 },
+    ];
+  }
+  else{
+    columns = [
+      { field: "created_at", headerName: "Date", width: 150 },
+      { field: "id", headerName: "Date", width: 150 },
+      { field: field1, headerName: title1, width: 150 },
+      { field: field2, headerName: title2, width: 150 },
+    ]
+  }
 
 
   function Footer() {

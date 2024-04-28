@@ -23,7 +23,7 @@ export default async function dateCreator() {
     let createDay = createDate.getDay()
     createDate = createDate.getTime() / (1000 * 3600 * 24)
     
-    let startOfCreation = Math.trunc(createDate - createDay);
+    let startOfCreation = Math.trunc(createDate - createDay) + 1;
 
     Object.entries(minuteData).map((row) => {
         const minutes = row[1].minutes;

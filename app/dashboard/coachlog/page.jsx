@@ -14,7 +14,7 @@ export default async function CoachPage() {
       <>
         <LinkButton href="/dashboard" label="Back" type={null} startIcon={<ArrowBackIcon />} />
         <h1>Coaching Log</h1>
-        <MuiModal edit={false} title={null} rowId={false} field1={weeksMinutes} field2='' field3='' />
+        <MuiModal edit={false} title={null} rowId={false} field3={weeksMinutes} field2='' field1='' />
         <CoachTable table="lifestyle_coach_log" />
       </>
         
