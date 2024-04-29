@@ -13,14 +13,15 @@ export default async function tableAction(prevState, formData) {
     
     const { data, error } = await supabase
     .from('activity_log')
-    .insert({ 
+    .update({ 
         minutes: formData.get('minutes'),
         difficulty: formData.get('difficulty'),
         activity: formData.get('activity'),
         user: user.id
      })
      .select()
+     .eq('id', formData.get('rowId'))
 
-    redirect('/dashboard/activities/'); 
+    redirect('/dashboard/activities'); 
     
 }

@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation';
 
 
 export default async function tableAction(prevState, formData) {
+  console.log('testing')
     const supabase = createClient();
 
     const {
@@ -14,13 +15,15 @@ export default async function tableAction(prevState, formData) {
     const { data, error } = await supabase
       .from("lifestyle_coach_log")
       .insert({
-        minutes: formData.get('minutes'),
         current_weight: formData.get('weight'),
         attendance: formData.get("attendance"),
         user: user.id
       })
       .select();
 
-    redirect('/coach'); 
+      console.log(error)
+
+    redirect('/dashboard/coachlog/'); 
+    
     
 }

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import { SubmitButton } from "./submit-button";
+import { SubmitButton } from "../submit-button";
 import LinkButton from "@/components/buttons/LinkButton";
 
 export default function Login({
@@ -83,6 +83,25 @@ export default function Login({
       </Link>
 
       <form className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
+        <label className="text-md" htmlFor="first_name">
+          First Name
+        </label>
+        <input
+          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          name="first_name"
+          placeholder="John"
+          required
+        />
+        <label className="text-md" htmlFor="last_name">
+          Last Name
+        </label>
+        <input
+          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          name="last_name"
+          placeholder="Doe"
+          required
+        />
+        
         <label className="text-md" htmlFor="email">
           Email
         </label>
@@ -103,15 +122,15 @@ export default function Login({
           required
         />
         <SubmitButton
-          formAction={signIn}
-          className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2"
-          pendingText="Signing In..."
+          formAction={signUp}
+          className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
+          pendingText="Signing Up..."
         >
-          Sign In
+          Sign Up
         </SubmitButton>
         <LinkButton
-          href="/login/signup"
-          label="Go To Signup"
+          href="/login"
+          label="Back To Login"
           type={null}
           startIcon={null}
           // className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
