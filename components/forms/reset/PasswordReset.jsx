@@ -2,10 +2,10 @@
 
 import { useFormState } from "react-dom"
 import MuiButton from '../../buttons/MuiButton'
-import resetEmail from '@/lib/reset/resetEmail'
+import resetPassword from '@/lib/reset/resetPassword'
 
 export default function EmailReset() {
-    const [state, formAction] = useFormState(resetEmail, { message: null }) 
+    const [state, formAction] = useFormState(resetPassword, { message: null }) 
 
     return (
         <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">

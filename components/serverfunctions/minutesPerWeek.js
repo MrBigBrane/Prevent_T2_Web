@@ -18,6 +18,8 @@ export default async function dateCreator() {
    
     dateData = Object.assign({}, await fetcher('activity_log', 'created_at'));
     minuteData = Object.assign({}, await fetcher('activity_log', 'minutes'));
+    console.log(dateData)
+    console.log(minuteData)
     
     let createDate = new Date(userData.created_at)
     let createDay = createDate.getDay()
@@ -155,5 +157,6 @@ export default async function dateCreator() {
     }
 
     const minuteGraph = [finalMinutes, finalDates]
+    console.log(minuteGraph)
     return minuteGraph;
 }

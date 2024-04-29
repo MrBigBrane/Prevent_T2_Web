@@ -165,6 +165,6 @@ export default async function weightCreator() {
     }
 
     const weightGraph = [finalWeight, finalDates]
-
+    
     return weightGraph;
 }
