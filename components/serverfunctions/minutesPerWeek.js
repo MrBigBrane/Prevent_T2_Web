@@ -152,6 +152,8 @@ export default async function dateCreator() {
         finalMinutes.push(0)
     }
 
+    console.log(finalMinutes);
+
     for (let num = 1; num <= finalMinutes.length; num++){
         finalDates.push(`Week ${num}`)
     }
