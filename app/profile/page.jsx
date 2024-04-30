@@ -1,10 +1,12 @@
-import Onboard from '@/components/forms/onboarding/Onboard'
+'use client';
+
+import LinkButton from '@/components/buttons/LinkButton';
 
 export default function ProfilePage() {
     return (
     <>
         <h1>Profile Page</h1>
-        <Onboard />
+        <LinkButton href="/profile/onboarding?section1=true" startIcon={null} label="Onboarding Form" type='' />
     </>
     )
 }

@@ -12,6 +12,7 @@ import CoachForm from './CoachForm'
 import AddButton from '../buttons/AddButton';
 
 export default function FormDialog({ edit, title, rowId, field1, field2, field3 }) {
+  console.log(`this is ${field3}`)
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {

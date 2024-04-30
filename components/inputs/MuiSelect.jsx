@@ -7,7 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
 
-export default function BasicSelect({ name, field, field1, field2, field3, defaultValue, required }) {
+export default function BasicSelect({ name, field, field1, field2, field3, defaultValue, required, hidden }) {
   const [attendance, setAttendance] = useState(defaultValue);
 
   const handleChange = (event) => {
@@ -15,9 +15,12 @@ export default function BasicSelect({ name, field, field1, field2, field3, defau
   };
 
   return (
+    <>
+    <input type='hidden' name={`${name}input`} value={attendance} onChange={handleChange} />
+    {hidden === 'hidden' ? null :
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
-        <InputLabel id="label">{field}</InputLabel>
+        {hidden === 'hidden' ? null : <InputLabel id="label">{field}</InputLabel>}
         <Select
           labelId="label"
           id={name}
@@ -33,5 +36,10 @@ export default function BasicSelect({ name, field, field1, field2, field3, defau
         </Select>
       </FormControl>
     </Box>
+    }
+    
+    </>
+    
+    
   );
 }

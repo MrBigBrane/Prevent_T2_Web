@@ -38,5 +38,5 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/supabase func/fetcher.js"  ]
+, "components/supabase func/fetcher.js", "app/dashboard/page.jsx"  ]
 }

@@ -17,7 +17,7 @@ import MuiAvatar from './MuiAvatar'
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
-export default function AccountMenu({ name, logout, createNewAccount }) {
+export default function AccountMenu({ name, logout }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -93,12 +93,6 @@ export default function AccountMenu({ name, logout, createNewAccount }) {
         </Link>
         
         <Divider />
-        <MenuItem onClick={() => createNewAccount()}>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
         <Link href="/profile/settings">
             <MenuItem onClick={handleClose}>
                 <ListItemIcon>

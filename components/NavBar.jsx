@@ -32,11 +32,6 @@ export default async function NavBar() {
          ) : ( 
           <Link href={user ? "/dashboard/becomecoach" : "/login"}>Become a Coach</Link>
         )}
-        {userClassCopy[0] ? (
-          null
-        ) : (
-          <Link href={user ? "/dashboard/joinclass" : "/login"}>Join a Class</Link>
-        )}
         
         
         <AuthButton />
