@@ -15,7 +15,7 @@ export default async function YourCoachPage() {
     const { data, error } = await supabase
     .from('profiles')
     .select('class_codes')
-    .eq("user", user.id);
+    .eq("id", user.id);
 
     let datum;
 

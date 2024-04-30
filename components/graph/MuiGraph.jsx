@@ -2,7 +2,7 @@
 
 import { LineChart } from '@mui/x-charts/LineChart';
 
-export default function GridDemo({ yData, xData, yData2 }) {
+export default function GridDemo({ yData, xData }) {
   return (
     <LineChart
       xAxis={[{ 
@@ -12,6 +12,8 @@ export default function GridDemo({ yData, xData, yData2 }) {
         {
             curve: "linear",
           data: yData,
+          valueFormatter: (value) => (value == null ? 'Not Entered' : value.toString()),
+          connectNulls: true,
         },
         
       ]}

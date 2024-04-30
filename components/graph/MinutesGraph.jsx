@@ -6,5 +6,5 @@ import MuiGraph from './MuiGraph'
 export default async function MinutesGraph() {
     let minutesData = Array.from(await minutesPerWeek())
 
-    return <MuiGraph yData={minutesData[0]} xData={minutesData[1]} />
+    return <MuiGraph yData={minutesData[1]} xData={minutesData[0]} />
 }

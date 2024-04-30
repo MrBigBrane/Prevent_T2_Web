@@ -9,7 +9,7 @@ import TableViewIcon from '@mui/icons-material/TableView';
 
 export default async function Index() {
   let minutesData = Array.from(await minutesPerWeek())
-  const weeksMinutes = minutesData[0][minutesData[0].length - 1]
+  let weeksMinutes = minutesData[1][minutesData[1].length - 1].toString()
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center">

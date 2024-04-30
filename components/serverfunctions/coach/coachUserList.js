@@ -63,7 +63,7 @@ export default async function coachUserList() {
             const label = `${row.first_name} ${row.last_name}`
 
             const userData = {
-                id: row.user,
+                id: row.id,
                 label: label
             }
             childrenArray.push(userData)
