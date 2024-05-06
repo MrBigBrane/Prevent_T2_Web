@@ -8,22 +8,8 @@ import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import LinkButton from '@/components/buttons/LinkButton'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-/**
- * The JoinClassPage function is a client-side rendered page that handles the rendering of the Join Class page.
- * It fetches the current user from the server and checks if they are logged in. If the user is not logged in,
- * it redirects them to the login page. If the user is logged in, it renders the Join Class page with the
- * appropriate components and messages.
- *
- * @param {Object} searchParams - The search parameters from the url
- * @returns {JSX.Element} - The rendered Join Class page
- */
+
 export default function JoinClassPage({ searchParams }) {
-    /**
-     * A function that fetches the current user from the server and returns their data.
-     * If the user is not logged in, it redirects them to the login page.
-     *
-     * @returns {Promise<Object>} - The data of the current user
-     */
 
     // Use the useFormState hook to manage the form state and the form action
     const [state, formAction] = useFormState(joinClassTableAction, { message: null });
