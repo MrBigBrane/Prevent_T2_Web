@@ -8,15 +8,7 @@ import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import getCurrentUser from '@/components/serverfunctions/getCurrentUser'
 import { redirect } from "next/navigation";
 
-/**
- * The ActivityTablePage function is a server-side rendered page that handles the rendering of the Activity Logs page.
- * It fetches the current user from the server and checks if they are logged in. If the user is not logged in,
- * it redirects them to the login page. If the user is logged in, it renders the Activity Logs page with the
- * appropriate components and messages.
- *
- * @param {Object} searchParams - The search parameters from the url
- * @returns {JSX.Element} - The rendered Activity Logs page
- */
+
 export default async function ActivityTablePage({ searchParams }) {
   // Fetch the current user from the server
   const user = Object.assign({}, await getCurrentUser())
