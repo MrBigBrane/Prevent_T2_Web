@@ -102,7 +102,7 @@ export default function EmailReset() {
             name="diabetes"
             field1="Yes"
             field2="No"
-            field3="Don't Know"
+            field3="N/A"
             required={true}
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             hidden={section2}
@@ -225,7 +225,7 @@ export default function EmailReset() {
             Do you allow NRIVA to share your weight confidentially with the CDC?
           </label>
           <MuiSelect
-            field="Zoom classes?"
+            field="Share Weight?"
             name="share"
             field1="Yes"
             field2="No"

@@ -11,9 +11,9 @@ export default async function removeUser(userId) {
     const { error } = await supabase
     .from('profiles')
     .delete()
-    .eq('user', userId) 
+    .eq('id', userId) 
     
     
-    redirect('/dashboard/coaches')
+    redirect('/dashboard/coaches?userdeleted=true')
     
 }

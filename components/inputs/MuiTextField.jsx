@@ -4,31 +4,36 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 
-export default function BasicTextFields({ id, label, variant, name, defaultValue, type, disabled, required }) {
+export default function BasicTextFields({ id, label, variant, name, defaultValue, type, disabled, required, hidden }) {
     const [input, setInput] = useState(defaultValue)
 
+    const handleChange = (event) => {
+      setInput(event.target.value);
+    };
+
   return (
-    // <Box
-    //   component="form"
-    //   sx={{
-    //     "& > :not(style)": { m: 1, width: "25ch" },
-    //   }}
-    //   noValidate
-    //   autoComplete="off"
-    // >
-      <TextField
-        id={id}
-        label={label}
-        value={input}
-        onChange={(event) => {
-          setInput(event.target.value);
+    <>
+      <input type='hidden' name={`${name}input`} value={input} onChange={handleChange} />
+      {type === 'hidden' ? null : <Box
+        sx={{
+          "& > :not(style)": { m: 1, width: "25ch" },
         }}
-        variant={variant}
-        name={name}
-        type={type}
-        disabled={disabled ? disabled : false}
-        required={required ? required : null}
-      />
-    // </Box>
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id={id}
+          label={label}
+          value={input}
+          onChange={handleChange}
+          variant={variant}
+          name={name}
+          type={type}
+          disabled={disabled ? disabled : false}
+          required={required ? required : null}
+        />
+      </Box>}
+    </>
+    
   );
 }

@@ -19,17 +19,21 @@ export default async function tableAction(prevState, formData) {
         .from('profiles')
         .insert({ 
             class_codes: formData.get('classcode'),
-            user: user.id,
+            id: user.id,
             user_created_at: user.created_at,
             first_name: user.user_metadata.first_name,
             last_name: user.user_metadata.last_name
         })
         .select()
 
-        redirect('/dashboard/activities'); 
+        if(!error){
+            redirect('/profile/yourclass?joined=true'); 
+        }
+        else redirect('/profile/joinclass?notjoined=true')
+        
     }
     else {
-        redirect('/dashboard/joinclass')
+        redirect('/profile/joinclass?notjoined=true')
     }
     
     

@@ -7,21 +7,25 @@ import { redirect } from 'next/navigation';
 export default async function tableAction(prevState, formData) {
     const supabase = createClient();
 
+    const myText = formData.get('mealPlan')
+
     const {
       data: { user },
     } = await supabase.auth.getUser();
     
     const { data, error } = await supabase
-    .from('activity_log')
-    .update({ 
-        minutes: formData.get('minutes'),
-        difficulty: formData.get('difficulty'),
-        activity: formData.get('activity'),
+    .from('meal_plans')
+    .insert({ 
+        meal_plan: myText,
+        title: formData.get('title'),
         user: user.id
      })
      .select()
-     .eq('id', formData.get('rowId'))
 
-    redirect('/dashboard/activities?edit=true'); 
+    if(!error) redirect('/profile/mealplan?add=success'); 
+    else {
+        console.log(error)
+        redirect('/profile/mealplan?notadded=failed');
+    }
     
 }

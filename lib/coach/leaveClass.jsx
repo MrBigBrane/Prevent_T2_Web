@@ -14,9 +14,9 @@ export default async function leaveClass() {
     const { error } = await supabase
     .from('profiles')
     .delete()
-    .eq('user', user.id) 
+    .eq('id', user.id) 
     
     
-    redirect('/dashboard/joinclass')
+    redirect('/profile/joinclass?left=true')
     
 }

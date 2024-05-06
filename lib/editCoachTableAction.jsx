@@ -21,6 +21,6 @@ export default async function tableAction(prevState, formData) {
      .select()
      .eq('id', formData.get('rowId'))
 
-    redirect('/dashboard/coachlog'); 
+    redirect('/dashboard/coachlog?edit=true'); 
     
 }

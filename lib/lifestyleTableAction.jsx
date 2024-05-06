@@ -23,7 +23,7 @@ export default async function tableAction(prevState, formData) {
 
       console.log(error)
 
-    redirect('/dashboard/coachlog/'); 
+    redirect('/dashboard/coachlog?add=true'); 
     
     
 }
