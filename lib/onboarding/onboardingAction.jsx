@@ -39,6 +39,6 @@ export default async function onboardingAction(prevState, formData) {
      if(error) console.log(error)
      else console.log(data)
 
-    redirect('/dashboard/activities/'); 
+    redirect('/dashboard?form=true'); 
     
 }

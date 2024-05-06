@@ -14,10 +14,9 @@ import Logout from '@mui/icons-material/Logout';
 import { useState } from 'react';
 
 import MuiAvatar from './MuiAvatar'
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
-export default function AccountMenu({ name, logout }) {
+export default function AccountMenu({ name, logout, profile }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -86,9 +85,9 @@ export default function AccountMenu({ name, logout }) {
             <Avatar /> Profile
             </MenuItem>
         </Link>
-        <Link href="/profile/yourclass">
+        <Link href={profile ? "/profile/yourclass" : "/profile/joinclass"}>
             <MenuItem onClick={handleClose}>
-                <Avatar /> My Class
+                <Avatar /> {profile ? 'My Class' : 'Join Class'}
             </MenuItem>
         </Link>
         

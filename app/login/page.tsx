@@ -4,6 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
 import LinkButton from "@/components/buttons/LinkButton";
+import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 
 export default function Login({
   searchParams,
@@ -116,12 +117,20 @@ export default function Login({
           startIcon={null}
           // className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
         />
+        <LinkButton
+          href="/login/forgotpassword"
+          label="Forgot Password?"
+          type={null}
+          startIcon={null}
+          // className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
+        />
         {searchParams?.message && (
           <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
             {searchParams.message}
           </p>
         )}
       </form>
+      {searchParams?.message &&  <MuiSuccess severity="warning">{searchParams.message}</MuiSuccess>}
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default async function CoachTable({ table }) {
 
       return (
         <MuiTable
-          page="activities"
+          page="activities?delete=true"
           title="Activity Logger"
           table={table}
           data={data}

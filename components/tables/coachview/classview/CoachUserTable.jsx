@@ -16,7 +16,7 @@ export default async function CoachUserTable({ code }) {
       .eq('class_codes', code)
       .order('created_at', { ascending: true });
     
-    console.log(data);
+    
 
     let users = []
 
@@ -28,15 +28,12 @@ export default async function CoachUserTable({ code }) {
         let weightData = Array.from(await weightCreator(users[i]))
 
         if(minutesData[0][minutesData.length - 2]){
-            console.log(minutesData)
             data[i].minutes = minutesData[0][minutesData[0].length - 2]
         }
         else{
             data[i].minutes = 0;
         }
         if(weightData[0][weightData[0].length - 2]){
-            
-              console.log(weightData)
                 data[i].bmi = weightData[0][weightData[0].length - 2]  
             
             

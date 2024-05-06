@@ -9,7 +9,7 @@ export default async function tableAction(prevState, formData) {
     
     console.log(formData.get('password'))
 
-    const { data, error} = await supabase.auth.updateUser({ password: formData.get('password') })
+    const { data, error } = await supabase.auth.updateUser({ password: formData.get('password') })
 
     console.log(data)
     console.log(error)

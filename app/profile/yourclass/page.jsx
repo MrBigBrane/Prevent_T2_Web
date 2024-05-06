@@ -3,9 +3,13 @@
 import LeaveClass from '@/components/buttons/coaching/LeaveClassModal'
 import { createClient } from '@/utils/supabase/server';
 import { Chip } from '@mui/material';
+import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
+import { redirect } from 'next/navigation';
+import LinkButton from '@/components/buttons/LinkButton';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
-export default async function YourCoachPage() {
+export default async function YourCoachPage({ searchParams }) {
     const supabase = createClient();
 
     const {
@@ -19,15 +23,22 @@ export default async function YourCoachPage() {
 
     let datum;
 
-    if(data){
+    if(!user.id){
+        redirect('/login')
+    }
+    else if(!data[0]){
+        redirect('/profile/joinclass?unauthorized=true')
+    }
+    else{
         datum = data[0].class_codes
     }
-    else {
-        datum = 'No Class'
-    }
+   
 
     return (
         <>
+            {searchParams?.joined &&  <MuiSuccess severity="success">Class Joined!</MuiSuccess>}
+            {searchParams?.alreadyjoined &&  <MuiSuccess severity="success">You Are Already in a Class!</MuiSuccess>}
+            <LinkButton href="/profile" label="Back" type={null} startIcon={<ArrowBackIcon />} />
             <h1>Your Current Class</h1>
             <Chip label={datum} variant="outlined" />
             <LeaveClass />

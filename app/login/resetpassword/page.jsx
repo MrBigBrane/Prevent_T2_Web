@@ -11,12 +11,6 @@ export default async function Settings({ searchParams }) {
     let userData = Object.assign({}, await getCurrentUser());
     return (
         <>
-            <LinkButton href="/profile" label="Back" type={null} startIcon={<ArrowBackIcon />} />
-            <h1>Settings</h1>
-            <p> Current Email Address: {userData.email}</p>
-            <EmailReset />
-            {searchParams?.emailreset &&  <MuiSuccess severity="success">Email Reset Successful!</MuiSuccess>}
-            {searchParams?.emailnotreset &&  <MuiSuccess severity="error">Email Reset Failed.</MuiSuccess>}
             <PasswordReset />
             {searchParams?.passwordreset &&  <MuiSuccess severity="success">Password Reset Successful!</MuiSuccess>}
             {searchParams?.passwordnotreset &&  <MuiSuccess severity="error">Password Reset Failed.</MuiSuccess>}
