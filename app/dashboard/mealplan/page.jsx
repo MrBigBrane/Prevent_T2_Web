@@ -1,6 +1,6 @@
 'use server';
 
-import MealModal from "../../../components/forms/plans/MealModal";
+import MealModal from "@/components/forms/plans/MealModal";
 import { createClient } from '@/utils/supabase/server';
 import MuiCard from "@/components/display/MuiCard";
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess';

@@ -12,7 +12,6 @@ import { redirect } from 'next/navigation';
 
 export default async function Index({ searchParams }) {
   const user = Object.assign({}, await getCurrentUser())
-  console.log(user)
     if(!user.id){
       redirect('/login?message=Please login before trying to access user data.')
     }

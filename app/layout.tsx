@@ -1,5 +1,5 @@
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
-import NavBar from '@/components/NavBar.jsx';
+import NavBar from '@/components/navigation/NavBar.jsx';
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 
