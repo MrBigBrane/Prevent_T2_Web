@@ -34,8 +34,7 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
   };
 
   return (
-      <Container maxWidth={false}>
-        <Toolbar disableGutters>
+      <>
           <SpaIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -149,11 +148,10 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
             )}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
             {authButton}
-          </Box>
-        </Toolbar>
-      </Container>
+          </Box> */}
+        </>
   );
 }
 export default ResponsiveAppBar;
