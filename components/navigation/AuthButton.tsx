@@ -3,7 +3,7 @@
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import MuiMenu from './buttons/avatar/MuiMenu'
+import MuiMenu from '../buttons/avatar/MuiMenu'
 
 export default async function AuthButton() {
   const supabase = createClient();
@@ -52,7 +52,7 @@ export default async function AuthButton() {
   ) : (
     <Link
       href="/login"
-      className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+      className="py-2 px-3 flex rounded-md no-underline bg-green-600 hover:bg-green-700 text-white hover:text-white"
     >
       Login
     </Link>
