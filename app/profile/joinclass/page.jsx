@@ -10,7 +10,6 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 export default function JoinClassPage({ searchParams }) {
-    
 
     // Use the useFormState hook to manage the form state and the form action
     const [state, formAction] = useFormState(joinClassTableAction, { message: null });
