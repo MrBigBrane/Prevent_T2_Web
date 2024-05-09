@@ -39,7 +39,7 @@ export default function FormDialog({ edit, title, rowId, field1, field2, field3 
               field2={field2}
               field3={field3}
               rowId={rowId}
-              click={handleClose2}
+              click={handleClose}
             />
           ) : (
             <CoachForm
@@ -47,7 +47,7 @@ export default function FormDialog({ edit, title, rowId, field1, field2, field3 
               field2={field2}
               field3={field3}
               rowId={rowId}
-              click={handleClose2}
+              click={handleClose}
             />
           )}
         </DialogContent>
