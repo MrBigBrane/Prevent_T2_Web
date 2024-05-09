@@ -10,9 +10,10 @@ import ActivityForm from './ActivityForm'
 import EditButton from '../buttons/EditButton';
 import CoachForm from './CoachForm'
 import AddButton from '../buttons/AddButton';
+import { LinearProgress, Stack } from '@mui/material';
 
 export default function FormDialog({ edit, title, rowId, field1, field2, field3 }) {
-  console.log(`this is ${field3}`)
+  
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -22,19 +23,33 @@ export default function FormDialog({ edit, title, rowId, field1, field2, field3 
   const handleClose = () => {
     setOpen(false);
   };
-
   return (
     <>
-      {edit ? <EditButton click={handleClickOpen} /> : <AddButton click={handleClickOpen} />}
-      <Dialog
-        open={open}
-        onClose={handleClose}
-      >
-        <DialogTitle>{title ? title : 'Lifestyle Coach Log'}</DialogTitle>
+      {edit ? (
+        <EditButton click={handleClickOpen} />
+      ) : (
+        <AddButton click={handleClickOpen} />
+      )}
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>{title ? title : "Lifestyle Coach Log"}</DialogTitle>
         <DialogContent>
-          {title ? 
-          <ActivityForm field1={field1} field2={field2} field3={field3} rowId={rowId} click={handleClose}/>
-          : <CoachForm field1={field1} field2={field2} field3={field3} rowId={rowId} click={handleClose} />}
+          {title ? (
+            <ActivityForm
+              field1={field1}
+              field2={field2}
+              field3={field3}
+              rowId={rowId}
+              click={handleClose2}
+            />
+          ) : (
+            <CoachForm
+              field1={field1}
+              field2={field2}
+              field3={field3}
+              rowId={rowId}
+              click={handleClose2}
+            />
+          )}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
