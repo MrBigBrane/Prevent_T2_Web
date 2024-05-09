@@ -11,7 +11,8 @@ export default async function tableAction(prevState, formData) {
 
     
     const { data, error } = await supabase.auth.resetPasswordForEmail(formData.get('email'), {
-        redirectTo: 'nrivadpp.vercel.app/login/resetpassword',
+        redirectTo: 'https://nrivadpp.vercel.app/auth/callback',
+        // redirectTo: 'http://localhost:3000/auth/callback',
     })
 
     if(!error){

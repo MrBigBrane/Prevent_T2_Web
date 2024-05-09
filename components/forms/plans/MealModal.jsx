@@ -10,6 +10,7 @@ import MealPlan from './MealPlan';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import MuiButton from '@/components/buttons/MuiButton';
 
+
 export default function FormDialog() {
   const [open, setOpen] = useState(false);
 
@@ -30,7 +31,7 @@ export default function FormDialog() {
       >
         <DialogTitle>Add Meal Plan</DialogTitle>
         <DialogContent>
-          <MealPlan click={handleClose}/>
+          <MealPlan click={handleClose} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

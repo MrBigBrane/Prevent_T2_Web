@@ -12,7 +12,7 @@ export default function MealPlan({ click, title, details, rowId }) {
 
       
     return (
-      <form action={formAction}>
+      <form id="mealPlanForm" name="mealPlanForm" action={formAction}>
         {rowId ? <MuiTextField
           defaultValue={rowId}
           name="rowId"
@@ -27,7 +27,7 @@ export default function MealPlan({ click, title, details, rowId }) {
           label="Title"
           variant="outlined"
           type="text"
-          defaultValue={title}
+          defaultValue={title ? title : null}
           required
         />
 
@@ -36,7 +36,7 @@ export default function MealPlan({ click, title, details, rowId }) {
           name="mealPlan"
           label="Meal Plan"
           type="text"
-          defaultValue={details}
+          defaultValue={details ? details : null}
           required
         />
         <MuiButton
