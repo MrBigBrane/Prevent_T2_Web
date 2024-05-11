@@ -1,9 +1,11 @@
 'use server';
 
+
 import { createClient } from '@/utils/supabase/server';
 import MuiTable from './MuiTable';
 
-export default async function CoachTable({ table }) {
+
+export default async function CoachTable() {
     const supabase = createClient();
 
     const {
@@ -11,7 +13,7 @@ export default async function CoachTable({ table }) {
     } = await supabase.auth.getUser();
 
     const { data, error } = await supabase
-      .from(table)
+      .from('meal_plans')
       // try with {} if doesn't work without
       .select()
       .eq("user", user.id)
@@ -19,18 +21,18 @@ export default async function CoachTable({ table }) {
 
       return (
         <MuiTable
-      page="coachlog?delete=true"
-      title={null}
-      table={table}
-      data={data}
-      field2="attendance"
-      title2="Attendance"
-      field3={null}
-      title3={null}
-      field1="current_weight"
-      title1="Weight"
-    />
-
-      )
+          page="mealplan?delete=true"
+          title="Activity Logger"
+          data={data}
+          field1="meal_type"
+          title1="Meal Type"
+          field2="item"
+          title2="Item"
+          field3="amount"
+          title3="Amount"
+          field4="calories"
+          title4="Calories"
+        />
+      );
     
 }

@@ -2,13 +2,12 @@
 
 import { DataGrid, GridFooter, useGridApiContext, useGridApiEventHandler } from '@mui/x-data-grid';
 import { useState } from 'react';
-import MuiDeleteModal from '../buttons/MuiDeleteModal'
-import MuiModal from '../forms/userforms/MuiModal'
+import MuiModal from './MuiModal'
+import MuiDeleteModal from '../../buttons/MuiDeleteModal'
 
 export default function MuiTable({
   page,
   title,
-  table,
   data,
   field1,
   title1,
@@ -26,30 +25,16 @@ export default function MuiTable({
 
   if(field4){
     columns = [
-      { field: "created_at", headerName: "Date", width: 150 },
+      { field: "created_at", headerName: "Date", width: 150, 
+    },
+      { field: "time", headerName: "Time", width: 150,
+    },
       { field: "id", headerName: "Date", width: 150 },
       { field: field1, headerName: title1, width: 150 },
       { field: field2, headerName: title2, width: 150 },
       { field: field3, headerName: title3, width: 150 },
       { field: field4, headerName: title4, width: 150 },
     ];
-  }
-  else if(field3){
-    columns = [
-      { field: "created_at", headerName: "Date", width: 150 },
-      { field: "id", headerName: "Date", width: 150 },
-      { field: field1, headerName: title1, width: 150 },
-      { field: field2, headerName: title2, width: 150 },
-      { field: field3, headerName: title3, width: 150 },
-    ];
-  }
-  else{
-    columns = [
-      { field: "created_at", headerName: "Date", width: 150 },
-      { field: "id", headerName: "Date", width: 150 },
-      { field: field1, headerName: title1, width: 150 },
-      { field: field2, headerName: title2, width: 150 },
-    ]
   }
 
 
@@ -58,6 +43,7 @@ export default function MuiTable({
     const [firstField, setFirstField] = useState('')
     const [secondField, setSecondField] = useState('')
     const [thirdField, setThirdField] = useState('')
+    const [fourthField, setFourthField] = useState('')
     const apiRef = useGridApiContext();
   
     const handleRowClick = (params) => {
@@ -65,6 +51,7 @@ export default function MuiTable({
       setFirstField(params.row[field1])
       setSecondField(params.row[field2])
       setThirdField(params.row[field3])
+      setFourthField(params.row[field4])
     };
   
     useGridApiEventHandler(apiRef, 'rowClick', handleRowClick);
@@ -74,8 +61,8 @@ export default function MuiTable({
         <GridFooter />
         {rowId && (
           <>
-            <MuiModal edit={true} title={title} rowId={rowId} field1={firstField} field2={secondField} field3={thirdField}  />
-            <MuiDeleteModal table={table} rowId={rowId} page={page} />
+            <MuiModal edit={true} title={title} rowId={rowId} field1={firstField} field2={secondField} field3={thirdField} field4={fourthField}  />
+            <MuiDeleteModal table="meal_plans" rowId={rowId} page={page} />
           </>
         )}
       </>

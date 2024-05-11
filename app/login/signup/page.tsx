@@ -4,6 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "../submit-button";
 import LinkButton from "@/components/buttons/LinkButton";
+import MuiInput from '@/components/inputs/MuiInput'
 
 export default function Login({
   searchParams,
@@ -101,7 +102,7 @@ export default function Login({
           placeholder="Doe"
           required
         />
-        
+
         <label className="text-md" htmlFor="email">
           Email
         </label>
@@ -114,12 +115,10 @@ export default function Login({
         <label className="text-md" htmlFor="password">
           Password
         </label>
-        <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
-          type="password"
-          name="password"
-          placeholder="••••••••"
+        <MuiInput
           required
+          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          name="password"
         />
         <SubmitButton
           formAction={signUp}

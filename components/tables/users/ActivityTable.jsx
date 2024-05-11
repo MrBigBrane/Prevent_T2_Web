@@ -1,7 +1,7 @@
 'use server';
 
 import { createClient } from '@/utils/supabase/server';
-import MuiTable from './MuiTable';
+import MuiTable from '../MuiTable';
 
 export default async function CoachTable({ table }) {
     const supabase = createClient();

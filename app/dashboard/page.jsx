@@ -1,6 +1,6 @@
 'use server';
 
-import MuiModal from '@/components/forms/MuiModal'
+import MuiModal from '@/components/forms/userforms/MuiModal'
 import LinkButton from '@/components/buttons/LinkButton';
 import MinutesGraph from '@/components/graph/MinutesGraph';
 import WeightGraph from '@/components/graph/WeightGraph';

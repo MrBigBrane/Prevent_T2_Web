@@ -7,7 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
 
-export default function BasicSelect({ name, field, field1, field2, field3, defaultValue, required, hidden }) {
+export default function BasicSelect({ name, field, field1, field2, field3, field4, defaultValue, required, hidden, ...props }) {
   const [attendance, setAttendance] = useState(defaultValue);
 
   const handleChange = (event) => {
@@ -29,10 +29,12 @@ export default function BasicSelect({ name, field, field1, field2, field3, defau
           onChange={handleChange}
           name={name}
           required={required ? required : null}
+          {...props}
         >
           <MenuItem value={field1}>{field1}</MenuItem>
           <MenuItem value={field2}>{field2}</MenuItem>
           <MenuItem value={field3}>{field3}</MenuItem>
+          {field4 ? <MenuItem value={field4}>{field4}</MenuItem> : null}
         </Select>
       </FormControl>
     </Box>

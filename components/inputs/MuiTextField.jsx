@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 
-export default function BasicTextFields({ id, label, variant, name, defaultValue, type, disabled, required, hidden }) {
+export default function BasicTextFields({ id, label, variant, name, defaultValue, type, disabled, required, ...props }) {
     const [input, setInput] = useState(defaultValue)
 
     const handleChange = (event) => {
@@ -31,6 +31,7 @@ export default function BasicTextFields({ id, label, variant, name, defaultValue
           type={type}
           disabled={disabled ? disabled : false}
           required={required ? required : null}
+          {...props}
         />
       </Box>}
     </>

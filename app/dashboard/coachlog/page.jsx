@@ -1,8 +1,8 @@
 'use server';
 
-import MuiModal from '@/components/forms/MuiModal'
+import MuiModal from '@/components/forms/userforms/MuiModal'
 import LinkButton from '@/components/buttons/LinkButton';
-import CoachTable from '@/components/tables/CoachTable';
+import CoachTable from '@/components/tables/users/CoachTable';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import minutesPerWeek from '@/components/serverfunctions/minutesPerWeek'
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'

@@ -3,6 +3,7 @@
 import { useFormState } from "react-dom"
 import MuiButton from '../../buttons/MuiButton'
 import resetPassword from '@/lib/reset/resetPassword'
+import MuiInput from '../../inputs/MuiInput'
 
 export default function EmailReset() {
     const [state, formAction] = useFormState(resetPassword, { message: null }) 
@@ -13,12 +14,7 @@ export default function EmailReset() {
             <label className="text-md" htmlFor="text">
                 Enter New Password
              </label>
-            <input
-            className="rounded-md px-4 py-2 bg-inherit border mb-6"
-            name="password"
-            placeholder="••••••••"
-            required
-            />
+             <MuiInput required className="rounded-md px-4 py-2 bg-inherit border mb-6" name="password" />
             <MuiButton startIcon={null} label="Save Changes" type="submit" color="success" />
         </form>
         </div>

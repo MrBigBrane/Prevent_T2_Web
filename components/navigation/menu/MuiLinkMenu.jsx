@@ -36,7 +36,7 @@ export default function BasicMenu({ user }) {
         }}
       >
         <Link href={user ? "/dashboard/mealplan" : "/login"} ><MenuItem onClick={handleClose}>Meal Plan</MenuItem></Link>
-        <Link href={user ? "/dashboard/mealplan" : "/login"} ><MenuItem onClick={handleClose}>Action Plan</MenuItem></Link>
+        <Link href={user ? "/dashboard/actionplan" : "/login"} ><MenuItem onClick={handleClose}>Action Plan</MenuItem></Link>
       </Menu>
     </div>
   );
