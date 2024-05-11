@@ -3,8 +3,8 @@
 import MuiSelect from '@/components/inputs/MuiSelect.jsx';
 import MuiTextField from '@/components/inputs/MuiTextField.jsx'
 import { useFormState } from 'react-dom';
-import editTableAction from '@/lib/editCoachTableAction.jsx';
-import tableAction from '@/lib/lifestyleTableAction';
+import editTableAction from '@/lib/users/editCoachTableAction.jsx';
+import tableAction from '@/lib/users/lifestyleTableAction';
 import MuiButton from '@/components/buttons/MuiButton';
 
 export default function LifestyleCoachLogPage({ field1, field2, field3, rowId, click }) {

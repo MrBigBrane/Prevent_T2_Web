@@ -14,7 +14,7 @@ export default async function onboardingAction(prevState, formData) {
     const { data, error } = await supabase
     .from('user_profiles')
     .insert({ 
-        user: user.id,
+        id: user.id,
         weight: formData.get('weight'),
         age: formData.get('age'),
         height: formData.get('height'),
@@ -32,7 +32,8 @@ export default async function onboardingAction(prevState, formData) {
         city: formData.get('city'),
         state: formData.get('state'),
         phone: formData.get('phone'),
-        sharecontact: formData.get('contact')
+        sharecontact: formData.get('contact'),
+        weight_goal: formData.get('weight_goal'),
      })
      .select()
 

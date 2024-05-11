@@ -7,8 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
-import DeleteButton from '../../buttons/DeleteButton'
-import { DeleteButtonIcon } from '../../buttons/DeleteButton';
+import DeleteButton from '../../../buttons/DeleteButton'
+import { DeleteButtonIcon } from '../../../buttons/DeleteButton';
 
 export default function DeleteModal({ rowId }) {
   const [open, setOpen] = useState(false);
@@ -42,7 +42,7 @@ export default function DeleteModal({ rowId }) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <DeleteButton table="meal_plans" page="/profile/mealplan?delete=success" rowId={rowId} />
+          <DeleteButton table="action_plans" page="/dashboard/actionplan?delete=success" rowId={rowId} />
         </DialogActions>
       </Dialog>
     </>

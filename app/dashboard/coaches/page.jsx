@@ -1,9 +1,7 @@
 'use server';
 
-import MuiTree from '@/components/cohorts/MuiTree'
+import MuiTree from '@/components/display/cohorts/MuiTree'
 import coachUserList from '@/components/serverfunctions/coach/coachUserList'
-import MuiInviteModal from '@/components/buttons/coaching/MuiInviteModal'
-import AddClassModal from '@/components/forms/coaching/AddClassModal'
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
 import { redirect } from 'next/navigation';

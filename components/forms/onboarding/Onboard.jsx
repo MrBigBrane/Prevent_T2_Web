@@ -50,6 +50,15 @@ export default function EmailReset() {
             type={section1}
           />
           <label className="text-md" htmlFor="email" hidden={section1 === "hidden" ? true : false}>
+            What is your weight goal in <b>LBS or Pounds</b> for the end of this session?
+          </label>
+          <input
+            className="rounded-md px-4 py-2 bg-inherit border mb-6"
+            name="weight_goal"
+            required
+            type={section1}
+          />
+          <label className="text-md" htmlFor="email" hidden={section1 === "hidden" ? true : false}>
             Height in <b>INCHES</b>
           </label>
           <input

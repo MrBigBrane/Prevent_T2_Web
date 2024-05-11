@@ -1,9 +1,9 @@
 'use client';
 
 import Box from '@mui/material/Box';
-import userViewInitialize from '../serverfunctions/coach/coachview/userViewInitialize'
+import userViewInitialize from '../../serverfunctions/coach/coachview/userViewInitialize'
 import { RichTreeView } from '@mui/x-tree-view/RichTreeView';
-import classViewInitialize from '../serverfunctions/coach/classview/classViewInitialize'
+import classViewInitialize from '../../serverfunctions/coach/classview/classViewInitialize'
 
 // Will add an "invite" button somewhere on the screen that will redirect to page specifying invite code for each class
 

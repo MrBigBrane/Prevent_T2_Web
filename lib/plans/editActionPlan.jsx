@@ -4,18 +4,17 @@ import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
 
 
-export default async function mealPlanAction(prevState, formData) {
+export default async function tableAction(prevState, formData) {
     const supabase = createClient();
 
-    const myText = formData.get('mealType')
+    const myText = formData.get('q1')
     
     const { data, error } = await supabase
-    .from('meal_plans')
+    .from('action_plans')
     .update({ 
-        meal_type: myText,
-        item: formData.get('item'),
-        amount: formData.get('amount'),
-        calories: formData.get('calories'),
+        q1: myText,
+        q2: formData.get('q2'),
+        q3: formData.get('q3')
      })
      .select()
      .eq('id', formData.get('rowIdinput'))
@@ -23,7 +22,7 @@ export default async function mealPlanAction(prevState, formData) {
     if(!error) redirect('/dashboard/actionplan?edit=success'); 
     else {
         console.log(error)
-        redirect('/dashboard/action?notedit=failed');
+        redirect('/dashboard/actionplan?notedit=failed');
     }
     
 }
