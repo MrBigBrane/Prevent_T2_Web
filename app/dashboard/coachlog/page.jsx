@@ -25,16 +25,9 @@ export default async function CoachPage({ searchParams }) {
         {searchParams?.add &&  <MuiSuccess severity="success">Coach Log Added!</MuiSuccess>}
         {searchParams?.edit &&  <MuiSuccess severity="success">Coach Log Edited!</MuiSuccess>}
         {searchParams?.delete &&  <MuiSuccess severity="success">Coach Log Deleted!</MuiSuccess>}
-        <Box 
-        // style={{width: '100%'}}
-        sx={{
-          display: 'grid',
-          justifyContent: 'end',
-          alignItems: 'center',
-          height: '100vh',
-          paddingRight: 2
-        }}
-        >
+        
+        
+        
           <LinkButton 
           href="/dashboard" 
           label="Back" 
@@ -50,13 +43,25 @@ export default async function CoachPage({ searchParams }) {
           field3={weeksMinutes} 
           field2='' 
           field1='' 
-          style={{position : 'fixed', left: '1rem', top: '5rem'}}
+          style={{position : 'fixed', right: '1rem', top: '5rem'}}
+          // sx={{
+          //   display: 'grid',
+          //   justifyContent: 'end',
+          //   alignItems: 'center',
+          //   height: '100vh',
+          //   paddingRight: 2
+          // }}
         />
-        <Box style={{width: '100%', textAlign: 'center'}} padding={2}>
-          <h1>Coaching Log</h1>
+        <h1 style={{ marginTop: '1.5rem'}}>Coaching Log</h1>
+        <Box 
+        style={{width: '95%', textAlign: 'center'}}
+         marginTop={4}
+         marginLeft={1}
+         marginRight={1}>
+          
           <CoachTable table="lifestyle_coach_log" />
         </Box>
-        </Box>
+        
         
       </>
         

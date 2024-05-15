@@ -34,7 +34,7 @@ export default async function Index({ searchParams }) {
           // position:"fixed",
           // left:"1rem"
         }}>Lifestyle Logs</h1>
-        <MuiModal edit={false} title={null} rowId={false} field1='' field2='' field3={weeksMinutes} style={{position : 'fixed', left: '1rem'}} />
+        <MuiModal edit={false} title={null} rowId={false} field1='' field2='' field3={weeksMinutes}  />
         <LinkButton href="dashboard/coachlog"
         type={null}
         label="View Lifestyle Log"

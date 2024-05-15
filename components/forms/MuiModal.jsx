@@ -12,7 +12,7 @@ import CoachForm from './CoachForm'
 import AddButton from '../buttons/AddButton';
 import { LinearProgress, Stack } from '@mui/material';
 
-export default function FormDialog({ edit, title, rowId, field1, field2, field3 }) {
+export default function FormDialog({ edit, title, rowId, field1, field2, field3, ...props }) {
   
   const [open, setOpen] = useState(false);
 
@@ -26,11 +26,11 @@ export default function FormDialog({ edit, title, rowId, field1, field2, field3 
   return (
     <>
       {edit ? (
-        <EditButton click={handleClickOpen} />
+        <EditButton click={handleClickOpen} {...props} />
       ) : (
-        <AddButton click={handleClickOpen} />
+        <AddButton click={handleClickOpen} {...props}/>
       )}
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose} >
         <DialogTitle>{title ? title : "Lifestyle Coach Log"}</DialogTitle>
         <DialogContent>
           {title ? (
