@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
 import LinkButton from "@/components/buttons/LinkButton";
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
+import { Box } from "@mui/material";
 
 export default function Login({
   searchParams,
@@ -110,20 +111,29 @@ export default function Login({
         >
           Sign In
         </SubmitButton>
-        <LinkButton
-          href="/login/signup"
-          label="Go To Signup"
-          type={null}
-          startIcon={null}
-          // className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
-        />
-        <LinkButton
-          href="/login/forgotpassword"
-          label="Forgot Password?"
-          type={null}
-          startIcon={null}
-          // className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
-        />
+        <Box>
+          <LinkButton
+            href="/login/forgotpassword"
+            label="Forgot Password?"
+            variant={"text"}
+            type={null}
+            startIcon={null}
+            style={null}
+            // className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
+          />
+          <LinkButton
+            href="/login/signup"
+            label="Go To Signup"
+            type={null}
+            startIcon={null}
+            variant={"text"}
+            style={{ 
+              position: "fixed",
+              right: "0rem"
+            }}
+            // className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
+          />
+        </Box>
         {searchParams?.message && (
           <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
             {searchParams.message}
