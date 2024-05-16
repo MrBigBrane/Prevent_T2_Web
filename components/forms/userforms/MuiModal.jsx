@@ -7,14 +7,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import ActivityForm from './ActivityForm'
-import EditButton from '../../buttons/EditButton';
+import EditButton from '../buttons/EditButton';
 import CoachForm from './CoachForm'
-import AddButton from '../../buttons/AddButton';
+import AddButton from '../buttons/AddButton';
 import { LinearProgress, Stack } from '@mui/material';
 
-export default function FormDialog({ edit, title, rowId, field1, field2, field3 }) {
+export default function FormDialog({ edit, title, rowId, field1, field2, field3, search, ...props }) {
   
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(search);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -26,11 +26,11 @@ export default function FormDialog({ edit, title, rowId, field1, field2, field3 
   return (
     <>
       {edit ? (
-        <EditButton click={handleClickOpen} />
+        <EditButton click={handleClickOpen} {...props} />
       ) : (
-        <AddButton click={handleClickOpen} />
+        <AddButton click={handleClickOpen} {...props}/>
       )}
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose} >
         <DialogTitle>{title ? title : "Lifestyle Coach Log"}</DialogTitle>
         <DialogContent>
           {title ? (
