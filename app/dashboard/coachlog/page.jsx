@@ -29,7 +29,7 @@ export default async function CoachPage({ searchParams }) {
         
         
           <LinkButton 
-          href="/dashboard" 
+          href="/dashboard/weightstats" 
           label="Back" 
           type={null} 
           startIcon={<ArrowBackIcon />} 
@@ -44,6 +44,7 @@ export default async function CoachPage({ searchParams }) {
           field2='' 
           field1='' 
           style={{position : 'fixed', right: '1rem', top: '5rem'}}
+          search={searchParams?.open ? true : false}
           // sx={{
           //   display: 'grid',
           //   justifyContent: 'end',

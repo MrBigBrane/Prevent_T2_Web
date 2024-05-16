@@ -12,9 +12,9 @@ import CoachForm from './CoachForm'
 import AddButton from '../buttons/AddButton';
 import { LinearProgress, Stack } from '@mui/material';
 
-export default function FormDialog({ edit, title, rowId, field1, field2, field3, ...props }) {
+export default function FormDialog({ edit, title, rowId, field1, field2, field3, search, ...props }) {
   
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(search);
 
   const handleClickOpen = () => {
     setOpen(true);

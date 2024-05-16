@@ -110,11 +110,12 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
                   </MenuItem>
               </Link>
               ) : (
-              <Link href={user ? "/dashboard/becomecoach" : "/login"}>
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">Become a Coach</Typography>
-                  </MenuItem>
-              </Link>
+              // <Link href={user ? "/dashboard/becomecoach" : "/login"}>
+              //     <MenuItem onClick={handleCloseNavMenu}>
+              //       <Typography textAlign="center">Become a Coach</Typography>
+              //     </MenuItem>
+              // </Link>
+              null
               )}
             </Menu>
           </Box>
@@ -144,7 +145,8 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
             {coachCopy[0] ? (
             <LinkButton2 variant="text" label="Coaches Dashboard" sx={{ my: 2, color: 'white', display: 'block' }} href="/dashboard/coaches">Coaches Dashboard</LinkButton2>
             ) : ( 
-            <LinkButton2 variant="text"label ="Become a Coach" sx={{ my: 2, color: 'white', display: 'block' }} href={user ? "/dashboard/becomecoach" : "/login"}>Become a Coach</LinkButton2>
+            // <LinkButton2 variant="text"label ="Become a Coach" sx={{ my: 2, color: 'white', display: 'block' }} href={user ? "/dashboard/becomecoach" : "/login"}>Become a Coach</LinkButton2>
+            null
             )}
           </Box>
 

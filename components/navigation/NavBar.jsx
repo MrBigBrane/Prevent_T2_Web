@@ -52,6 +52,7 @@ export default async function NavBar() {
       variant="contained"
       sx={{ width: "100%" }}
       color="success"
+      
     >
       {/* <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm"> */}
       <Container maxWidth={false}>

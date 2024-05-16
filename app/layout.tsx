@@ -23,7 +23,10 @@ export default function RootLayout({
       <body className="bg-background text-foreground">
         <AppRouterCacheProvider>
         <main className="min-h-screen flex flex-col items-center">
-          <NavBar />
+          
+            <NavBar />
+          
+          
           {children}
         </main>
         </AppRouterCacheProvider>
