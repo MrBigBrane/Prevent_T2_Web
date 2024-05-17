@@ -1,7 +1,7 @@
 'use server';
 
-import ActivityTable from "../../../components/tables/ActivityTable";
-import MuiModal from '../../../components/forms/MuiModal'
+import ActivityTable from "../../../components/tables/users/ActivityTable";
+import MuiModal from '../../../components/forms/userforms/MuiModal'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LinkButton from "@/components/buttons/LinkButton";
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
