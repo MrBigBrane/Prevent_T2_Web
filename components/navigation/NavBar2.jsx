@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import MuiLinkMenu from './menu/MuiLinkMenu'
+import MuiLinkMenu from '../menu/MuiLinkMenu'
 import MenuItem from '@mui/material/MenuItem';
 import SpaIcon from '@mui/icons-material/Spa';
 import { useState } from 'react';
@@ -93,12 +93,12 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
                     <Typography textAlign="center">User Dashboard</Typography>
                   </MenuItem>
               </Link>
-              <Link href={user ? "/dashboard/actionplan" : "/login"}>
+              <Link href={user ? "/dashboard/mealplan" : "/login"}>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">Meal Plan</Typography>
                   </MenuItem>
               </Link>
-              <Link href={user ? "/dashboard/actionplan" : "/login"}>
+              <Link href={user ? "/dashboard/mealplan" : "/login"}>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">Action Plan</Typography>
                   </MenuItem>
@@ -110,17 +110,13 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
                   </MenuItem>
               </Link>
               ) : (
-              <Link href={user ? "/dashboard/becomecoach" : "/login"}>
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">Become a Coach</Typography>
-                  </MenuItem>
-              </Link>
+              // <Link href={user ? "/dashboard/becomecoach" : "/login"}>
+              //     <MenuItem onClick={handleCloseNavMenu}>
+              //       <Typography textAlign="center">Become a Coach</Typography>
+              //     </MenuItem>
+              // </Link>
+              null
               )}
-              <Link href="/resources">
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">Resources</Typography>
-                  </MenuItem>
-              </Link>
             </Menu>
           </Box>
           <SpaIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -149,9 +145,9 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
             {coachCopy[0] ? (
             <LinkButton2 variant="text" label="Coaches Dashboard" sx={{ my: 2, color: 'white', display: 'block' }} href="/dashboard/coaches">Coaches Dashboard</LinkButton2>
             ) : ( 
-            <LinkButton2 variant="text"label ="Become a Coach" sx={{ my: 2, color: 'white', display: 'block' }} href={user ? "/dashboard/becomecoach" : "/login"}>Become a Coach</LinkButton2>
+            // <LinkButton2 variant="text"label ="Become a Coach" sx={{ my: 2, color: 'white', display: 'block' }} href={user ? "/dashboard/becomecoach" : "/login"}>Become a Coach</LinkButton2>
+            null
             )}
-            <LinkButton2 label="Resources" sx={{ my: 2, color: 'white', display: 'block' }} href="/resources">Resources</LinkButton2>
           </Box>
 
           {/* <Box sx={{ flexGrow: 0 }}>
