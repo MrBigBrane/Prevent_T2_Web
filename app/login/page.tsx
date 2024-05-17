@@ -143,3 +143,4 @@ export default function Login({
       {searchParams?.message &&  <MuiSuccess severity="warning">{searchParams.message}</MuiSuccess>}
     </div>
   );
+}
