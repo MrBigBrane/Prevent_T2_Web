@@ -44,8 +44,8 @@ export default function BasicRichTreeView({ data, codes }) {
       classViewInitialize(itemId);
     }
   }
-    
   };
+  // console.log(data);
 
   return (
     <>
