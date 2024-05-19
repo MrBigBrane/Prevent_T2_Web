@@ -32,7 +32,7 @@ export default async function UserPage({ params }) {
     return (
       <Box width={"100%"}>
         <LinkButton
-          href="/dashboard/coaches"
+          href={`/dashboard/coaches/${params.students}`}
           label="Back"
           type={null}
           startIcon={<ArrowBackIcon />}

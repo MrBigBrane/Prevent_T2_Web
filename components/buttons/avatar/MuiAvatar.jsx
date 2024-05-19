@@ -30,10 +30,10 @@ function stringAvatar(name) {
   };
 }
 
-export default function BackgroundLetterAvatars({ name }) {
+export default function BackgroundLetterAvatars({ name, ...props }) {
   return (
     <Stack direction="row" spacing={2}>
-      <Avatar sx={{ width: 32, height: 32 }} {...stringAvatar(name)} />
+      <Avatar {...props} {...stringAvatar(name)} />
     </Stack>
   );
 }

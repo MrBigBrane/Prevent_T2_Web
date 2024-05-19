@@ -38,7 +38,7 @@ export default function AccountMenu({ name, logout, profile }) {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <MuiAvatar name={name} />
+            <MuiAvatar name={name} sx={{ width: 32, height: 32 }}/>
           </IconButton>
         </Tooltip>
       </Box>
