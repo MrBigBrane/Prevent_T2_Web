@@ -6,6 +6,7 @@ import { SubmitButton } from "./submit-button";
 import LinkButton from "@/components/buttons/LinkButton";
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import { Box } from "@mui/material";
+import MuiPasswordInput from "@/components/inputs/MuiInput";
 
 export default function Login({
   searchParams,
@@ -97,12 +98,10 @@ export default function Login({
         <label className="text-md" htmlFor="password">
           Password
         </label>
-        <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
-          type="password"
-          name="password"
-          placeholder="••••••••"
+        <MuiPasswordInput
           required
+          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          name="password"
         />
         <SubmitButton
           formAction={signIn}

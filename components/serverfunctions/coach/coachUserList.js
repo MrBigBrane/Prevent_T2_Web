@@ -85,6 +85,8 @@ export default async function coachUserList() {
     masterData.push(classData);
     masterData.push(nameCodeMasterData);
 
+    // console.log(masterData)
+
     return masterData;
     
 
