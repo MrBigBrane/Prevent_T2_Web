@@ -36,7 +36,7 @@ export default function SpeedDialTooltipOpen({ classInfo }) {
                 bottom: '2rem',
                 right: '2rem',
             }}
-            icon={<SpeedDialIcon />}
+            icon={null}
             onClose={handleClose}
             onOpen={handleOpen}
             open={open}

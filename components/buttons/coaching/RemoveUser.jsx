@@ -11,7 +11,7 @@ import MuiButton from '../MuiButton'
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import removeUser from '../../../lib/coach/removeUser';
 
-export default function RemoveUserModal({ userId }) {
+export default function RemoveUserModal({ userId, ...props }) {
     function handleClick() {
         removeUser(userId);
     }
@@ -28,7 +28,7 @@ export default function RemoveUserModal({ userId }) {
 
   return (
     <>
-      <MuiButton startIcon={<PersonRemoveIcon />} label="Remove User" type={null} click={handleClickOpen} color="error" />
+      <MuiButton {...props} startIcon={<PersonRemoveIcon />} label="Remove User" type={null} click={handleClickOpen} color="error" />
       <Dialog
         open={open}
         onClose={handleClose}

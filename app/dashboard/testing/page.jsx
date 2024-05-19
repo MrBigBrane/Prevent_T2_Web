@@ -1,15 +1,15 @@
 'use server';
 
+import CoachDashboard from '@/components/navigation/userdashboard/CoachDashboard';
 import MuiTree from '@/components/display/cohorts/MuiTree'
 import coachUserList from '@/components/serverfunctions/coach/coachUserList'
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
 import { redirect } from 'next/navigation';
-import AddClassModal from '@/components/forms/coaching/AddClassModal'
-import AddClassCoach from '@/components/forms/coaching/AddClass';
-import { DialogContentText, Typography } from '@mui/material';
+import MuiSpeedDial from '@/components/buttons/speeddial/MuiSpeedDial'
+import { DialogContentText } from '@mui/material';
 
-export default async function CoachesPage({ searchParams }) {
+export default async function TestPage({ searchParams }) {
     let classCopy = Object.assign({}, await fetchCoach('coach_codes'));
 
     if(classCopy.user === false){
@@ -35,9 +35,8 @@ export default async function CoachesPage({ searchParams }) {
         <>
             {searchParams?.classcreated &&  <MuiSuccess severity="success">Class Created!</MuiSuccess>}
             {searchParams?.userdeleted &&  <MuiSuccess severity="success">User Deleted!</MuiSuccess>}
-            <Typography variant="h6">Welcome to coaches page!</Typography>
-            <AddClassModal form={<AddClassCoach  />} title="Add Class"  opening={searchParams?.addclass} />
-            <AddClassModal form={classes.map((row) => row)} title="Invite Users"  opening={searchParams?.invite} />
+            <h1>Welcome to coaches page!</h1>
+            <CoachDashboard main={null} tree={<MuiTree data={coachUserData[1]} codes={coachUserData[0]} />} />
         </>
     )
 }
