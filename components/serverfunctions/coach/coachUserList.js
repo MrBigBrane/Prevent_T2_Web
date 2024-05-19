@@ -27,8 +27,8 @@ export default async function coachUserList() {
         children: null
     }
     const viewClass = {
-        id: `${row[1].code}class`,
-        label: 'View Class'
+      id: `${row[1].code}class`,
+      label: "View Class",
     }
     const viewStudents = {
         id: `${row[1].code}student`,
@@ -75,7 +75,8 @@ export default async function coachUserList() {
 
         if(childrenArray[0]) {
             muiDataArray.push(viewStudentData[i])
-            muiDataArray[1].children = childrenArray
+            // muiDataArray[1].children = childrenArray
+            // UNDO THIS IF NECESSARY 5/18/2024
         }
         classData[i].children = muiDataArray
         

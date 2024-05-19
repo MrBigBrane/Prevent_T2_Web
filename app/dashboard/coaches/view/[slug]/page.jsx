@@ -25,7 +25,7 @@ export default async function UserPage({ params }) {
         redirect('/login?message=Unauthorized access! Please login first.')
     }
     else if(!classCopy[0]){
-        redirect('/dashboard/becomecoach?unauthorized=true')
+        redirect('/profile/becomecoach?unauthorized=true')
     }
     
     return (

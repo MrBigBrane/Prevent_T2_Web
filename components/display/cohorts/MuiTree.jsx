@@ -24,12 +24,15 @@ export default function BasicRichTreeView({ data, codes }) {
       let matches = false;
       for(let i = 0; i < codes.length; i++){
         if(itemId.includes(codes[i])){
-          if((itemId === codes[i]) || (itemId.includes('student'))){
+          if(itemId === codes[i]){
             matches = true;
             break;
           }
           else if(itemId.includes('class')) {
             viewClass = true;
+            break;
+          }
+          else if(itemId.includes('student')) {
             break;
           }
         }

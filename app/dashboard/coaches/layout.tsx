@@ -11,13 +11,10 @@ export default async function RootLayout({ children } : {
     let coachUserData = Array.from(await coachUserList())
   return (
     <Box width={"100%"}>
-        <CoachDashboard
-                main={children}
-                
-                        
-                
-                tree={<MuiTree data={coachUserData[1]} codes={coachUserData[0]} />}
-          />
+      <CoachDashboard
+        main={children}
+        tree={<MuiTree data={coachUserData[1]} codes={coachUserData[0]} />}
+      />
     </Box>
   );
 }
