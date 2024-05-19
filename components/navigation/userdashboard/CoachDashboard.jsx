@@ -11,13 +11,12 @@ import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
-import InsightsIcon from '@mui/icons-material/Insights';
-import ViewListIcon from '@mui/icons-material/ViewList';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
 const drawerWidth = 240;
 
-function ResponsiveDrawer({ main, ...props }) {
+function ResponsiveDrawer({ main, tree, ...props }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -42,16 +41,18 @@ function ResponsiveDrawer({ main, ...props }) {
 
   const drawer = (
     <Box overflow={'auto'}>
-      <Toolbar />
+      <Box marginTop={2} marginBottom={2}>
+        {tree}
+      </Box>
+      
       <Divider />
       <List>
-        {[['Activity Stats', '/dashboard'], ['View Activities', '/dashboard/activities'], ['Add Activity', '/dashboard/activities?open=true']].map((text, index) => (
+        {[['Add Class', '/dashboard/coaches?addclass=true'], ['Invite Users', '/dashboard/coaches?invite=true']].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton href={text[1]}>
               <ListItemIcon>
-                {index === 0 && <InsightsIcon />}
-                {index === 1 && <ViewListIcon />}
-                {index === 2 && <AddBoxIcon />}
+                {index === 1 && <GroupAddIcon />}
+                {index === 0 && <AddBoxIcon />}
               </ListItemIcon>
               <ListItemText primary={text[0]} />
             </ListItemButton>
@@ -59,7 +60,7 @@ function ResponsiveDrawer({ main, ...props }) {
         ))}
       </List>
       <Divider />
-      <List>
+      {/* <List>
         {[['Weight Stats', '/dashboard/weightstats'], ['View Coach Log', '/dashboard/coachlog'], ['Add Coach Log', '/dashboard/coachlog?open=true']].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton href={text[1]}>
@@ -72,14 +73,12 @@ function ResponsiveDrawer({ main, ...props }) {
             </ListItemButton>
           </ListItem>
         ))}
-      </List>
+      </List> */}
     </Box>
   );
 
   return (
-    <Box
-     sx={{ display: 'flex'}}
-     >
+    <Box sx={{ display: "flex" }}>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -95,26 +94,30 @@ function ResponsiveDrawer({ main, ...props }) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,
-            height: '53%', // Set the height here},
-              position: 'fixed', // Ensure it does not push content
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+              height: "100%", // Set the height here},
+              position: "fixed", // Ensure it does not push content
               top: 64, // Adjust as necessary, assuming a fixed AppBar height
-          }
+            },
           }}
         >
           {drawer}
         </Drawer>
         <Drawer
           variant="permanent"
-          
           sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,
-            height: '100%', // Set the height here
-              position: 'fixed', // Ensure it does not push content
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+              height: "100%", // Set the height here
+              position: "fixed", // Ensure it does not push content
               top: 64, // Adjust as necessary, assuming a fixed AppBar height },
-          }}}
+            },
+          }}
           open
         >
           {drawer}
@@ -122,13 +125,13 @@ function ResponsiveDrawer({ main, ...props }) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+        }}
       >
-        <Toolbar />
-        {main}
-        <Typography paragraph>
-          
-        </Typography>
+      {main ? main : null}
       </Box>
     </Box>
   );

@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LinkButton from "@/components/buttons/LinkButton";
+import { Box, Typography } from "@mui/material";
 
 export default async function UserPage({ params }) {
 
@@ -28,11 +29,26 @@ export default async function UserPage({ params }) {
     }
     
     return (
-        <>
-            <LinkButton href="/dashboard/coaches" label="Back" type={null} startIcon={<ArrowBackIcon />} />
-            <p>{data[0].class_name}</p>
-            <CoachUserTable code={params.slug.substring(0, 6)}/>
-        </>
+      <>
+        <LinkButton
+          href="/dashboard/coaches"
+          label="Back"
+          type={null}
+          startIcon={<ArrowBackIcon />}
+          style={{ position: "absolute", left: "17rem", top: "5rem" }}
+        />
+        <Typography variant="h5" style={{ textAlign: "center" }}>{data[0].class_name}</Typography>
+        <Box
+          sx={{
+            width: "100%",
+            textAlign: "center",
+            padding: "20px",
+            bottompadding: "0px",
+          }}
+        >
+            <CoachUserTable code={params.slug.substring(0, 6)} />
+        </Box>
         
+      </>
     );
 }

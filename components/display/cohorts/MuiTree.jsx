@@ -3,6 +3,8 @@
 import Box from '@mui/material/Box';
 import userViewInitialize from '../../serverfunctions/coach/coachview/userViewInitialize'
 import { RichTreeView } from '@mui/x-tree-view/RichTreeView';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import classViewInitialize from '../../serverfunctions/coach/classview/classViewInitialize'
 
 // Will add an "invite" button somewhere on the screen that will redirect to page specifying invite code for each class
@@ -44,9 +46,13 @@ export default function BasicRichTreeView({ data, codes }) {
 
   return (
     <>
-        <Box sx={{ minHeight: 200, minWidth: 500, flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1 }}>
           <RichTreeView
             items={data}
+            slots={{
+              expandIcon: AddCircleIcon,
+              collapseIcon: RemoveCircleIcon
+            }}
             onItemSelectionToggle={handleItemSelectionToggle}
           />
         </Box>
