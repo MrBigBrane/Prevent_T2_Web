@@ -5,6 +5,7 @@ import fetchCoach from "@/components/serverfunctions/coach/fetchCoach";
 import Link from "next/link";
 import { Box, Grid, IconButton, Paper, Tooltip, Typography } from "@mui/material";
 import MuiAvatar from "@/components/buttons/avatar/MuiAvatar";
+import { redirect } from "next/navigation";
 
 export default async function StudentsPage({ params }) {
     const supabase = createClient();
@@ -15,12 +16,16 @@ export default async function StudentsPage({ params }) {
     .eq("class_codes", params.students.substring(0, 6));
 
     let classCopy = Array.from(await fetchCoach('coach_codes'));
+    // add check for if coach owns that class
 
     if(classCopy.user === false){
         redirect('/login?message=Unauthorized access! Please login first.')
     }
     else if(!classCopy[0]){
         redirect('/profile/becomecoach?unauthorized=true')
+    }
+    if(!data[0]){
+        redirect('/dashboard/coaches?fake=true')
     }
 
     return (
