@@ -35,6 +35,7 @@ export default async function CoachesPage({ searchParams }) {
         <>
             {searchParams?.classcreated &&  <MuiSuccess severity="success">Class Created!</MuiSuccess>}
             {searchParams?.userdeleted &&  <MuiSuccess severity="success">User Deleted!</MuiSuccess>}
+            {searchParams?.fake &&  <MuiSuccess severity="warning">Class does not exist!</MuiSuccess>}
             <Typography variant="h6">Welcome to coaches page!</Typography>
             <Typography variant="p">Get started by creating a class! If you already have one then go on and checkout
             how your students are doing!</Typography>
