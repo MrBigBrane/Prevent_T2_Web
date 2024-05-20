@@ -11,7 +11,7 @@ import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import MuiButton from '@/components/buttons/MuiButton';
 
 
-export default function FormDialog() {
+export default function FormDialog({ ...props }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -24,7 +24,7 @@ export default function FormDialog() {
 
   return (
     <>
-      <MuiButton startIcon={<LibraryAddIcon />} label="Add Meal Plan" type='' color="secondary" click={handleClickOpen} />
+      <MuiButton startIcon={<LibraryAddIcon />} label="Add Meal Plan" type='' color="secondary" click={handleClickOpen} {...props} />
       <Dialog
         open={open}
         onClose={handleClose}

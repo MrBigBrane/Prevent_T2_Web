@@ -73,7 +73,12 @@ export default function MuiTable({
   
 
   return (
-    <div style={{ height: 500, width: "100%" }}>
+    <div
+      style={{ height: 500, width: "100%", marginTop: "4rem" }}
+      marginTop={4}
+      marginright={1}
+      marginleft={1}
+    >
       <DataGrid
         disableColumnSelector
         columnVisibilityModel={{
