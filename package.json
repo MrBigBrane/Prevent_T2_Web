@@ -15,7 +15,7 @@
     "@mui/x-charts": "^7.2.0",
     "@mui/x-data-grid": "^7.2.0",
     "@mui/x-data-grid-generator": "^7.2.0",
-    "@mui/x-date-pickers": "^7.3.2",
+    "@mui/x-date-pickers": "^7.5.0",
     "@mui/x-tree-view": "^7.3.0",
     "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
