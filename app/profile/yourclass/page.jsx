@@ -38,9 +38,18 @@ export default async function YourCoachPage({ searchParams }) {
         <>
             {searchParams?.joined &&  <MuiSuccess severity="success">Class Joined!</MuiSuccess>}
             {searchParams?.alreadyjoined &&  <MuiSuccess severity="success">You Are Already in a Class!</MuiSuccess>}
-            <LinkButton href="/profile" label="Back" type={null} startIcon={<ArrowBackIcon />} />
-            <h1>Your Current Class</h1>
-            <Chip label={datum} variant="outlined" />
+            <LinkButton 
+                href="/profile"
+                label="Back"
+                type={null}
+                startIcon={<ArrowBackIcon />}
+                style={{position : 'fixed', left: '1rem', top: '5rem'}} 
+            />
+            <h1 style={{paddingTop: '1.5rem', paddingBottom: '1rem'}}>Your Current Class</h1>
+            <Chip 
+                label={datum} variant="outlined"
+                style={{pading: '1rem'}}
+            />
             <LeaveClass />
         </>
     )

@@ -11,7 +11,13 @@ export default async function Settings({ searchParams }) {
     let userData = Object.assign({}, await getCurrentUser());
     return (
         <>
-            <LinkButton href="/profile" label="Back" type={null} startIcon={<ArrowBackIcon />} />
+            <LinkButton 
+                href="/profile" 
+                label="Back" 
+                type={null} 
+                startIcon={<ArrowBackIcon />} 
+                style={{position : 'fixed', left: '1rem', top: '5rem'}}
+            />
             <h1>Settings</h1>
             <p> Current Email Address: {userData.email}</p>
             <EmailReset />

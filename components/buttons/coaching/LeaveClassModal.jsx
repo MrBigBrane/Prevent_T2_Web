@@ -28,7 +28,13 @@ export default function LeaveClassModal() {
 
   return (
     <>
-      <MuiButton startIcon={<LogoutIcon />} label="Leave Class" type={null} click={handleClickOpen} color="error" />
+      <MuiButton 
+        startIcon={<LogoutIcon />} 
+        label="Leave Class" 
+        type={null} 
+        click={handleClickOpen} 
+        color="error"
+      />
       <Dialog
         open={open}
         onClose={handleClose}
