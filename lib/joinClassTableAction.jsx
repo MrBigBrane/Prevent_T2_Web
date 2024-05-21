@@ -26,6 +26,13 @@ export default async function tableAction(prevState, formData) {
         })
         .select()
 
+        const counter = await supabase
+        .from('notification_counter')
+        .insert({
+            user: user.id,
+            counter: 0
+        })
+
         if(!error){
             redirect('/profile/yourclass?joined=true'); 
         }

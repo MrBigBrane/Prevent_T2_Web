@@ -3,10 +3,11 @@
 import fetchCoach from '../serverfunctions/coach/fetchCoach';
 import { createClient } from "@/utils/supabase/server";
 import NavBar2 from "./NavBar2";
-import { AppBar, Box, Container, Toolbar } from "@mui/material";
+import { AppBar, Badge, Box, Container, IconButton, Toolbar } from "@mui/material";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import MuiMenu from '../buttons/avatar/MuiMenu'
+import MailIcon from '@mui/icons-material/Mail';
 
 
 export default async function NavBar() {
@@ -44,6 +45,22 @@ export default async function NavBar() {
 
   let coachCopy = Object.assign({}, await fetchCoach('coach_codes'));
 
+  let totalAnnouncements = await supabase 
+    .from('announcements')
+    .select()
+    .eq('class_code', data[0].class_codes)
+
+  console.log(totalAnnouncements?.data.length)
+  
+  let readAnnouncements = await supabase
+  .from('notification_counter')
+  .select()
+  .eq('user', user.id)
+
+  console.log(readAnnouncements?.data[0].counter)
+
+  let unreadAnnouncements = totalAnnouncements?.data.length - readAnnouncements?.data[0].counter
+
 
   return (
     <AppBar
@@ -62,6 +79,15 @@ export default async function NavBar() {
               <div className="flex items-center gap-4">
                 Hey, {user.user_metadata.first_name}{" "}
                 {user.user_metadata.last_name}!
+                {profiles ? (
+                <Link href="/profile/announcements">
+                  <IconButton color="inherit">
+                    <Badge color="secondary" badgeContent={unreadAnnouncements}>
+                      <MailIcon />
+                    </Badge>
+                  </IconButton>
+                </Link>
+                ) : null}
                 <MuiMenu
                   name={`${user.user_metadata.first_name} ${user.user_metadata.last_name}`}
                   logout={signOut}
