@@ -47,7 +47,7 @@ export default async function NavBar() {
   let readAnnouncements;
   let unreadAnnouncements;
 
-  if(user){
+  if(profiles){
     
 
   totalAnnouncements = await supabase 
@@ -90,7 +90,7 @@ export default async function NavBar() {
                 {profiles ? (
                 <Link href="/profile/announcements">
                   <IconButton color="inherit">
-                    <Badge color="secondary" badgeContent={unreadAnnouncements}>
+                    <Badge color="secondary" badgeContent={unreadAnnouncements ? unreadAnnouncements : null}>
                       <MailIcon />
                     </Badge>
                   </IconButton>
