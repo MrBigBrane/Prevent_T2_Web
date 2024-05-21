@@ -42,24 +42,32 @@ export default async function NavBar() {
     await supabase.auth.signOut();
     return redirect("/login/signup");
   };
-
   let coachCopy = Object.assign({}, await fetchCoach('coach_codes'));
+  let totalAnnouncements;
+  let readAnnouncements;
+  let unreadAnnouncements;
 
-  let totalAnnouncements = await supabase 
+  if(user){
+    
+
+  totalAnnouncements = await supabase 
     .from('announcements')
     .select()
     .eq('class_code', data[0].class_codes)
 
   console.log(totalAnnouncements?.data.length)
   
-  let readAnnouncements = await supabase
+  readAnnouncements = await supabase
   .from('notification_counter')
   .select()
   .eq('user', user.id)
 
   console.log(readAnnouncements?.data[0].counter)
 
-  let unreadAnnouncements = totalAnnouncements?.data.length - readAnnouncements?.data[0].counter
+  unreadAnnouncements = totalAnnouncements?.data.length - readAnnouncements?.data[0].counter
+  }
+
+  
 
 
   return (
