@@ -6,12 +6,9 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
-import MealPlan from './MealPlan';
-import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
-import MuiButton from '@/components/buttons/MuiButton';
-
-
-export default function FormDialog({ ...props }) {
+import Announcement from './Announcements';
+export default function FormDialog({ code, ...props }) {
+  
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -21,17 +18,13 @@ export default function FormDialog({ ...props }) {
   const handleClose = () => {
     setOpen(false);
   };
-
   return (
     <>
-      <MuiButton startIcon={<LibraryAddIcon />} label="Add Meal Plan" type='' color="secondary" click={handleClickOpen} {...props} />
-      <Dialog
-        open={open}
-        onClose={handleClose}
-      >
-        <DialogTitle>Add Meal Plan</DialogTitle>
+      <Button onClick={handleClickOpen} {...props} variant='contained'>Add Announcement</Button>
+      <Dialog open={open} onClose={handleClose} >
+        <DialogTitle>Create An Announcement</DialogTitle>
         <DialogContent>
-          <MealPlan click={handleClose} />
+          <Announcement click={handleClose} code={code}/>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

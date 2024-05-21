@@ -37,6 +37,13 @@ export default async function UserPage({ params }) {
           startIcon={<ArrowBackIcon />}
           style={{ position: "absolute", left: "17rem", top: "5rem" }}
         />
+        <LinkButton
+          href={`/dashboard/coaches/view/${params.slug}/announcements`}
+          label="Announcements"
+          type={null}
+          startIcon={null}
+          style={{ position: "absolute", right: "1rem", top: "5rem" }}
+        />
         <Typography variant="h5" style={{ textAlign: "center" }}>{data[0].class_name}</Typography>
         <Box
           sx={{

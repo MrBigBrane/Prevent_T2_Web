@@ -6,7 +6,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
-export default function FormDialog({ form, title, opening, close }) {
+import AddClassCoach from './AddClass';
+export default function FormDialog({ form, title, opening, text }) {
   const [open, setOpen] = useState(opening);
 
   const handleClickOpen = () => {
@@ -25,7 +26,7 @@ export default function FormDialog({ form, title, opening, close }) {
       >
         <DialogTitle>{title}</DialogTitle>
         <DialogContent>
-          {form}
+          {form ? form : <AddClassCoach click={handleClose} />}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

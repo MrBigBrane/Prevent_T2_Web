@@ -30,8 +30,6 @@ export default async function CoachUserTable({ code }) {
         let minutesData = Array.from(await minutesPerWeek(users[i]))
         let weightData = Array.from(await weightCreator(users[i]))
         let userHeight = Object.assign({}, await fetchUserData('user_profiles', 'height', users[i]))
-        console.log(users[i])
-        console.log(userHeight)
 
         if(minutesData[0][minutesData.length - 2]){
             data[i].minutes = minutesData[0][minutesData[0].length - 2]
@@ -39,7 +37,7 @@ export default async function CoachUserTable({ code }) {
         else{
             data[i].minutes = 0;
         }
-        if(weightData[0][weightData[0].length - 2] && userHeight[0].height){
+        if(weightData[0][weightData[0].length - 2] && userHeight[0]){
                 data[i].bmi = Math.round(703 * weightData[0][weightData[0].length - 2]  / (userHeight[0].height * userHeight[0].height) * 10) / 10
             
             
