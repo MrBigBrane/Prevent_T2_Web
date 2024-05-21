@@ -18,7 +18,7 @@ export default function ActivityLogPage({ field1, field2, field3, rowId, click }
             name="activity"
             id="activity"
             label="Activity Name"
-            variant="filled"
+            variant="outlined"
             type="text"
             required={true}
           />
@@ -27,7 +27,7 @@ export default function ActivityLogPage({ field1, field2, field3, rowId, click }
             name="minutes"
             id="minutes"
             label="Activity Minutes"
-            variant="filled"
+            variant="outlined"
             type="number"
             required={true}
           />

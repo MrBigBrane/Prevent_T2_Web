@@ -1,11 +1,11 @@
 'use server';
 
-import MuiModal from '@/components/forms/userforms/MuiModal'
+import MuiModal from '@/components/forms/userforms/MuiModal';
 import LinkButton from '@/components/buttons/LinkButton';
 import CoachTable from '@/components/tables/users/CoachTable';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import minutesPerWeek from '@/components/serverfunctions/minutesPerWeek'
-import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
+import minutesPerWeek from '@/components/serverfunctions/minutesPerWeek';
+import MuiSuccess from '@/components/buttons/alerts/MuiSuccess';
 import getCurrentUser from '@/components/serverfunctions/getCurrentUser';
 import { Box } from '@mui/material';
 
@@ -66,5 +66,5 @@ export default async function CoachPage({ searchParams }) {
         
       </>
         
-    )
+    );
 }
