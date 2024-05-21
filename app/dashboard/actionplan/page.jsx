@@ -25,19 +25,46 @@ export default async function ActionPlanPage({ searchParams }) {
 
 
     return (
-        <>
-            <LinkButton href="/profile" label="Back" type={null} startIcon={<ArrowBackIcon />} />
-            <Box display="flex" alignContent="center">
-                {searchParams?.add && <MuiSuccess severity="success">Meal Plan Successfully Added!</MuiSuccess>}
-                {searchParams?.delete && <MuiSuccess severity="success">Meal Plan Successfully Deleted!</MuiSuccess>}
-                {searchParams?.edit && <MuiSuccess severity="success">Meal Plan Successfully Edited!</MuiSuccess>}
-                {data && data.map((item) => {
-                    return <Box key={item.id} m={2}><MuiCard id={item.id} date={item.created_at} q1={item.q1} q2={item.q2} q3={item.q3} /></Box>
-                })}
-                
-            </Box>
-            <MealModal />
-        </>
-        
-    )
+      <>
+        <LinkButton
+          href="/profile"
+          label="Back"
+          type={null}
+          startIcon={<ArrowBackIcon />}
+          style={{ position: 'absolute', left: "1rem", top: "5rem" }}
+        />
+        <Box display="flex" alignContent="center">
+          {searchParams?.add && (
+            <MuiSuccess severity="success">
+              Meal Plan Successfully Added!
+            </MuiSuccess>
+          )}
+          {searchParams?.delete && (
+            <MuiSuccess severity="success">
+              Meal Plan Successfully Deleted!
+            </MuiSuccess>
+          )}
+          {searchParams?.edit && (
+            <MuiSuccess severity="success">
+              Meal Plan Successfully Edited!
+            </MuiSuccess>
+          )}
+          {data &&
+            data.map((item) => {
+              return (
+                <Box key={item.id} m={2}>
+                  <MuiCard
+                    id={item.id}
+                    date={item.created_at}
+                    q1={item.q1}
+                    q2={item.q2}
+                    q3={item.q3}
+                  />
+                </Box>
+              );
+            })}
+        </Box>
+        <MealModal />
+      </>
+    );
 }
