@@ -19,7 +19,7 @@ export default async function tableAction(prevState, formData) {
         user: user.id
      })
      .select()
-     .eq('id', formData.get('rowId'))
+     .eq('id', formData.get('rowIdinput'))
 
     redirect('/dashboard/coachlog?edit=true'); 
     

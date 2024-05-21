@@ -6,9 +6,10 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
-import AddClassCoach from './AddClass';
-export default function FormDialog({ form, title, opening, text }) {
-  const [open, setOpen] = useState(opening);
+import Announcement from './Announcements';
+export default function FormDialog({ code, ...props }) {
+  
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -17,16 +18,13 @@ export default function FormDialog({ form, title, opening, text }) {
   const handleClose = () => {
     setOpen(false);
   };
-
   return (
     <>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-      >
-        <DialogTitle>{title}</DialogTitle>
+      <Button onClick={handleClickOpen} {...props} variant='contained'>Add Announcement</Button>
+      <Dialog open={open} onClose={handleClose} >
+        <DialogTitle>Create An Announcement</DialogTitle>
         <DialogContent>
-          {form ? form : <AddClassCoach click={handleClose} />}
+          <Announcement click={handleClose} code={code}/>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
