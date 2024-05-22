@@ -9,6 +9,7 @@ import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LinkButton from "@/components/buttons/LinkButton";
 import { Box, Typography } from "@mui/material";
+import CsvButton from '@/components/buttons/download/CsvButton'
 
 export default async function UserPage({ params }) {
 
@@ -44,7 +45,13 @@ export default async function UserPage({ params }) {
           startIcon={null}
           style={{ position: "absolute", right: "1rem", top: "5rem" }}
         />
-        <Typography variant="h5" style={{ textAlign: "center" }}>{data[0].class_name}</Typography>
+        <CsvButton
+          searchValue={params.slug.substring(0, 6)}
+          style={{ position: "absolute", right: "3rem", bottom: "2rem" }}
+        />
+        <Typography variant="h5" style={{ textAlign: "center" }}>
+          {data[0].class_name}
+        </Typography>
         <Box
           sx={{
             width: "100%",
@@ -53,9 +60,8 @@ export default async function UserPage({ params }) {
             bottompadding: "0px",
           }}
         >
-            <CoachUserTable code={params.slug.substring(0, 6)} />
+          <CoachUserTable code={params.slug.substring(0, 6)} />
         </Box>
-        
       </>
     );
 }
