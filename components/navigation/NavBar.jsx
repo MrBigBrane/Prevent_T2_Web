@@ -8,6 +8,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import MuiMenu from '../buttons/avatar/MuiMenu'
 import MailIcon from '@mui/icons-material/Mail';
+import Inbox from '@/components/buttons/linkbuttons/Inbox';
 
 
 export default async function NavBar() {
@@ -88,13 +89,7 @@ export default async function NavBar() {
                 Hey, {user.user_metadata.first_name}{" "}
                 {user.user_metadata.last_name}!
                 {profiles ? (
-                <Link href="/profile/announcements">
-                  <IconButton color="inherit">
-                    <Badge color="secondary" badgeContent={unreadAnnouncements ? unreadAnnouncements : null}>
-                      <MailIcon />
-                    </Badge>
-                  </IconButton>
-                </Link>
+                <Inbox unreadAnnouncements={unreadAnnouncements} />
                 ) : null}
                 <MuiMenu
                   name={`${user.user_metadata.first_name} ${user.user_metadata.last_name}`}

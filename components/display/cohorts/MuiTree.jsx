@@ -6,6 +6,7 @@ import { RichTreeView } from '@mui/x-tree-view/RichTreeView';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import classViewInitialize from '../../serverfunctions/coach/classview/classViewInitialize'
+import { useRouter } from 'next/navigation';
 
 // Will add an "invite" button somewhere on the screen that will redirect to page specifying invite code for each class
 
@@ -17,6 +18,8 @@ import classViewInitialize from '../../serverfunctions/coach/classview/classView
 
 
 export default function BasicRichTreeView({ data, codes }) {
+
+  const router = useRouter();
 
   const handleItemSelectionToggle = (event, itemId, isSelected) => {
     if(isSelected) {
@@ -38,10 +41,12 @@ export default function BasicRichTreeView({ data, codes }) {
         }
       }
     if(!matches){
-      userViewInitialize(itemId);
+      // userViewInitialize(itemId);
+      router.push(`/dashboard/coaches/${itemId}`)
     }
     if(viewClass){
       classViewInitialize(itemId);
+      // router.push(`/dashboard/coaches/view/${itemId}`)
     }
   }
   };
