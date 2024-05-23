@@ -14,6 +14,7 @@ import { useState } from 'react';
 import InsightsIcon from '@mui/icons-material/Insights';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import Link from 'next/link';
 
 const drawerWidth = 240;
 
@@ -41,35 +42,48 @@ function ResponsiveDrawer({ main, ...props }) {
   }
 
   const drawer = (
-    <Box overflow={'auto'}>
+    <Box overflow={"auto"}>
       <Toolbar />
       <Divider />
       <List>
-        {[['Activity Stats', '/dashboard'], ['View Activities', '/dashboard/activities'], ['Add Activity', '/dashboard/activities?open=true']].map((text, index) => (
+        {[
+          ["Activity Stats", "/dashboard"],
+          ["View Activities", "/dashboard/activities"],
+          ["Add Activity", "/dashboard/activities?open=true"],
+        ].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton href={text[1]}>
-              <ListItemIcon>
-                {index === 0 && <InsightsIcon />}
-                {index === 1 && <ViewListIcon />}
-                {index === 2 && <AddBoxIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text[0]} />
-            </ListItemButton>
+            <Link href={text[1]} style={{ width: "100%" }}>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index === 0 && <InsightsIcon />}
+                  {index === 1 && <ViewListIcon />}
+                  {index === 2 && <AddBoxIcon />}
+                </ListItemIcon>
+
+                <ListItemText primary={text[0]} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
-        {[['Weight Stats', '/dashboard/weightstats'], ['View Coach Log', '/dashboard/coachlog'], ['Add Coach Log', '/dashboard/coachlog?open=true']].map((text, index) => (
+        {[
+          ["Weight Stats", "/dashboard/weightstats"],
+          ["View Coach Log", "/dashboard/coachlog"],
+          ["Add Coach Log", "/dashboard/coachlog?open=true"],
+        ].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton href={text[1]}>
-              <ListItemIcon>
-                {index === 0 && <InsightsIcon />}
-                {index === 1 && <ViewListIcon />}
-                {index === 2 && <AddBoxIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text[0]} />
-            </ListItemButton>
+            <Link href={text[1]} style={{ width: "100%" }}>
+              <ListItemButton href={text[1]}>
+                <ListItemIcon>
+                  {index === 0 && <InsightsIcon />}
+                  {index === 1 && <ViewListIcon />}
+                  {index === 2 && <AddBoxIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text[0]} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>

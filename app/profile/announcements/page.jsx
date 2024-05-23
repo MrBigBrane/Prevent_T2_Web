@@ -34,7 +34,7 @@ export default async function Announcements() {
      })
      .eq('user', user.id)
 
-
+     
 
     return (
         <Grid width={"90%"}>

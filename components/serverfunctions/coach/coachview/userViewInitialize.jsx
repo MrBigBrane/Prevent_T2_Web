@@ -1,10 +1,15 @@
-'use server';
+'use client';
 
-import { redirect } from "next/navigation";
+
+import { useRouter } from "next/navigation";
 
 
 export default async function userViewInitialize(id) {
+
+    const router = useRouter();
     // use id for param
 
-    redirect(`/dashboard/coaches/${id}`)
+    router.push(`/dashboard/coaches/${id}`)
+
+    // redirect(`/dashboard/coaches/${id}`)
 }
