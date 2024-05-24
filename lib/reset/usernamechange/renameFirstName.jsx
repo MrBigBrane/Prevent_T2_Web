@@ -15,10 +15,10 @@ export default async function tableAction(prevState, formData) {
     });
 
     if(!error){
-        redirect('/profile/settings?emailreset=true'); 
+        redirect('/profile?namereset=true'); 
     }
     else{
-        redirect('/profile/settings?emailnotreset=true'); 
+        redirect('/profile?namenotreset=true'); 
     }
     
     
