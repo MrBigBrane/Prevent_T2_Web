@@ -116,6 +116,7 @@ export default function Login({
             href="/login/forgotpassword"
             label="Forgot Password?"
             variant={"text"}
+            endIcon={null}
             type={null}
             startIcon={null}
             style={null}
@@ -126,6 +127,7 @@ export default function Login({
             label="Go To Signup"
             type={null}
             startIcon={null}
+            endIcon={null}
             variant={"text"}
             style={{ 
               position: "fixed",
