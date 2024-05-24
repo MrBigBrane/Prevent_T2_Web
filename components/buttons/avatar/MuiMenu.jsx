@@ -90,17 +90,7 @@ export default function AccountMenu({ name, logout, profile }) {
                 <Avatar /> {profile ? 'My Class' : 'Join Class'}
             </MenuItem>
         </Link>
-        
         <Divider />
-        <Link href="/profile/settings">
-            <MenuItem onClick={handleClose}>
-                <ListItemIcon>
-                    <Settings fontSize="small" />
-                </ListItemIcon>
-                Settings
-            </MenuItem>
-        </Link>
-        
         <MenuItem onClick={() => logout()}>
           <ListItemIcon>
             <Logout fontSize="small" />
