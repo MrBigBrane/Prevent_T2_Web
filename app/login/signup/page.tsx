@@ -128,6 +128,7 @@ export default function Login({
           Sign Up
         </SubmitButton>
         <LinkButton
+          endIcon={null}
           href="/login"
           label="Back To Login"
           type={null}
