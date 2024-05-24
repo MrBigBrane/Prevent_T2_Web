@@ -118,6 +118,7 @@ export default function Login({
             variant={"text"}
             type={null}
             startIcon={null}
+            endIcon={null}
             style={null}
             // className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
           />
@@ -126,6 +127,7 @@ export default function Login({
             label="Go To Signup"
             type={null}
             startIcon={null}
+            endIcon={null}
             variant={"text"}
             style={{ 
               position: "fixed",
