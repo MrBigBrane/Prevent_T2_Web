@@ -2,7 +2,7 @@
 
 import { useFormState } from "react-dom"
 import MuiButton from '../../../buttons/MuiButton'
-import renameFirstName from '@/lib/reset/renameFirstName'
+import renameFirstName from '@/lib/reset/usernamechange/renameFirstName'
 import MuiTextField from '../../../inputs/MuiTextField'
 
 export default function NameChange({ click, firstName, lastName }) {
@@ -14,9 +14,6 @@ export default function NameChange({ click, firstName, lastName }) {
           action={formAction}
           className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
         >
-          <label className="text-md" htmlFor="text">
-            Change First Name
-          </label>
           <MuiTextField
             id={"first_name"}
             required
@@ -28,9 +25,6 @@ export default function NameChange({ click, firstName, lastName }) {
             defaultValue={firstName}
             disabled={false}
           />
-          <label className="text-md" htmlFor="text">
-            Change Last Name
-          </label>
           <MuiTextField
             id={"last_name"}
             required

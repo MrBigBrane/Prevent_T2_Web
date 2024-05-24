@@ -75,7 +75,7 @@ function ResponsiveDrawer({ main, ...props }) {
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
             <Link href={text[1]} style={{ width: "100%" }}>
-              <ListItemButton href={text[1]}>
+              <ListItemButton>
                 <ListItemIcon>
                   {index === 0 && <InsightsIcon />}
                   {index === 1 && <ViewListIcon />}

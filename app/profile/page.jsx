@@ -1,14 +1,13 @@
 'use server';
 
 import LinkButton from '@/components/buttons/LinkButton';
-import { Box, Paper, Typography, Grid, colors } from '@mui/material';
+import { Box, Paper, Typography, Grid, colors, IconButton } from '@mui/material';
 import MuiAvatar from '@/components/buttons/avatar/MuiAvatar';
 import EmailReset from '../../components/forms/reset/EmailReset';
-import PasswordReset from '../../components/forms/reset/PasswordReset';
+import PasswordModal from '../../components/forms/reset/passwordchange/PasswordModal';
 import { createClient } from "@/utils/supabase/server";
-import { Margin } from '@mui/icons-material';
-import { redirect } from "next/navigation";
 import LaunchIcon from '@mui/icons-material/Launch';
+import NameModal from '../../components/forms/reset/username/NameModal';
 
 export default async function ProfilePage() {
     const supabase = createClient();
@@ -20,22 +19,33 @@ export default async function ProfilePage() {
     return (
       <>
         <Paper square={false} elevation={3} style={{ width: "45%" }}>
-          <Box>
-            <Grid container>
-              <Grid item>
-                <MuiAvatar
+          <Box display={"flex"} padding={5}>
+            <Paper elevation={10}>
+              <Box display={"inline-block"} padding={2} textAlign={"center"}>
+                <IconButton>
+                    <MuiAvatar
                   name={`${user.user_metadata.first_name} ${user.user_metadata.last_name}`}
                   style={{ width: 90, height: 90 }}
-                  sizes="large"
                 />
-              </Grid>
-              <Grid item>
-                <Typography variant="h4">
-                  {user.user_metadata.first_name} {user.user_metadata.last_name}
+                </IconButton>
+                
+                <Typography
+                  variant="h4"
+                  style={{ textAlign: "center", marginTop: "1rem" }}
+                >
+                  {user.user_metadata.first_name}
+                  <br />
+                  {user.user_metadata.last_name}
                 </Typography>
-              </Grid>
-            </Grid>
-            <EmailReset />
+              </Box>
+            </Paper>
+            <Box display={"inline-block"} marginLeft={"auto"}>
+              <EmailReset email={user.user_metadata.email} />
+              <NameModal
+                firstName={user.user_metadata.first_name}
+                lastName={user.user_metadata.last_name}
+              />
+            </Box>
           </Box>
         </Paper>
         <Box style={{ width: "45%" }} marginTop={5}>
@@ -45,7 +55,9 @@ export default async function ProfilePage() {
               <Paper>
                 <Box sx={{ padding: "20px" }}>
                   <Typography variant="h5">Onboarding Form</Typography>
-                  <Typography variant="body2" marginBottom={2}>Description</Typography>
+                  <Typography variant="body2" marginBottom={2}>
+                    Description
+                  </Typography>
                   <LinkButton
                     href="/profile/onboarding?section1=true"
                     endIcon={<LaunchIcon />}
@@ -59,7 +71,9 @@ export default async function ProfilePage() {
               <Paper>
                 <Box sx={{ padding: "20px" }}>
                   <Typography variant="h5">Coach Registration Form</Typography>
-                  <Typography variant="body2" marginBottom={2}>Description</Typography>
+                  <Typography variant="body2" marginBottom={2}>
+                    Description
+                  </Typography>
                   <LinkButton
                     href="/profile/becomecoach"
                     endIcon={<LaunchIcon />}
@@ -72,14 +86,15 @@ export default async function ProfilePage() {
           </Grid>
         </Box>
         <Box style={{ width: "45%" }} marginTop={5}>
-          <Typography variant="h4">Your Password</Typography>
+          <Typography variant="h4">Security</Typography>
           <Box sx={{ padding: "20px" }}>
             <Paper elevation={10}>
-                <Typography variant="h5">Change Password</Typography>
-                <PasswordReset />
+              <Box sx={{ padding: "20px" }}>
+                <Typography variant="h5" marginBottom={2}>Change Password</Typography>
+                <PasswordModal />
+              </Box>
             </Paper>
           </Box>
-          
         </Box>
       </>
     );

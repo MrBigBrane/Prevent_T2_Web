@@ -20,6 +20,10 @@ export default async function Announcements({ params }) {
 
      console.log(params.slug.substring(0,6))
 
+     if(!user.id){
+        redirect('/login?message=Unauthorized access! Please login first.')
+    }
+
     return (
         <Grid width={"100%"}>
             <Typography variant="h5" style={{ textAlign: "center", marginBottom: "1rem" }}>Announcements</Typography>

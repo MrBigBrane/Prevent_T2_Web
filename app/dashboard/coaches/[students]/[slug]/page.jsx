@@ -15,6 +15,10 @@ import { Box, Paper, Typography } from "@mui/material";
 export default async function UserPage({ params }) {
     const supabase = createClient();
 
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
     const { data, error } = await supabase
     .from('profiles')
     .select()
@@ -27,6 +31,9 @@ export default async function UserPage({ params }) {
     }
     else if(!classCopy[0]){
         redirect('/dashboard/becomecoach?unauthorized=true')
+    }
+    else if(!user.id){
+        redirect('/login?message=Unauthorized access! Please login first.')
     }
 
     return (

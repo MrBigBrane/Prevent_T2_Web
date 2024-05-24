@@ -12,7 +12,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import { useState } from "react";
 
 
-export default function EmailReset() {
+export default function EmailReset({ email }) {
     const [state, formAction] = useFormState(resetEmail, { message: null }) 
     const [edit , setEdit] = useState(false)
 
@@ -27,18 +27,18 @@ export default function EmailReset() {
           action={formAction}
           //className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
         >
-          <Box alignItems="inline">
-            <Grid container spacing={2}>
-              <Grid item>
+          <Box display={"flex"}>
+            {/* <Grid container spacing={2}>
+              <Grid item> */}
                 <MuiTextField
                   //className="rounded-md px-4 py-2 bg-inherit border mb-6"
                   name="email"
-                  placeholder="you@example.com"
+                  defaultValue={email}
                   required
                   disabled={!edit}
                 />
-              </Grid>
-              <Grid item>
+              {/* </Grid>
+              <Grid item> */}
                 {!edit ? (
                   <IconButton label="Edit" onClick={handleEdit}>
                     <EditIcon />
@@ -54,8 +54,8 @@ export default function EmailReset() {
                     </IconButton>
                   </>
                 ) : null}
-              </Grid>
-            </Grid>
+              {/* </Grid>
+            </Grid> */}
           </Box>
         </form>
       </div>

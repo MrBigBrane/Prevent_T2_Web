@@ -25,7 +25,7 @@ export default function FormDialog({ firstName, lastName, ...props }) {
       <Dialog open={open} onClose={handleClose} >
         <DialogTitle>Display Name Change</DialogTitle>
         <DialogContent>
-          <NameChange click={handleClose} firstName={"Varun"} lastName={"Singh"} />
+          <NameChange click={handleClose} firstName={firstName} lastName={lastName} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
