@@ -10,6 +10,10 @@ import { redirect } from "next/navigation";
 export default async function StudentsPage({ params }) {
     const supabase = createClient();
 
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
     const { data, error } = await supabase
     .from('profiles')
     .select()
@@ -26,6 +30,9 @@ export default async function StudentsPage({ params }) {
     }
     if(!data[0]){
         redirect('/dashboard/coaches?fake=true')
+    }
+    if(!user.id){
+        redirect('/login?message=Unauthorized access! Please login first.')
     }
 
     return (
