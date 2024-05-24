@@ -18,7 +18,7 @@ export default function EmailReset() {
           //className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
         >
           <Box alignItems="inline">
-            <Grid containter spacing={2}>
+            <Grid container spacing={2}>
               <Grid item>
                 <input
                   //className="rounded-md px-4 py-2 bg-inherit border mb-6"
