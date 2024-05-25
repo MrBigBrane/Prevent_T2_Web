@@ -19,10 +19,10 @@ export default async function tableAction(prevState, formData) {
      .select()
      .eq('id', formData.get('rowIdinput'))
 
-    if(!error) redirect('/dashboard/actionplan?edit=success'); 
+    if(!error) redirect('/plans/actionplan?edit=success'); 
     else {
         console.log(error)
-        redirect('/dashboard/actionplan?notedit=failed');
+        redirect('/plans/actionplan?notedit=failed');
     }
     
 }

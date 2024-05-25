@@ -17,10 +17,8 @@ export default async function Index({ searchParams }) {
   return (
     <>
       {searchParams?.form &&  <MuiSuccess severity="success">Form Submitted!</MuiSuccess>}
-      <h1>Minute Stats</h1>
+      <Typography variant="h5" style={{ textAlign: "center" }}>Minute Stats</Typography>
         <Box width={"100%"}>
-          <MuiDrawer
-            main={
               <Box
                 sx={{
                   width: "100%",
@@ -40,8 +38,6 @@ export default async function Index({ searchParams }) {
                   <MinutesGraph />
                 </Paper>
               </Box>
-            }
-          />
         </Box>
       
     </>

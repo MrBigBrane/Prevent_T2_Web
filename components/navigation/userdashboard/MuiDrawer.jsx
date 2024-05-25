@@ -52,17 +52,25 @@ function ResponsiveDrawer({ main, ...props }) {
           ["Add Activity", "/dashboard/activities?open=true"],
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <Link href={text[1]} style={{ width: "100%" }}>
+            {index != 2 ? <Link href={text[1]} style={{ width: "100%" }}>
               <ListItemButton>
                 <ListItemIcon>
                   {index === 0 && <InsightsIcon />}
                   {index === 1 && <ViewListIcon />}
                   {index === 2 && <AddBoxIcon />}
                 </ListItemIcon>
-
                 <ListItemText primary={text[0]} />
               </ListItemButton>
-            </Link>
+            </Link> : (
+              <ListItemButton href={text[1]}>
+              <ListItemIcon>
+                {index === 0 && <InsightsIcon />}
+                {index === 1 && <ViewListIcon />}
+                {index === 2 && <AddBoxIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text[0]} />
+            </ListItemButton>
+            )}
           </ListItem>
         ))}
       </List>
@@ -74,7 +82,7 @@ function ResponsiveDrawer({ main, ...props }) {
           ["Add Coach Log", "/dashboard/coachlog?open=true"],
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <Link href={text[1]} style={{ width: "100%" }}>
+            {index != 2 ? <Link href={text[1]} style={{ width: "100%" }}>
               <ListItemButton>
                 <ListItemIcon>
                   {index === 0 && <InsightsIcon />}
@@ -83,7 +91,16 @@ function ResponsiveDrawer({ main, ...props }) {
                 </ListItemIcon>
                 <ListItemText primary={text[0]} />
               </ListItemButton>
-            </Link>
+            </Link> : (
+              <ListItemButton href={text[1]}>
+              <ListItemIcon>
+                {index === 0 && <InsightsIcon />}
+                {index === 1 && <ViewListIcon />}
+                {index === 2 && <AddBoxIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text[0]} />
+            </ListItemButton>
+            )}
           </ListItem>
         ))}
       </List>
@@ -101,7 +118,7 @@ function ResponsiveDrawer({ main, ...props }) {
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
-          variant="temporary"
+          variant="permanent"
           open={mobileOpen}
           onTransitionEnd={handleDrawerTransitionEnd}
           onClose={handleDrawerClose}
