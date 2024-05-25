@@ -7,7 +7,7 @@ import LinkButton from "@/components/buttons/LinkButton";
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import getCurrentUser from '@/components/serverfunctions/getCurrentUser'
 import { redirect } from "next/navigation";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 
 export default async function ActivityTablePage({ searchParams }) {
@@ -39,7 +39,7 @@ export default async function ActivityTablePage({ searchParams }) {
         type={null}
         startIcon={<ArrowBackIcon />}
         padding={2}
-        style={{position : 'fixed', left: '1rem', top: '5rem'}}
+        style={{position : 'absolute', left: '17rem', top: '5rem'}}
       />
 
       {/* Render the Activity Logs page header */}
@@ -56,7 +56,7 @@ export default async function ActivityTablePage({ searchParams }) {
         search={searchParams?.open ? true : false}
         style={{position : 'fixed', right: '1rem', top: '5rem'}}
       />
-      <h1 style={{ marginTop: '1.5rem'}}>Activity Logs</h1>
+      <Typography variant="h5" style={{ textAlign: "center" }}>Activity Logs</Typography>
       {/* Render the ActivityTable component */}
       <Box
         style={{ width: "95%", textAlign: "center" }}

@@ -71,7 +71,7 @@ function ResponsiveDrawer({ main, tree, ...props }) {
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
-          variant="temporary"
+          variant="permanent"
           open={mobileOpen}
           onTransitionEnd={handleDrawerTransitionEnd}
           onClose={handleDrawerClose}

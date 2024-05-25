@@ -55,15 +55,12 @@ export default async function NavBar() {
     .from('announcements')
     .select()
     .eq('class_code', data[0].class_codes)
-
-  console.log(totalAnnouncements?.data.length)
   
   readAnnouncements = await supabase
   .from('notification_counter')
   .select()
   .eq('user', user.id)
 
-  console.log(readAnnouncements?.data[0].counter)
 
   unreadAnnouncements = totalAnnouncements?.data.length - readAnnouncements?.data[0].counter
   }

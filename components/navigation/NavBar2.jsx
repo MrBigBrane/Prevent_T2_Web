@@ -89,12 +89,12 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
               <Typography textAlign="center">User Dashboard</Typography>
             </MenuItem>
           </Link>
-          <Link href={user ? "/dashboard/mealplan" : "/login"}>
+          <Link href={user ? "/plans/mealplan" : "/login"}>
             <MenuItem onClick={handleCloseNavMenu}>
               <Typography textAlign="center">Meal Plan</Typography>
             </MenuItem>
           </Link>
-          <Link href={user ? "/dashboard/mealplan" : "/login"}>
+          <Link href={user ? "/plans/mealplan" : "/login"}>
             <MenuItem onClick={handleCloseNavMenu}>
               <Typography textAlign="center">Action Plan</Typography>
             </MenuItem>

@@ -9,10 +9,8 @@ export default async function TesterPage() {
 
     return (
       <>
-        <h1>Weight Stats</h1>
+        <Typography variant="h5" style={{ textAlign: "center" }}>Weight Stats</Typography>
         <Box width={"100%"}>
-          <MuiDrawer
-            main={
               <Box
                 sx={{
                   width: "100%",
@@ -32,8 +30,6 @@ export default async function TesterPage() {
                   <WeightGraph />
                 </Paper>
               </Box>
-            }
-          />
         </Box>
       </>
     );
