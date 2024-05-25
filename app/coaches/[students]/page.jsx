@@ -31,7 +31,7 @@ export default async function StudentsPage({ params }) {
         redirect('/profile/becomecoach?unauthorized=true')
     }
     if(!data[0]){
-        redirect('/dashboard/coaches?fake=true')
+        redirect('/coaches?fake=true')
     }
     if(!user.id){
         redirect('/login?message=Unauthorized access! Please login first.')
@@ -55,7 +55,7 @@ export default async function StudentsPage({ params }) {
             <Paper elevation={10} >
               <Box textAlign={"center"}>
               <Link
-                href={`/dashboard/coaches/${params.students}/${row.id}`}
+                href={`/coaches/${params.students}/${row.id}`}
                 key={row.id}
               >
                   <IconButton size="large" style={{ textAlign: "center" }} aria-haspopup="true">

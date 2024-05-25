@@ -13,5 +13,5 @@ export default async function classViewInitialize(id) {
 
     // router.push(`/dashboard/coaches/view/${id}`)
 
-    redirect(`/dashboard/coaches/view/${id}`)
+    redirect(`/coaches/view/${id}`)
 }

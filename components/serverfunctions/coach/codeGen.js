@@ -28,7 +28,7 @@ export default async function codeGen(prevState, formData) {
 
      
 
-    redirect('/dashboard/coaches?classcreated=true'); 
+    redirect('/coaches?classcreated=true'); 
     
       
 }

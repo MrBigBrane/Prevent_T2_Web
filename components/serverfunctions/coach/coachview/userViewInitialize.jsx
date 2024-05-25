@@ -9,7 +9,7 @@ export default async function userViewInitialize(id) {
     const router = useRouter();
     // use id for param
 
-    router.push(`/dashboard/coaches/${id}`)
+    router.push(`/coaches/${id}`)
 
     // redirect(`/dashboard/coaches/${id}`)
 }
