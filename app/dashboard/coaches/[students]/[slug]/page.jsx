@@ -26,15 +26,19 @@ export default async function UserPage({ params }) {
 
     let classCopy = Array.from(await fetchCoach('coach_codes'));
 
-    if(classCopy.user === false){
+    if(!user){
+        redirect('/login?message=Unauthorized access! Please login first.')
+    }
+    else if(classCopy.user === false){
         redirect('/login?message=Unauthorized access! Please login first.')
     }
     else if(!classCopy[0]){
         redirect('/dashboard/becomecoach?unauthorized=true')
     }
-    else if(!user.id){
-        redirect('/login?message=Unauthorized access! Please login first.')
-    }
+    
+
+    console.log('yo')
+    console.log(!user.id)
 
     return (
       <Box width={"100%"}>

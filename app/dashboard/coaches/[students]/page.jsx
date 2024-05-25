@@ -21,6 +21,8 @@ export default async function StudentsPage({ params }) {
 
     let classCopy = Array.from(await fetchCoach('coach_codes'));
     // add check for if coach owns that class
+    
+    console.log(user.id ? 'yes' : 'no')
 
     if(classCopy.user === false){
         redirect('/login?message=Unauthorized access! Please login first.')
