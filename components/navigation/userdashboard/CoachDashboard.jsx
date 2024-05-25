@@ -47,7 +47,7 @@ function ResponsiveDrawer({ main, tree, ...props }) {
       
       <Divider />
       <List>
-        {[['Add Class', '/dashboard/coaches?addclass=true'], ['Invite Users', '/dashboard/coaches?invite=true']].map((text, index) => (
+        {[['Add Class', '/coaches?addclass=true'], ['Invite Users', '/coaches?invite=true']].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton href={text[1]}>
               <ListItemIcon>
@@ -59,21 +59,6 @@ function ResponsiveDrawer({ main, tree, ...props }) {
           </ListItem>
         ))}
       </List>
-      <Divider />
-      {/* <List>
-        {[['Weight Stats', '/dashboard/weightstats'], ['View Coach Log', '/dashboard/coachlog'], ['Add Coach Log', '/dashboard/coachlog?open=true']].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton href={text[1]}>
-              <ListItemIcon>
-                {index === 0 && <InsightsIcon />}
-                {index === 1 && <ViewListIcon />}
-                {index === 2 && <AddBoxIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text[0]} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
     </Box>
   );
 

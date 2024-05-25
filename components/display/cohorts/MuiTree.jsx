@@ -42,7 +42,7 @@ export default function BasicRichTreeView({ data, codes }) {
       }
     if(!matches){
       // userViewInitialize(itemId);
-      router.push(`/dashboard/coaches/${itemId}`)
+      router.push(`/coaches/${itemId}`)
     }
     if(viewClass){
       classViewInitialize(itemId);

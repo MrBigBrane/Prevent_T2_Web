@@ -100,7 +100,7 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
             </MenuItem>
           </Link>
           {coachCopy[0] ? (
-            <Link href="/dashboard/coaches">
+            <Link href="/coaches">
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Coaches Dashboard</Typography>
               </MenuItem>
@@ -156,7 +156,7 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
             variant="text"
             label="Coaches Dashboard"
             sx={{ my: 2, color: "white", display: "block" }}
-            href="/dashboard/coaches"
+            href="/coaches"
           >
             Coaches Dashboard
           </LinkButton2>

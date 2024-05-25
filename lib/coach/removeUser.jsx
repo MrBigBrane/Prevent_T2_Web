@@ -14,6 +14,6 @@ export default async function removeUser(userId) {
     .eq('id', userId) 
     
     
-    redirect('/dashboard/coaches?userdeleted=true')
+    redirect('/coaches?userdeleted=true')
     
 }

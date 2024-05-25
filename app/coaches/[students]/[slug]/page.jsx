@@ -33,7 +33,7 @@ export default async function UserPage({ params }) {
         redirect('/login?message=Unauthorized access! Please login first.')
     }
     else if(!classCopy[0]){
-        redirect('/dashboard/becomecoach?unauthorized=true')
+        redirect('/profile/becomecoach?unauthorized=true')
     }
     
 
@@ -43,7 +43,7 @@ export default async function UserPage({ params }) {
     return (
       <Box width={"100%"}>
         <LinkButton
-          href={`/dashboard/coaches/${params.students}`}
+          href={`/coaches/${params.students}`}
           label="Back"
           type={null}
           startIcon={<ArrowBackIcon />}

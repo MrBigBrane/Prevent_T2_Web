@@ -32,14 +32,14 @@ export default async function UserPage({ params }) {
     return (
       <>
         <LinkButton
-          href="/dashboard/coaches"
+          href="/coaches"
           label="Back"
           type={null}
           startIcon={<ArrowBackIcon />}
           style={{ position: "absolute", left: "17rem", top: "5rem" }}
         />
         <LinkButton
-          href={`/dashboard/coaches/view/${params.slug}/announcements`}
+          href={`/coaches/view/${params.slug}/announcements`}
           label="Announcements"
           type={null}
           startIcon={null}

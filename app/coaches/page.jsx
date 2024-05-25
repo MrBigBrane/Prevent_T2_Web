@@ -1,12 +1,10 @@
 'use server';
 
-import MuiTree from '@/components/display/cohorts/MuiTree'
 import coachUserList from '@/components/serverfunctions/coach/coachUserList'
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
 import { redirect } from 'next/navigation';
 import AddClassModal from '@/components/forms/coaching/AddClassModal'
-import AddClassCoach from '@/components/forms/coaching/AddClass';
 import { DialogContentText, Typography } from '@mui/material';
 
 export default async function CoachesPage({ searchParams }) {
@@ -16,7 +14,7 @@ export default async function CoachesPage({ searchParams }) {
         redirect('/login?message=Unauthorized access! Please login first.')
     }
     else if(!classCopy[0]){
-        redirect('/dashboard/becomecoach?unauthorized=true')
+        redirect('/profile/becomecoach?unauthorized=true')
     }
 
     let coachUserData = Array.from(await coachUserList())

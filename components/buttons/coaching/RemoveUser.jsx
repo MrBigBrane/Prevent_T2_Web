@@ -28,7 +28,7 @@ export default function RemoveUserModal({ userId, ...props }) {
 
   return (
     <>
-      <MuiButton {...props} startIcon={<PersonRemoveIcon />} label="Remove User" type={null} click={handleClickOpen} color="error" />
+      <MuiButton {...props} startIcon={<PersonRemoveIcon />} label="Remove User" click={handleClickOpen} color="error" />
       <Dialog
         open={open}
         onClose={handleClose}
