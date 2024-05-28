@@ -1,18 +1,17 @@
 'use client';
 
 import { useFormState } from "react-dom"
-import MuiButton from '../../buttons/MuiButton'
-import resetEmail from '@/lib/reset/resetEmail'
+import editClassName from '@/lib/coach/class/editClassName'
 import { Box, IconButton } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
-import MuiTextField from '../../inputs/MuiTextField'
+import MuiTextField from '@/components/inputs/MuiTextField'
 import CloseIcon from '@mui/icons-material/Close';
 import CheckIcon from '@mui/icons-material/Check';
 import { useState } from "react";
 
 
-export default function EmailReset({ email }) {
-    const [state, formAction] = useFormState(resetEmail, { message: null }) 
+export default function EditClassName({ className, code, ...props }) {
+    const [state, formAction] = useFormState(editClassName, { message: null }) 
     const [edit , setEdit] = useState(false)
 
     function handleEdit() {
@@ -22,16 +21,20 @@ export default function EmailReset({ email }) {
     return (
       <div>
         <form action={formAction}>
-          <Box display="flex">
+          <Box display={"flex"} sx={{ position: "fixed", top: 64}} {...props}>
             <MuiTextField
-              //className="rounded-md px-4 py-2 bg-inherit border mb-6"
-              id={"email"}
-              type="email"
-              label={null}
-              name="email"
-              defaultValue={email}
+              name="className"
+              defaultValue={className}
               required
               disabled={!edit}
+            />
+            <MuiTextField
+              defaultValue={code}
+              name="rowId"
+              id="rowId"
+              label="id"
+              variant="filled"
+              type="hidden"
             />
             {!edit ? (
               <IconButton label="Edit" onClick={handleEdit}>
@@ -40,7 +43,7 @@ export default function EmailReset({ email }) {
             ) : null}
             {edit ? (
               <>
-                <IconButton type="submit">
+                <IconButton label="Save" type="submit">
                   <CheckIcon />
                 </IconButton>
                 <IconButton label="Close" onClick={handleEdit}>
@@ -48,6 +51,7 @@ export default function EmailReset({ email }) {
                 </IconButton>
               </>
             ) : null}
+            
           </Box>
         </form>
       </div>

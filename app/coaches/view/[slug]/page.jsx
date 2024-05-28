@@ -6,10 +6,11 @@ import CoachUserTable from '@/components/tables/coachview/classview/CoachUserTab
 
 import { redirect } from "next/navigation";
 import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import EditClass from '@/components/forms/coaching/class/EditClass'
 import LinkButton from "@/components/buttons/LinkButton";
 import { Box, Typography } from "@mui/material";
 import CsvButton from '@/components/buttons/download/CsvButton'
+import DeleteClassModal from '@/components/forms/coaching/class/DeleteClassModal'
 
 export default async function UserPage({ params }) {
 
@@ -31,33 +32,32 @@ export default async function UserPage({ params }) {
     
     return (
       <>
-        <LinkButton
-          href="/coaches"
-          label="Back"
-          type={null}
-          startIcon={<ArrowBackIcon />}
-          style={{ position: "absolute", left: "17rem", top: "5rem" }}
-        />
-        <LinkButton
+        {/* <LinkButton
           href={`/coaches/view/${params.slug}/announcements`}
           label="Announcements"
           type={null}
           startIcon={null}
+          style={{ position: "absolute", right: "1rem", top: "5rem" }}
+        /> */}
+        <DeleteClassModal
+          code={params.slug.substring(0, 6)}
           style={{ position: "absolute", right: "1rem", top: "5rem" }}
         />
         <CsvButton
           searchValue={params.slug.substring(0, 6)}
           style={{ position: "absolute", right: "3rem", bottom: "2rem" }}
         />
-        <Typography variant="h5" style={{ textAlign: "center" }}>
+        {/* <Typography variant="h5" style={{ textAlign: "center" }}>
           {data[0].class_name}
-        </Typography>
+        </Typography> */}
+        <EditClass code={params.slug.substring(0, 6)} className={data[0].class_name} sx={{ position: "fixed", top: 64, justifyContent: "center"}}  />
         <Box
           sx={{
             width: "100%",
             textAlign: "center",
             padding: "20px",
             bottompadding: "0px",
+            marginTop: "3rem",
           }}
         >
           <CoachUserTable code={params.slug.substring(0, 6)} />

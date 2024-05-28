@@ -170,7 +170,7 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
           Resources
         </LinkButton2>
         {/*START_DEV_ONLY */}
-        <LinkButton2 label="Dev" sx={{ my: 2, color: 'white', display: 'block' }} href="/dashboard/testing">Dev</LinkButton2>
+        <LinkButton2 label="Dev" sx={{ my: 2, color: 'white', display: 'block' }} href="/testing">Dev</LinkButton2>
         {/*END_DEV_ONLY */}
       </Box>
 
