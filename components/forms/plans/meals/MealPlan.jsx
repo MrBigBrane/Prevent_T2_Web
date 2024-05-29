@@ -7,14 +7,25 @@ import editMealPlan from '@/lib/plans/editMealPlan'
 import MuiButton from '@/components/buttons/MuiButton';
 import MuiTextField from '../../../inputs/MuiTextField';
 import MuiSelect from '../../../inputs/MuiSelect';
+import { useState } from 'react';
+import { Box, LinearProgress } from '@mui/material';
 
 export default function MealPlan({ click, mealType, item, amount, calories, rowId }) {
     const [state, formAction] = useFormState(rowId ? editMealPlan : mealPlanAction, { message: null })
+    const [loading, setLoading] = useState(false);
 
+    function handleLoading() {
+        setLoading(true);
+    }
       
     return (
-      <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
-        <form id="mealPlanForm" name="mealPlanForm" action={formAction} className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
+      <>
+        {loading ? (
+          <Box width={"100%"}>
+            <LinearProgress color='success' />
+          </Box>
+        ) : null}
+        <form action={formAction}>
           {rowId ? (
             <MuiTextField
               defaultValue={rowId}
@@ -65,10 +76,10 @@ export default function MealPlan({ click, mealType, item, amount, calories, rowI
             label={rowId ? "Confirm Edit" : "Add Plan"}
             type="submit"
             startIcon={null}
-            click={click}
+            click={click ? click : handleLoading}
           />
         </form>
-      </div>
+      </>
       
     );
 }

@@ -26,13 +26,6 @@ export default async function ActionPlanPage({ searchParams }) {
 
     return (
       <>
-        <LinkButton
-          href="/profile"
-          label="Back"
-          type={null}
-          startIcon={<ArrowBackIcon />}
-          style={{ position: 'absolute', left: "1rem", top: "5rem" }}
-        />
         <Box display="flex" alignContent="center">
           {searchParams?.add && (
             <MuiSuccess severity="success">
@@ -64,7 +57,6 @@ export default async function ActionPlanPage({ searchParams }) {
               );
             })}
         </Box>
-        <MealModal />
       </>
     );
 }

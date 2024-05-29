@@ -6,13 +6,24 @@ import { useFormState } from 'react-dom';
 import editTableAction from '@/lib/users/editCoachTableAction.jsx';
 import tableAction from '@/lib/users/lifestyleTableAction';
 import MuiButton from '@/components/buttons/MuiButton';
+import { useState } from 'react';
+import { Box, LinearProgress } from '@mui/material';
 
 export default function LifestyleCoachLogPage({ field1, field2, field3, rowId, click }) {
     const [state, formAction] = useFormState(rowId ?  editTableAction : tableAction, { message: null })
-    console.log('this is minutes')
-    console.log(field2)
+    const [loading, setLoading] = useState(false);
+
+    function handleLoading() {
+        setLoading(true);
+    }
+
     return (
       <>
+        {loading ? (
+          <Box width={"100%"}>
+            <LinearProgress color="success" />
+          </Box>
+        ) : null}
         <form action={formAction}>
           {field3 ? (
             <MuiTextField
@@ -48,7 +59,7 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, rowId, c
             label={rowId ? "Confirm Edit" : "Submit"}
             type="submit"
             startIcon={null}
-            click={click}
+            click={click ? click : handleLoading}
           />
           <MuiTextField
             defaultValue={rowId}

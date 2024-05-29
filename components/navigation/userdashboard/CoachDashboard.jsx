@@ -12,6 +12,7 @@ import { useState } from 'react';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import { Button } from '@mui/material';
+import Link from 'next/link';
 
 const drawerWidth = 240;
 
@@ -30,15 +31,16 @@ function ResponsiveDrawer({ main, tree, ...props }) {
       
       <Divider />
       <List>
-        {[['Add Class', '/coaches?addclass=true'], ['Invite Users', '/coaches?invite=true']].map((text, index) => (
+        {[['Add Class', '/coaches/addclass']].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton href={text[1]}>
+            <Link href={text[1]} style={{ width: "100%" }}>
+            <ListItemButton>
               <ListItemIcon>
-                {index === 1 && <GroupAddIcon />}
                 {index === 0 && <AddBoxIcon />}
               </ListItemIcon>
               <ListItemText primary={text[0]} />
             </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>

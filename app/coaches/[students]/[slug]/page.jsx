@@ -42,14 +42,6 @@ export default async function UserPage({ params }) {
 
     return (
       <Box width={"100%"}>
-        <LinkButton
-          href={`/coaches/${params.students}`}
-          label="Back"
-          type={null}
-          startIcon={<ArrowBackIcon />}
-          padding={2}
-          style={{ position: "absolute", left: "17rem", top: "5rem" }}
-        />
         <Typography variant="h5" style={{ textAlign: "center" }}>
           {data[0].first_name} {data[0].last_name}
         </Typography>

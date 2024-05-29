@@ -1,19 +1,23 @@
+'use client';
+
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
+import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 import { useState } from 'react';
+import Link from 'next/link';
+import GroupsIcon from '@mui/icons-material/Groups';
+import PersonIcon from '@mui/icons-material/Person';
+import CampaignIcon from '@mui/icons-material/Campaign';
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 
-export default function NestedList() {
-  const [open, setOpen] = useState(true);
+export default function NestedList({ cohortName, code }) {
+  const [open, setOpen] = useState(false);
 
   const handleClick = () => {
     setOpen(!open);
@@ -21,42 +25,51 @@ export default function NestedList() {
 
   return (
     <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+      sx={{ width: "100%", bgcolor: "background.paper" }}
       component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          Nested List Items
-        </ListSubheader>
-      }
     >
-      <ListItemButton>
-        <ListItemIcon>
-          <SendIcon />
-        </ListItemIcon>
-        <ListItemText primary="Sent mail" />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemIcon>
-          <DraftsIcon />
-        </ListItemIcon>
-        <ListItemText primary="Drafts" />
-      </ListItemButton>
       <ListItemButton onClick={handleClick}>
         <ListItemIcon>
-          <InboxIcon />
+          <HolidayVillageIcon />
         </ListItemIcon>
-        <ListItemText primary="Inbox" />
+        <ListItemText primary={cohortName} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
+
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="Starred" />
-          </ListItemButton>
+          <Link href={`/coaches/view/${code}class`} style={{ width: "100%" }}>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <GroupsIcon />
+              </ListItemIcon>
+              <ListItemText primary="View Class" />
+            </ListItemButton>
+          </Link>
+          <Link href={`/coaches/${code}student`} style={{ width: "100%" }}>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <PersonIcon />
+              </ListItemIcon>
+              <ListItemText primary="View Students" />
+            </ListItemButton>
+          </Link>
+          <Link href={`/coaches/view/${code}class/announcements`} style={{ width: "100%" }}>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <CampaignIcon />
+              </ListItemIcon>
+              <ListItemText primary="Announcements" />
+            </ListItemButton>
+          </Link>
+          <Link href={`/coaches/view/${code}class/invite`} style={{ width: "100%" }}>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <PersonAddAlt1Icon />
+              </ListItemIcon>
+              <ListItemText primary="Invite" />
+            </ListItemButton>
+          </Link>
         </List>
       </Collapse>
     </List>

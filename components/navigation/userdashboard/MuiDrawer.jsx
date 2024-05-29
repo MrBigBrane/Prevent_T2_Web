@@ -14,6 +14,9 @@ import ViewListIcon from '@mui/icons-material/ViewList';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import Link from 'next/link';
 import { Button } from '@mui/material';
+import ListSubheader from '@mui/material/ListSubheader';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 
 const drawerWidth = 240;
 
@@ -26,14 +29,20 @@ function ResponsiveDrawer({ main, ...props }) {
 
   const drawer = (
     <Box overflow={"auto"}>
-      <List>
+      <List
+        subheader={
+          <ListSubheader id="nested-list-subheader">
+            Activities
+          </ListSubheader>
+        }
+      >
         {[
           ["Activity Stats", "/dashboard"],
           ["View Activities", "/dashboard/activities"],
-          ["Add Activity", "/dashboard/activities?open=true"],
+          ["Add Activity", "/dashboard/activities/addactivity"],
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
-            {index != 2 ? <Link href={text[1]} style={{ width: "100%" }}>
+            <Link href={text[1]} style={{ width: "100%" }}>
               <ListItemButton>
                 <ListItemIcon>
                   {index === 0 && <InsightsIcon />}
@@ -42,28 +51,23 @@ function ResponsiveDrawer({ main, ...props }) {
                 </ListItemIcon>
                 <ListItemText primary={text[0]} />
               </ListItemButton>
-            </Link> : (
-              <ListItemButton href={text[1]}>
-              <ListItemIcon>
-                {index === 0 && <InsightsIcon />}
-                {index === 1 && <ViewListIcon />}
-                {index === 2 && <AddBoxIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text[0]} />
-            </ListItemButton>
-            )}
+            </Link>
           </ListItem>
         ))}
       </List>
       <Divider />
-      <List>
+      <List subheader={
+        <ListSubheader id="nested-list-subheader">
+          Coach Logs
+        </ListSubheader>
+      }>
         {[
           ["Weight Stats", "/dashboard/weightstats"],
           ["View Coach Log", "/dashboard/coachlog"],
-          ["Add Coach Log", "/dashboard/coachlog?open=true"],
+          ["Add Coach Log", "/dashboard/coachlog/addcoachlog"],
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
-            {index != 2 ? <Link href={text[1]} style={{ width: "100%" }}>
+            <Link href={text[1]} style={{ width: "100%" }}>
               <ListItemButton>
                 <ListItemIcon>
                   {index === 0 && <InsightsIcon />}
@@ -72,16 +76,53 @@ function ResponsiveDrawer({ main, ...props }) {
                 </ListItemIcon>
                 <ListItemText primary={text[0]} />
               </ListItemButton>
-            </Link> : (
-              <ListItemButton href={text[1]}>
-              <ListItemIcon>
-                {index === 0 && <InsightsIcon />}
-                {index === 1 && <ViewListIcon />}
-                {index === 2 && <AddBoxIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text[0]} />
-            </ListItemButton>
-            )}
+            </Link>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List subheader={
+        <ListSubheader id="nested-list-subheader">
+          Meal Plans
+        </ListSubheader>
+      }>
+        {[
+          ["Meal Plans", "/dashboard/plans/mealplan"],
+          ["Add Meal Plan", "/dashboard/plans/mealplan/addmealplan"],
+        ].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <Link href={text[1]} style={{ width: "100%" }}>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index === 0 && <RestaurantIcon />}
+                  {index === 1 && <AddBoxIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text[0]} />
+              </ListItemButton>
+            </Link>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List subheader={
+        <ListSubheader id="nested-list-subheader">
+          Action Plans
+        </ListSubheader>
+      }>
+        {[
+          ["Action Plans", "/dashboard/plans/actionplan"],
+          ["Add Action Plan", "/dashboard/plans/actionplan/addactionplan"],
+        ].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <Link href={text[1]} style={{ width: "100%" }}>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index === 0 && <DirectionsRunIcon />}
+                  {index === 1 && <AddBoxIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text[0]} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>

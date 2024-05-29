@@ -8,6 +8,7 @@ import minutesPerWeek from '@/components/serverfunctions/minutesPerWeek';
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess';
 import getCurrentUser from '@/components/serverfunctions/getCurrentUser';
 import { Box, Typography } from '@mui/material';
+import LinkAddButton from '@/components/buttons/linkbuttons/LinkAddButton';
 
 export default async function CoachPage({ searchParams }) {
   const user = Object.assign({}, await getCurrentUser())
@@ -22,42 +23,28 @@ export default async function CoachPage({ searchParams }) {
 
     return (
       <>
-        {searchParams?.add &&  <MuiSuccess severity="success">Coach Log Added!</MuiSuccess>}
-        {searchParams?.edit &&  <MuiSuccess severity="success">Coach Log Edited!</MuiSuccess>}
-        {searchParams?.delete &&  <MuiSuccess severity="success">Coach Log Deleted!</MuiSuccess>}
-        
-        
-        <Typography variant="h5" style={{ textAlign: "center" }}>Coach Logs</Typography>
-          <LinkButton 
-          href="/dashboard/weightstats" 
-          label="Back" 
-          type={null} 
-          startIcon={<ArrowBackIcon />} 
-          padding={2}
-          style={{position : 'absolute', left: '17rem', top: '5rem'}}
-        />
-        <MuiModal 
-          edit={false} 
-          title={null} 
-          rowId={false} 
-          field3={weeksMinutes} 
-          field2='' 
-          field1='' 
-          style={{position : 'absolute', right: '1rem', top: '5rem'}}
-          search={searchParams?.open ? true : false}
-        />
-        
-        <Box 
-        style={{width: '95%', textAlign: 'center'}}
-         marginTop={4}
-         marginLeft={1}
-         marginRight={1}>
-          
+        {searchParams?.add && (
+          <MuiSuccess severity="success">Coach Log Added!</MuiSuccess>
+        )}
+        {searchParams?.edit && (
+          <MuiSuccess severity="success">Coach Log Edited!</MuiSuccess>
+        )}
+        {searchParams?.delete && (
+          <MuiSuccess severity="success">Coach Log Deleted!</MuiSuccess>
+        )}
+
+        <Typography variant="h5" style={{ textAlign: "center" }}>
+          Coach Logs
+        </Typography>
+
+        <Box
+          style={{ width: "95%", textAlign: "center" }}
+          marginTop={4}
+          marginLeft={1}
+          marginRight={1}
+        >
           <CoachTable table="lifestyle_coach_log" />
         </Box>
-        
-        
       </>
-        
     );
 }

@@ -6,12 +6,25 @@ import { useFormState } from 'react-dom';
 import editTableAction from '@/lib/users/editActivitiesTableAction.jsx';
 import tableAction from '@/lib/users/activitiesTableAction.jsx';
 import MuiButton from '@/components/buttons/MuiButton';
+import { Box, LinearProgress } from '@mui/material';
+import { useState } from 'react';
+
 
 export default function ActivityLogPage({ field1, field2, field3, rowId, click }) {
+    const [loading, setLoading] = useState(false)
     const [state, formAction] = useFormState(rowId ? editTableAction : tableAction, { message: null })
+
+    function handleLoading() {
+        setLoading(true);
+    }
 
     return (
       <>
+        {loading ? (
+          <Box width={"100%"}>
+            <LinearProgress color='success' />
+          </Box>
+        ) : null}
         <form action={formAction}>
           <MuiTextField
             defaultValue={field1}
@@ -44,7 +57,7 @@ export default function ActivityLogPage({ field1, field2, field3, rowId, click }
             label={rowId ? "Confirm Edit" : "Add Activity"}
             type="submit"
             startIcon={null}
-            click={click}
+            click={click ? click : handleLoading}
           />
           {rowId ? (
             <MuiTextField

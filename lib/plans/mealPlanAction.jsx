@@ -30,10 +30,10 @@ export default async function mealPlanAction(prevState, formData) {
      })
      .select()
 
-    if(!error) redirect('/plans/mealplan?add=success'); 
+    if(!error) redirect('/dashboard/plans/mealplan?add=success'); 
     else {
         console.log(error)
-        redirect('/plans/mealplan?add=failed');
+        redirect('/dashboard/plans/mealplan?add=failed');
     }
     
 }

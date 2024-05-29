@@ -37,8 +37,6 @@ export default async function CoachesPage({ searchParams }) {
             <Typography variant="h6">Welcome to coaches page!</Typography>
             <Typography variant="p">Get started by creating a class! If you already have one then go on and checkout
             how your students are doing!</Typography>
-            <AddClassModal form={null} title="Add Class"  opening={searchParams?.addclass} />
-            <AddClassModal form={classes.map((row) => row)} title="Invite Users"  opening={searchParams?.invite} />
         </>
     )
 }

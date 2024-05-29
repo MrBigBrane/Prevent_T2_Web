@@ -20,10 +20,10 @@ export default async function mealPlanAction(prevState, formData) {
      .select()
      .eq('id', formData.get('rowIdinput'))
 
-    if(!error) redirect('/plans/actionplan?edit=success'); 
+    if(!error) redirect('/dashboard/plans/actionplan?edit=success'); 
     else {
         console.log(error)
-        redirect('/plans/action?notedit=failed');
+        redirect('/dashboard/plans/action?notedit=failed');
     }
     
 }
