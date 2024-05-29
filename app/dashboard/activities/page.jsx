@@ -8,6 +8,7 @@ import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import getCurrentUser from '@/components/serverfunctions/getCurrentUser'
 import { redirect } from "next/navigation";
 import { Box, Typography } from "@mui/material";
+import LinkAddButton from '@/components/buttons/linkbuttons/LinkAddButton'
 
 
 export default async function ActivityTablePage({ searchParams }) {
@@ -33,30 +34,14 @@ export default async function ActivityTablePage({ searchParams }) {
       )}
 
       {/* Render a back button */}
-      <LinkButton
-        href="/dashboard"
-        label="Back"
-        type={null}
-        startIcon={<ArrowBackIcon />}
-        padding={2}
-        style={{position : 'absolute', left: '17rem', top: '5rem'}}
-      />
 
       {/* Render the Activity Logs page header */}
-      
 
       {/* Render the Activity Logger modal component */}
-      <MuiModal
-        edit={false}
-        title="Activity Logger"
-        rowId={false}
-        field1=""
-        field2=""
-        field3=""
-        search={searchParams?.open ? true : false}
-        style={{position : 'fixed', right: '1rem', top: '5rem'}}
-      />
-      <Typography variant="h5" style={{ textAlign: "center" }}>Activity Logs</Typography>
+
+      <Typography variant="h5" style={{ textAlign: "center" }}>
+        Activity Logs
+      </Typography>
       {/* Render the ActivityTable component */}
       <Box
         style={{ width: "95%", textAlign: "center" }}

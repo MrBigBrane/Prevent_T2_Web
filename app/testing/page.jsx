@@ -3,11 +3,11 @@
 import CoachDashboard from '@/components/navigation/userdashboard/CoachDashboard';
 import MuiList from '@/components/display/cohorts/MuiList'
 import coachUserList from '@/components/serverfunctions/coach/coachUserList'
-import { Box, List, ListSubheader } from '@mui/material';
+import { Box } from '@mui/material';
 import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
 
 
-export default async function RootLayout({ children }) {
+export default async function TestPage() {
     
     let coach = Object.assign({}, await fetchCoach())
     let coachUserData;
@@ -17,18 +17,17 @@ export default async function RootLayout({ children }) {
 
 
     let tree = coachUserData[1].map((row) => {
-      return <MuiList key={row.id} cohortName={row.label} code={row.id}/>
+      return <MuiList cohortName={row.label} code={row.id}/>
     })
+
+    console.log(tree)
 
   return (
     <Box width={"100%"}>
       {coachUserData ? <CoachDashboard
-        main={children}
-        tree={<List subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
-            Your Classes
-          </ListSubheader>}>{tree}</List>}
-      /> : children}
+        main={<div>Hello</div>}
+        tree={tree}
+      /> : null}
     </Box>
   );
 }

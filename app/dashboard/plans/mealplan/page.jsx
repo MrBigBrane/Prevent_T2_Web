@@ -8,17 +8,8 @@ export default function MealPlanPage() {
 
     return (
       <>
-        <LinkButton
-          href="/profile"
-          label="Back"
-          type={null}
-          startIcon={<ArrowBackIcon />}
-          style={{position : 'absolute', left: '1rem', top: '5rem'}}
-        />
-        <MealModal style={{ position: "absolute", right: "1rem", top: "5rem" }} />
         <Typography variant="h5" style={{ textAlign: "center" }}>Meal Plan</Typography>
         <MealTable />
-        
       </>
     );
 }

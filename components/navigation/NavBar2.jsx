@@ -89,16 +89,6 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
               <Typography textAlign="center">User Dashboard</Typography>
             </MenuItem>
           </Link>
-          <Link href={user ? "/plans/mealplan" : "/login"}>
-            <MenuItem onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">Meal Plan</Typography>
-            </MenuItem>
-          </Link>
-          <Link href={user ? "/plans/mealplan" : "/login"}>
-            <MenuItem onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">Action Plan</Typography>
-            </MenuItem>
-          </Link>
           {coachCopy[0] ? (
             <Link href="/coaches">
               <MenuItem onClick={handleCloseNavMenu}>
@@ -150,7 +140,6 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
         >
           User Dashboard
         </LinkButton2>
-        <MuiLinkMenu user={user} />
         {coachCopy[0] ? (
           <LinkButton2
             variant="text"
@@ -170,7 +159,7 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
           Resources
         </LinkButton2>
         {/*START_DEV_ONLY */}
-        <LinkButton2 label="Dev" sx={{ my: 2, color: 'white', display: 'block' }} href="/dashboard/testing">Dev</LinkButton2>
+        <LinkButton2 label="Dev" sx={{ my: 2, color: 'white', display: 'block' }} href="/testing">Dev</LinkButton2>
         {/*END_DEV_ONLY */}
       </Box>
 

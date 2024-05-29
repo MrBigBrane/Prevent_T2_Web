@@ -8,36 +8,20 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import { Button } from '@mui/material';
+import Link from 'next/link';
 
 const drawerWidth = 240;
 
 function ResponsiveDrawer({ main, tree, ...props }) {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const handleDrawerClose = () => {
-    setIsClosing(true);
-    setMobileOpen(false);
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
   };
-
-  const handleDrawerTransitionEnd = () => {
-    setIsClosing(false);
-  };
-
-  const handleDrawerToggle = () => {
-    if (!isClosing) {
-      setMobileOpen(!mobileOpen);
-    }
-  };
-
-  const handleOpen2 = () => {
-    setOpen2(true);
-  }
 
   const drawer = (
     <Box overflow={'auto'}>
@@ -47,15 +31,16 @@ function ResponsiveDrawer({ main, tree, ...props }) {
       
       <Divider />
       <List>
-        {[['Add Class', '/coaches?addclass=true'], ['Invite Users', '/coaches?invite=true']].map((text, index) => (
+        {[['Add Class', '/coaches/addclass']].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton href={text[1]}>
+            <Link href={text[1]} style={{ width: "100%" }}>
+            <ListItemButton>
               <ListItemIcon>
-                {index === 1 && <GroupAddIcon />}
                 {index === 0 && <AddBoxIcon />}
               </ListItemIcon>
               <ListItemText primary={text[0]} />
             </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>
@@ -70,27 +55,12 @@ function ResponsiveDrawer({ main, tree, ...props }) {
         aria-label="mailbox folders"
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Drawer
-          variant="permanent"
-          open={mobileOpen}
-          onTransitionEnd={handleDrawerTransitionEnd}
-          onClose={handleDrawerClose}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-              height: "100%", // Set the height here},
-              position: "fixed", // Ensure it does not push content
-              top: 64, // Adjust as necessary, assuming a fixed AppBar height
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
+        <Box display={{ xs: "block", sm: "block", md: "none" }} sx={{ position: "absolute", top: 64 }}>
+          <Button onClick={toggleDrawer(true)}>Menu</Button>
+          <Drawer open={open} onClose={toggleDrawer(false)}>
+            {drawer}
+          </Drawer>
+        </Box>
         <Drawer
           variant="permanent"
           sx={{

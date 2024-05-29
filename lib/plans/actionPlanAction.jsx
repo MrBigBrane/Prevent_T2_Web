@@ -23,10 +23,10 @@ export default async function tableAction(prevState, formData) {
      })
      .select()
 
-    if(!error) redirect('/plans/actionplan?add=success'); 
+    if(!error) redirect('/dashboard/plans/actionplan?add=success'); 
     else {
         console.log(error)
-        redirect('/plans/actionplan?notadded=failed');
+        redirect('/dashboard/plans/actionplan?notadded=failed');
     }
     
 }

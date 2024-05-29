@@ -18,8 +18,8 @@ export default async function ProfilePage() {
 
     return (
       <>
-        <Paper square={false} elevation={3} style={{ width: "45%" }}>
-          <Box item display={"flex"} padding={5}>
+        <Paper elevation={3} style={{ width: "45%" }}>
+          <Box display={"flex"} padding={5}>
             <Paper elevation={10}>
               <Box display={"inline-block"} padding={2} textAlign={"center"}>
                 <IconButton>

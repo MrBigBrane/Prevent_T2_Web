@@ -4,14 +4,14 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
-import MealPlan from './MealPlan';
-import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
-import MuiButton from '@/components/buttons/MuiButton';
+import DeleteButton from './DeleteButton'
+import { DeleteButtonIcon } from './DeleteButton';
 
 
-export default function FormDialog() {
+export default function DeleteModal({ code, ...props }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -24,17 +24,27 @@ export default function FormDialog() {
 
   return (
     <>
-      <MuiButton startIcon={<LibraryAddIcon />} label="Add Meal Plan" type='' color="secondary" click={handleClickOpen} />
+      <DeleteButtonIcon
+        click={handleClickOpen}
+        {...props}
+      />
       <Dialog
         open={open}
         onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
       >
-        <DialogTitle>Add Meal Plan</DialogTitle>
+        <DialogTitle id="alert-dialog-title">
+          {"Are you sure you want to delete this class?"}
+        </DialogTitle>
         <DialogContent>
-          <MealPlan click={handleClose} />
+          <DialogContentText id="alert-dialog-description">
+            This action cannot be undone.
+          </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
+          <DeleteButton rowId={code} />
         </DialogActions>
       </Dialog>
     </>
