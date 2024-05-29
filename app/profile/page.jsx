@@ -19,31 +19,28 @@ export default async function ProfilePage() {
     return (
       <>
         <Paper elevation={3} style={{ width: "45%" }}>
-          <Box display={"flex"} padding={5}>
-            <Paper elevation={10}>
-              <Box display={"inline-block"} padding={2} textAlign={"center"}>
-                <IconButton>
-                  <MuiAvatar
-                    name={`${user.user_metadata.first_name} ${user.user_metadata.last_name}`}
-                    style={{ width: 90, height: 90 }}
-                  />
-                </IconButton>
-                <Typography
-                  variant="h4"
-                  style={{ textAlign: "center", marginTop: "1rem" }}
-                >
-                  {user.user_metadata.first_name}
-                  <br />
-                  {user.user_metadata.last_name}
-                </Typography>
-              </Box>
-            </Paper>
-            <Box display={"inline-block"} marginLeft={"auto"}>
-              <EmailReset email={user.user_metadata.email} />
-              <NameModal
-                firstName={user.user_metadata.first_name}
-                lastName={user.user_metadata.last_name}
+          <Box>
+            <IconButton>
+              <MuiAvatar
+                name={`${user.user_metadata.first_name} ${user.user_metadata.last_name}`}
+                style={{ width: 90, height: 90 }}
               />
+            </IconButton>
+            <Typography
+              variant="h4"
+              style={{ textAlign: "center", marginTop: "2rem" }}
+            >
+              {user.user_metadata.first_name}
+              {user.user_metadata.last_name}
+            </Typography>
+            <NameModal
+              firstName={user.user_metadata.first_name}
+              lastName={user.user_metadata.last_name}
+            />
+            <Box marginLeft={"auto"}>
+              <Box marginLeft={5}>
+                <EmailReset email={user.user_metadata.email} />
+              </Box>
             </Box>
           </Box>
         </Paper>
@@ -87,7 +84,7 @@ export default async function ProfilePage() {
         </Box>
         <Box marginTop={5} width={"45%"}>
           <Typography variant="h4">Security</Typography>
-          <Box >
+          <Box>
             <Paper elevation={10}>
               <Box sx={{ padding: "20px" }}>
                 <Typography variant="h5" marginBottom={2}>

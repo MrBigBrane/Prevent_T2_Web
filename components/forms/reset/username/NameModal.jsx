@@ -7,6 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import NameChange from './NameChange';
+import { IconButton } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
 
 export default function FormDialog({ firstName, lastName, ...props }) {
   
@@ -21,7 +23,10 @@ export default function FormDialog({ firstName, lastName, ...props }) {
   };
   return (
     <>
-      <Button onClick={handleClickOpen} color='success' variant='contained'>Change Display Name</Button>
+      {/* <Button onClick={handleClickOpen} color='success' variant='contained'></Button> */}
+      <IconButton onClick={handleClickOpen}>
+        <EditIcon></EditIcon>
+      </IconButton>
       <Dialog open={open} onClose={handleClose} >
         <DialogTitle>Display Name Change</DialogTitle>
         <DialogContent>
