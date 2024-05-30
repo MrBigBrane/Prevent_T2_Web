@@ -79,11 +79,11 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
             display: { xs: "block", md: "none" },
           }}
         >
-          <Link href="/">
+          {user ? null : <Link href="/">
             <MenuItem onClick={handleCloseNavMenu}>
               <Typography textAlign="center">Home</Typography>
             </MenuItem>
-          </Link>
+          </Link>}
           <Link href={user ? "/dashboard" : "/login"}>
             <MenuItem onClick={handleCloseNavMenu}>
               <Typography textAlign="center">User Dashboard</Typography>
@@ -126,13 +126,13 @@ function ResponsiveAppBar({ user, coachCopy, authButton }) {
         <Link href="/">NRIVA DPP</Link>
       </Typography>
       <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-        <LinkButton2
+        {user ? null : <LinkButton2
           label="Home"
           sx={{ my: 2, color: "white", display: "block" }}
           href="/"
         >
           Home
-        </LinkButton2>
+        </LinkButton2>}
         <LinkButton2
           label="User Dashboard"
           sx={{ my: 2, color: "white", display: "block" }}
