@@ -14,11 +14,17 @@ import ViewListIcon from '@mui/icons-material/ViewList';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import Link from 'next/link';
 import { Button } from '@mui/material';
-import ListSubheader from '@mui/material/ListSubheader';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
+import CollapseList from './CollapseList';
+import SportsIcon from '@mui/icons-material/Sports';
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
+import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
+
 
 const drawerWidth = 240;
+
 
 function ResponsiveDrawer({ main, ...props }) {
   const [open, setOpen] = useState(false);
@@ -27,104 +33,94 @@ function ResponsiveDrawer({ main, ...props }) {
     setOpen(newOpen);
   };
 
+  const activities = [
+    ["Activity Stats", "/dashboard"],
+    ["View Activities", "/dashboard/activities"],
+    ["Add Activity", "/dashboard/activities/addactivity"],
+  ].map((text, index) => (
+    <ListItem key={text} disablePadding>
+      <Link href={text[1]} style={{ width: "100%" }}>
+        <ListItemButton>
+          <ListItemIcon>
+            {index === 0 && <InsightsIcon />}
+            {index === 1 && <ViewListIcon />}
+            {index === 2 && <AddBoxIcon />}
+          </ListItemIcon>
+          <ListItemText primary={text[0]} />
+        </ListItemButton>
+      </Link>
+    </ListItem>
+  ));
+
+  const coachLogs = [
+    ["Weight Stats", "/dashboard/weightstats"],
+    ["View Coach Log", "/dashboard/coachlog"],
+    ["Add Coach Log", "/dashboard/coachlog/addcoachlog"],
+  ].map((text, index) => (
+    <ListItem key={text} disablePadding>
+      <Link href={text[1]} style={{ width: "100%" }}>
+        <ListItemButton>
+          <ListItemIcon>
+            {index === 0 && <InsightsIcon />}
+            {index === 1 && <ViewListIcon />}
+            {index === 2 && <AddBoxIcon />}
+          </ListItemIcon>
+          <ListItemText primary={text[0]} />
+        </ListItemButton>
+      </Link>
+    </ListItem>
+  ));
+
+  const mealPlans = [
+    ["Meal Plans", "/dashboard/plans/mealplan"],
+    ["Add Meal Plan", "/dashboard/plans/mealplan/addmealplan"],
+  ].map((text, index) => (
+    <ListItem key={text} disablePadding>
+      <Link href={text[1]} style={{ width: "100%" }}>
+        <ListItemButton>
+          <ListItemIcon>
+            {index === 0 && <RestaurantIcon />}
+            {index === 1 && <AddBoxIcon />}
+          </ListItemIcon>
+          <ListItemText primary={text[0]} />
+        </ListItemButton>
+      </Link>
+    </ListItem>
+  ));
+
+  const actionPlans = [
+    ["Action Plans", "/dashboard/plans/actionplan"],
+    ["Add Action Plan", "/dashboard/plans/actionplan/addactionplan"],
+  ].map((text, index) => (
+    <ListItem key={text} disablePadding>
+      <Link href={text[1]} style={{ width: "100%" }}>
+        <ListItemButton>
+          <ListItemIcon>
+            {index === 0 && <DirectionsRunIcon />}
+            {index === 1 && <AddBoxIcon />}
+          </ListItemIcon>
+          <ListItemText primary={text[0]} />
+        </ListItemButton>
+      </Link>
+    </ListItem>
+  ))
+
   const drawer = (
     <Box overflow={"auto"}>
-      <List
-        subheader={
-          <ListSubheader id="nested-list-subheader">
-            Activities
-          </ListSubheader>
-        }
-      >
-        {[
-          ["Activity Stats", "/dashboard"],
-          ["View Activities", "/dashboard/activities"],
-          ["Add Activity", "/dashboard/activities/addactivity"],
-        ].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <Link href={text[1]} style={{ width: "100%" }}>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index === 0 && <InsightsIcon />}
-                  {index === 1 && <ViewListIcon />}
-                  {index === 2 && <AddBoxIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text[0]} />
-              </ListItemButton>
-            </Link>
-          </ListItem>
-        ))}
+      <List>
+        <CollapseList main={activities} category={"Activities"} icon={<SportsIcon />}/>
       </List>
       <Divider />
-      <List subheader={
-        <ListSubheader id="nested-list-subheader">
-          Coach Logs
-        </ListSubheader>
-      }>
-        {[
-          ["Weight Stats", "/dashboard/weightstats"],
-          ["View Coach Log", "/dashboard/coachlog"],
-          ["Add Coach Log", "/dashboard/coachlog/addcoachlog"],
-        ].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <Link href={text[1]} style={{ width: "100%" }}>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index === 0 && <InsightsIcon />}
-                  {index === 1 && <ViewListIcon />}
-                  {index === 2 && <AddBoxIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text[0]} />
-              </ListItemButton>
-            </Link>
-          </ListItem>
-        ))}
+      <List>
+        <CollapseList main={coachLogs} category={"Coach Logs"} icon={<VolunteerActivismIcon />}/>
       </List>
       <Divider />
-      <List subheader={
-        <ListSubheader id="nested-list-subheader">
-          Meal Plans
-        </ListSubheader>
-      }>
-        {[
-          ["Meal Plans", "/dashboard/plans/mealplan"],
-          ["Add Meal Plan", "/dashboard/plans/mealplan/addmealplan"],
-        ].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <Link href={text[1]} style={{ width: "100%" }}>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index === 0 && <RestaurantIcon />}
-                  {index === 1 && <AddBoxIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text[0]} />
-              </ListItemButton>
-            </Link>
-          </ListItem>
-        ))}
+      <List>
+        <CollapseList main={mealPlans} category={"Meal Plans"} icon={<LocalDiningIcon />}/>
       </List>
       <Divider />
-      <List subheader={
-        <ListSubheader id="nested-list-subheader">
-          Action Plans
-        </ListSubheader>
-      }>
-        {[
-          ["Action Plans", "/dashboard/plans/actionplan"],
-          ["Add Action Plan", "/dashboard/plans/actionplan/addactionplan"],
-        ].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <Link href={text[1]} style={{ width: "100%" }}>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index === 0 && <DirectionsRunIcon />}
-                  {index === 1 && <AddBoxIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text[0]} />
-              </ListItemButton>
-            </Link>
-          </ListItem>
-        ))}
+      <List>
+        <CollapseList main={actionPlans} category={"Action Plans"} icon={<HealthAndSafetyIcon />}/>
       </List>
     </Box>
   );

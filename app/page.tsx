@@ -1,12 +1,15 @@
 'use server';
 
+import { Box, Typography } from "@mui/material";
+
 export default async function Index() {
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-20 items-center">
-      {/*START_DEV_ONLY */}
-        <h1>Dummy Text</h1>
-        {/*END_DEV_ONLY */}
-    </div>
+    <Box>
+        <Typography variant="h4" style={{ textAlign: "center" }}>Home</Typography>
+        <Typography variant="h6">Welcome to NRIVAs Diabetes Prevention Program!</Typography>
+        <Typography variant="subtitle1">Helping you get and maintain great lifestyle habits</Typography>
+        <Typography variant="h6">To get started, create an account or login!</Typography>
+    </Box>
   );
 }
