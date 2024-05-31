@@ -20,14 +20,14 @@ export default function EmailReset() {
     const [section4, setSection4] = useState('hidden')
 
     return (
-      <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
+      <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center">
         <h1>
           Onboarding Questionnaire. Please fill this out to be considered for
           NRIVA DPP.
         </h1>
         <form
           action={formAction}
-          className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
+          className="animate-in flex-1 flex flex-col w-full text-foreground"
         >
           {/* {search?.section1 && (
             <> */}
@@ -80,6 +80,7 @@ export default function EmailReset() {
             required={true}
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             hidden={section1}
+            color="success"
           />
           {section1 === "" ? 
           <MuiButton
@@ -88,6 +89,7 @@ export default function EmailReset() {
               setSection1("hidden");
               setSection2("");
             }}
+            color="success"
           /> : null
         }
           
@@ -115,6 +117,7 @@ export default function EmailReset() {
             required={true}
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             hidden={section2}
+            color="success"
           />
           {/*  */}
           <label className="text-md" htmlFor="email" hidden={section2 === "hidden" ? true : false}>
@@ -129,6 +132,7 @@ export default function EmailReset() {
             required={true}
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             hidden={section2}
+            color="success"
           />
           {/* If yes */}
           <label className="text-md" htmlFor="email" hidden={section2 === "hidden" ? true : false}>
@@ -152,6 +156,7 @@ export default function EmailReset() {
             field3="Don't Know"
             required={true}
             hidden={section2}
+            color="success"
           />
           <label className="text-md" htmlFor="email" hidden={section2 === "hidden" ? true : false}>
             Do you have high blood pressure?
@@ -165,6 +170,7 @@ export default function EmailReset() {
             field3="Don't Know"
             required={true}
             hidden={section2}
+            color="success"
           />
           <label
             className="text-md"
@@ -184,6 +190,7 @@ export default function EmailReset() {
                 field3="Don't Know"
                 required={true}
                 hidden={section2}
+                color="success"
             />
           {section2 === "" ? 
           <MuiButton
@@ -192,6 +199,8 @@ export default function EmailReset() {
               setSection2("hidden");
               setSection1("");
             }}
+            color="success"
+            style={{ marginBottom: "8px" }}
           /> : null
         }
           {section2 === "" ? 
@@ -201,6 +210,7 @@ export default function EmailReset() {
               setSection2("hidden");
               setSection3("");
             }}
+            color="success"
           /> : null
         }
 
@@ -216,6 +226,7 @@ export default function EmailReset() {
             required={true}
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             hidden={section3}
+            color="success"
           />
           <label className="text-md" htmlFor="email" hidden={section3 === "hidden" ? true : false}>
             Are you committed to improving?
@@ -229,6 +240,7 @@ export default function EmailReset() {
             required={true}
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             hidden={section3}
+            color="success"
           />
           <label className="text-md" htmlFor="email" hidden={section3 === "hidden" ? true : false}>
             Do you allow NRIVA to share your weight confidentially with the CDC?
@@ -242,6 +254,7 @@ export default function EmailReset() {
             required={true}
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             hidden={section3}
+            color="success"
           />
           {section3 === "" ? 
           <MuiButton
@@ -250,6 +263,8 @@ export default function EmailReset() {
               setSection3("hidden");
               setSection2("");
             }}
+            color="success"
+            style={{ marginBottom: "8px" }}
           /> : null
         }
           {section3 === "" ? 
@@ -259,6 +274,7 @@ export default function EmailReset() {
               setSection3("hidden");
               setSection4("");
             }}
+            color="success"
           /> : null
         }
 
@@ -301,6 +317,7 @@ export default function EmailReset() {
             required={true}
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             hidden={section4}
+            color="success"
           />
         {section4 === "" ? 
           <MuiButton
@@ -309,6 +326,8 @@ export default function EmailReset() {
               setSection4("hidden");
               setSection3("");
             }}
+            color="success"
+            style={{ marginBottom: "8px" }}
           /> : null
         }
           {section4 === "" ?
@@ -316,7 +335,7 @@ export default function EmailReset() {
             startIcon={null}
             label="Submit"
             type="submit"
-            color="primary"
+            color="success"
           /> : null}
         </form>
       </div>

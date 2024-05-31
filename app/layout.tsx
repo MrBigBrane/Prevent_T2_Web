@@ -1,6 +1,7 @@
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
 import NavBar from '@/components/navigation/NavBar.jsx';
 import { GeistSans } from "geist/font/sans";
+import { Roboto, Roboto_Flex } from 'next/font/google';
 import "./globals.css";
 
 const defaultUrl = process.env.VERCEL_URL

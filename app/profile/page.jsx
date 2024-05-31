@@ -18,26 +18,29 @@ export default async function ProfilePage() {
 
     return (
       <>
-        <Paper elevation={3} style={{ width: "45%" }}>
-          <Box>
-            <IconButton>
-              <MuiAvatar
-                name={`${user.user_metadata.first_name} ${user.user_metadata.last_name}`}
-                style={{ width: 90, height: 90 }}
+        <Paper elevation={10} style={{ width: "45%", marginTop: '2rem' }}>
+          <Box display="flex" padding={5}>
+            <Box display="inline-flex">
+              <IconButton>
+                <MuiAvatar
+                  name={`${user.user_metadata.first_name} ${user.user_metadata.last_name}`}
+                  style={{ width: 90, height: 90 }}
+                />
+              </IconButton>
+              <Typography
+                variant="h4"
+                style={{ textAlign: "center", marginTop: "2rem" }}
+              >
+                {user.user_metadata.first_name}
+                {user.user_metadata.last_name}
+              </Typography>
+              <NameModal
+                firstName={user.user_metadata.first_name}
+                lastName={user.user_metadata.last_name}
               />
-            </IconButton>
-            <Typography
-              variant="h4"
-              style={{ textAlign: "center", marginTop: "2rem" }}
-            >
-              {user.user_metadata.first_name}
-              {user.user_metadata.last_name}
-            </Typography>
-            <NameModal
-              firstName={user.user_metadata.first_name}
-              lastName={user.user_metadata.last_name}
-            />
-            <Box marginLeft={"auto"}>
+            </Box>
+
+            <Box marginLeft={"auto"} sx={{ marginTop: '1rem'}}>
               <Box marginLeft={5}>
                 <EmailReset email={user.user_metadata.email} />
               </Box>
@@ -46,10 +49,10 @@ export default async function ProfilePage() {
         </Paper>
 
         <Box style={{ width: "45%" }} marginTop={5}>
-          <Typography variant="h4">Forms</Typography>
+          <Typography variant="h4" sx={{ marginBottom: '5px' }}>Forms</Typography>
           <Grid container spacing={3} justifyContent={"center"}>
             <Grid item xs={6}>
-              <Paper>
+              <Paper elevation={10}>
                 <Box sx={{ padding: "20px" }}>
                   <Typography variant="h5">Onboarding Form</Typography>
                   <Typography variant="body2" marginBottom={2}>
@@ -65,7 +68,7 @@ export default async function ProfilePage() {
               </Paper>
             </Grid>
             <Grid item xs={6}>
-              <Paper>
+              <Paper elevation={10}>
                 <Box sx={{ padding: "20px" }}>
                   <Typography variant="h5">Coach Registration Form</Typography>
                   <Typography variant="body2" marginBottom={2}>
@@ -83,7 +86,7 @@ export default async function ProfilePage() {
           </Grid>
         </Box>
         <Box marginTop={5} width={"45%"}>
-          <Typography variant="h4">Security</Typography>
+          <Typography variant="h4" sx={{ marginBottom: '5px' }}>Security</Typography>
           <Box>
             <Paper elevation={10}>
               <Box sx={{ padding: "20px" }}>
