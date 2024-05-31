@@ -8,7 +8,7 @@ import tableAction from '@/lib/users/activitiesTableAction.jsx';
 import MuiButton from '@/components/buttons/MuiButton';
 import { Box, LinearProgress } from '@mui/material';
 import { useState } from 'react';
-
+import AddIcon from '@mui/icons-material/Add';
 
 export default function ActivityLogPage({ field1, field2, field3, rowId, click }) {
     const [loading, setLoading] = useState(false)
@@ -22,7 +22,7 @@ export default function ActivityLogPage({ field1, field2, field3, rowId, click }
       <>
         {loading ? (
           <Box width={"100%"}>
-            <LinearProgress color='success' />
+            <LinearProgress color="success" />
           </Box>
         ) : null}
         <form action={formAction}>
@@ -34,6 +34,7 @@ export default function ActivityLogPage({ field1, field2, field3, rowId, click }
             variant="outlined"
             type="text"
             required={true}
+            color="success"
           />
           <MuiTextField
             defaultValue={field2}
@@ -43,21 +44,29 @@ export default function ActivityLogPage({ field1, field2, field3, rowId, click }
             variant="outlined"
             type="number"
             required={true}
+            color="success"
           />
-          <MuiSelect
-            defaultValue={field3}
-            name="difficulty"
-            field="Perceived Difficulty"
-            field1="Easy"
-            field2="Medium"
-            field3="Difficult"
-            required={true}
-          />
+          <Box marginLeft={"8px"} paddingBottom={2} paddingTop={1}>
+            <MuiSelect
+              defaultValue={field3}
+              name="difficulty"
+              field="Perceived Difficulty"
+              field1="Easy"
+              field2="Medium"
+              field3="Difficult"
+              required={true}
+              style={{ width: "19.6%" }}
+              color="success"
+            />
+          </Box>
+
           <MuiButton
             label={rowId ? "Confirm Edit" : "Add Activity"}
             type="submit"
-            startIcon={null}
+            startIcon={<AddIcon />}
             click={click ? click : handleLoading}
+            style={{ marginLeft: "8px", marginBottom: "1rem" }}
+            color="success"
           />
           {rowId ? (
             <MuiTextField

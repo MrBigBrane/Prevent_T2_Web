@@ -33,6 +33,7 @@ export default function MealPlan({ click, q1, q2, q3, rowId }) {
               label=""
               variant="filled"
               type="hidden"
+              color="success"
             />
           ) : null}
           <label className="text-md" htmlFor="title">
@@ -46,6 +47,7 @@ export default function MealPlan({ click, q1, q2, q3, rowId }) {
             type="text"
             defaultValue={q1 ? q1 : null}
             required
+            color="success"
           />
           <label className="text-md" htmlFor="title">
             Question 2: What new routine do I want to try?
@@ -57,6 +59,7 @@ export default function MealPlan({ click, q1, q2, q3, rowId }) {
             type="text"
             defaultValue={q2 ? q2 : null}
             required
+            color="success"
           />
           <label className="text-md" htmlFor="title">
             Question 3: What cue will help me remember my new routine?
@@ -68,12 +71,14 @@ export default function MealPlan({ click, q1, q2, q3, rowId }) {
             type="text"
             defaultValue={q3 ? q3 : null}
             required
+            color="success"
           />
           <MuiButton
             label={rowId ? "Confirm Edit" : "Add Plan"}
             type="submit"
             startIcon={null}
             click={click ? click : handleLoading}
+            color="success"
           />
         </form>
       </>

@@ -7,6 +7,7 @@ import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import { redirect } from 'next/navigation';
 import LinkButton from '@/components/buttons/LinkButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Box, Paper, Typography } from '@mui/material';
 
 
 export default async function YourCoachPage({ searchParams }) {
@@ -35,22 +36,38 @@ export default async function YourCoachPage({ searchParams }) {
    
 
     return (
-        <>
-            {searchParams?.joined &&  <MuiSuccess severity="success">Class Joined!</MuiSuccess>}
-            {searchParams?.alreadyjoined &&  <MuiSuccess severity="success">You Are Already in a Class!</MuiSuccess>}
-            <LinkButton 
+      <>
+        {searchParams?.joined && (
+          <MuiSuccess severity="success">Class Joined!</MuiSuccess>
+        )}
+        {searchParams?.alreadyjoined && (
+          <MuiSuccess severity="success">
+            You Are Already in a Class!
+          </MuiSuccess>
+        )}
+        <Box sx={{ width: "30%", margin: "auto", marginTop: "15rem" }}>
+          <Paper elevation={10} square={false}>
+            <Box padding={2}>
+              <LinkButton
                 href="/profile"
                 label="Back"
                 type={null}
                 startIcon={<ArrowBackIcon />}
-                style={{position : 'fixed', left: '1rem', top: '5rem'}} 
-            />
-            <h1 style={{paddingTop: '1.5rem', paddingBottom: '1rem'}}>Your Current Class</h1>
-            <Chip 
-                label={datum} variant="outlined"
-                style={{pading: '1rem'}}
-            />
-            <LeaveClass />
-        </>
-    )
+                style={{ position: "fixed", left: "1rem", top: "5rem" }}
+              />
+              <Typography variant="h6" padding={1}>
+                Your Class
+              </Typography>
+              <Chip
+                label={datum}
+                variant="outlined"
+                sx={{ padding: "1rem", marginBottom: "8px" }}
+              />
+              <br />
+              <LeaveClass />
+            </Box>
+          </Paper>
+        </Box>
+      </>
+    );
 }

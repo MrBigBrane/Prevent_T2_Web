@@ -22,7 +22,7 @@ export default function MealPlan({ click, mealType, item, amount, calories, rowI
       <>
         {loading ? (
           <Box width={"100%"}>
-            <LinearProgress color='success' />
+            <LinearProgress color="success" />
           </Box>
         ) : null}
         <form action={formAction}>
@@ -34,20 +34,29 @@ export default function MealPlan({ click, mealType, item, amount, calories, rowI
               label=""
               variant="filled"
               type="hidden"
+              color="success"
             />
           ) : null}
           {rowId ? <br /> : <MuiDateTime name="date" />}
-          <MuiSelect
-            name="mealType"
-            field="Meal Type?"
-            field1="Breakfast"
-            field2="Lunch"
-            field3="Dinner"
-            field4="Snack"
-            variant="outlined"
-            defaultValue={mealType ? mealType : null}
-            required={true}
-          />
+          <Box marginLeft={"8px"} paddingBottom={2}>
+            <h4>
+              <b>Meal Plan</b>
+            </h4>
+            <MuiSelect
+              name="mealType"
+              field="Meal Type?"
+              field1="Breakfast"
+              field2="Lunch"
+              field3="Dinner"
+              field4="Snack"
+              variant="outlined"
+              defaultValue={mealType ? mealType : null}
+              required={true}
+              style={{ width: "19.6%" }}
+              color="success"
+            />
+          </Box>
+
           <MuiTextField
             id="item"
             name="item"
@@ -55,6 +64,7 @@ export default function MealPlan({ click, mealType, item, amount, calories, rowI
             type="text"
             defaultValue={item ? item : null}
             required
+            color="success"
           />
           <MuiTextField
             id="amount"
@@ -63,6 +73,7 @@ export default function MealPlan({ click, mealType, item, amount, calories, rowI
             type="text"
             defaultValue={amount ? amount : null}
             required
+            color="success"
           />
           <MuiTextField
             id="calories"
@@ -71,15 +82,21 @@ export default function MealPlan({ click, mealType, item, amount, calories, rowI
             type="number"
             defaultValue={calories ? calories : null}
             required
+            color="success"
           />
           <MuiButton
             label={rowId ? "Confirm Edit" : "Add Plan"}
             type="submit"
             startIcon={null}
             click={click ? click : handleLoading}
+            style={{
+              marginLeft: "8px",
+              marginBottom: "1rem",
+              marginTop: "1rem",
+            }}
+            color="success"
           />
         </form>
       </>
-      
     );
 }

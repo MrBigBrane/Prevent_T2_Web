@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 
-export default function BasicTextFields({ id, label, variant, name, defaultValue, type, required, rows  }) {
+export default function BasicTextFields({ id, label, variant, name, defaultValue, type, required, rows, ...props }) {
     const [input, setInput] = useState(defaultValue)
 
     const handleChange = (event) => {
@@ -31,6 +31,7 @@ export default function BasicTextFields({ id, label, variant, name, defaultValue
         required={required ? required : null}
         multiline
         rows={rows}
+        {...props}
       />
     </Box>
   );

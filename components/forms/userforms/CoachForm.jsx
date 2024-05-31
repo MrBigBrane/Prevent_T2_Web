@@ -35,6 +35,7 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, rowId, c
               type="number"
               disabled={true}
               required
+              color="success"
             />
           ) : null}
           <MuiTextField
@@ -45,21 +46,29 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, rowId, c
             variant="outlined"
             type="number"
             required={true}
+            color="success"
           />
-          <MuiSelect
-            defaultValue={field2}
-            name="attendance"
-            field="Attendance"
-            field1="Yes"
-            field2="No"
-            field3="Online"
-            required={true}
-          />
+          <Box marginLeft={"8px"} paddingBottom={2} paddingTop={1}>
+            <MuiSelect
+              defaultValue={field2}
+              name="attendance"
+              field="Attendance"
+              field1="Yes"
+              field2="No"
+              field3="Online"
+              required={true}
+              color="success"
+              style={{ width: "19.6%" }}
+            />
+          </Box>
+
           <MuiButton
             label={rowId ? "Confirm Edit" : "Submit"}
             type="submit"
             startIcon={null}
             click={click ? click : handleLoading}
+            style={{ marginLeft: "8px", marginBottom: "1rem" }}
+            color="success"
           />
           <MuiTextField
             defaultValue={rowId}
