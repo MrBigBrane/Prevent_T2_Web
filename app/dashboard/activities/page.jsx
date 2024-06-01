@@ -16,7 +16,7 @@ export default async function ActivityTablePage({ searchParams }) {
   const user = Object.assign({}, await getCurrentUser())
 
   // If the user is not logged in, redirect them to the login page
-  if (!user.id) {
+  if (!user?.id) {
     redirect('/login?message=Please login before trying to access user data.')
   }
 

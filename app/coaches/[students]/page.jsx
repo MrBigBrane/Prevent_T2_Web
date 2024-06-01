@@ -30,6 +30,16 @@ export default async function StudentsPage({ params }) {
     else if(!classCopy[0]){
         redirect('/profile/becomecoach?unauthorized=true')
     }
+    let matches = false;
+    for(let i = 0; i < classCopy.length; i++){
+        if(classCopy[i].code === params.students.substring(0, 6)){
+            matches = true
+            break;
+        }
+      }
+    if(!matches){
+        redirect('/coaches?fake=true')
+    }
     if(!data[0]){
         redirect('/coaches?fake=true')
     }

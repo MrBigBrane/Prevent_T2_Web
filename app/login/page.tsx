@@ -7,6 +7,7 @@ import LinkButton from "@/components/buttons/LinkButton";
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import { Box } from "@mui/material";
 import MuiPasswordInput from "@/components/inputs/MuiInput";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export default function Login({
   searchParams,
@@ -64,7 +65,7 @@ export default function Login({
 
   return (
     <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
-      <Link
+      {/* <Link
         href="/"
         style={{position : 'fixed', left: '1rem', top: '5rem'}}
         className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
@@ -84,7 +85,16 @@ export default function Login({
           <polyline points="15 18 9 12 15 6" />
         </svg>{" "}
         Back
-      </Link>
+      </Link> */}
+      <LinkButton
+        variant={"contained"}
+        endIcon={null}
+        href="/"
+        label="Back"
+        type={null}
+        startIcon={<ArrowBackIcon />}
+        style={{ position: "absolute", top: "5rem", left: "1rem" }}
+      />
 
       <form className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
         <label className="text-md" htmlFor="email">
@@ -129,9 +139,9 @@ export default function Login({
             startIcon={null}
             endIcon={null}
             variant={"text"}
-            style={{ 
+            style={{
               position: "fixed",
-              right: "0rem"
+              right: "0rem",
             }}
             // className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
           />
@@ -142,7 +152,9 @@ export default function Login({
           </p>
         )}
       </form>
-      {searchParams?.message &&  <MuiSuccess severity="warning">{searchParams.message}</MuiSuccess>}
+      {searchParams?.message && (
+        <MuiSuccess severity="warning">{searchParams.message}</MuiSuccess>
+      )}
     </div>
   );
 }

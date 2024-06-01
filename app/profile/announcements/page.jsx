@@ -17,7 +17,12 @@ export default async function Announcements() {
     .select('class_codes')
     .eq("id", user.id);
 
-    console.log(profile.data[0].class_codes)
+    if(!user?.id){
+        redirect('/login?message=Unauthorized access! Please login first.')
+    }
+    if(!profile?.data[0]?.class_codes){
+        redirect('/profile/joinclass?noclass=true')
+    }
     
     const { data, error } = await supabase
     .from('announcements')

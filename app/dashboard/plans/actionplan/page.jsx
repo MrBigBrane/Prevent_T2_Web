@@ -1,12 +1,10 @@
 'use server';
 
-import MealModal from "@/components/forms/plans/action/ActionModal";
 import { createClient } from '@/utils/supabase/server';
 import MuiCard from "@/components/display/MuiCard";
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess';
 import { Box } from "@mui/material";
-import LinkButton from "@/components/buttons/LinkButton";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { redirect } from "next/navigation";
 
 export default async function ActionPlanPage({ searchParams }) {
     const supabase = createClient();
@@ -21,7 +19,9 @@ export default async function ActionPlanPage({ searchParams }) {
      .eq('user', user.id)
      .order('created_at', { ascending: true });
 
-
+    if(!user?.id){
+        redirect('/login?message=Unauthorized access! Please login first.')
+    }
 
 
     return (

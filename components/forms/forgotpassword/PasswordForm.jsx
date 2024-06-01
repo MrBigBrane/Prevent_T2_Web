@@ -10,7 +10,7 @@ export default function PasswordForm() {
 
     return (
         <form action={formAction}>
-            <MuiTextField id="email" name="email" label="Account Email" variant="filled" type="text" required />
+            <MuiTextField id="email" name="email" label="Account Email" variant="outlined" type="text" required />
             <MuiButton label="Submit" type="submit" startIcon={null} />
         </form>
     );

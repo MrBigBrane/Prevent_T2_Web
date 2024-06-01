@@ -1,19 +1,24 @@
-'use client';
+'use server';
 
-import MuiButton from '@/components/buttons/MuiButton'
-import MuiTextField from '@/components/inputs/MuiTextField'
-import joinClassTableAction from '@/lib/joinClassTableAction'
-import { useFormState } from 'react-dom'
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import LinkButton from '@/components/buttons/LinkButton'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Box, Paper, Typography } from '@mui/material';
+import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
+import JoinClass from '../../../components/forms/coaching/joinclass/JoinClass';
 
 
-export default function JoinClassPage({ searchParams }) {
+export default async function JoinClassPage({ searchParams }) {
+  const supabase = createClient();
 
-    // Use the useFormState hook to manage the form state and the form action
-    const [state, formAction] = useFormState(joinClassTableAction, { message: null });
+    const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if(!user?.id){
+        redirect('/login?message=Unauthorized access! Please login first.')
+    }
 
     return (
       <>
@@ -46,25 +51,7 @@ export default function JoinClassPage({ searchParams }) {
               <Typography variant="h5" padding={1}>
                 <b color='success'>Join Class</b>
               </Typography>
-              <form action={formAction}>
-                <MuiTextField
-                  id="class"
-                  name="classcode"
-                  label="Class Code"
-                  variant="outlined"
-                  type=""
-                  disabled={null}
-                  defaultValue=""
-                  color="success"
-                />
-              </form>
-              <MuiButton
-                startIcon={null}
-                label="Enter Code"
-                type="submit"
-                color="success"
-                style={{ marginLeft: "8px"}}
-              />
+              <JoinClass />
             </Box>
           </Paper>
         </Box>

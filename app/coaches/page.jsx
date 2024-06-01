@@ -32,7 +32,7 @@ export default async function CoachesPage({ searchParams }) {
         <>
             {searchParams?.classcreated &&  <MuiSuccess severity="success">Class Created!</MuiSuccess>}
             {searchParams?.userdeleted &&  <MuiSuccess severity="success">User Deleted!</MuiSuccess>}
-            {searchParams?.fake &&  <MuiSuccess severity="warning">Class does not exist!</MuiSuccess>}
+            {searchParams?.fake &&  <MuiSuccess severity="warning">Class does not exist or you do not have access!</MuiSuccess>}
             {searchParams?.classdeleted &&  <MuiSuccess severity="success">Class Deleted!</MuiSuccess>}
             {searchParams?.edit &&  <MuiSuccess severity="success">Class Name Edited!</MuiSuccess>}
             <Typography variant="h6">Welcome to coaches page!</Typography>

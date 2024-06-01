@@ -134,7 +134,7 @@ export default function Login({
           type={null}
           startIcon={null}
           style={null}
-          variant={null}
+          variant={"text"}
           // className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
         />
         {searchParams?.message && (
