@@ -11,17 +11,15 @@ export default async function Invite({ params }) {
      .select()
      .eq('code', params.slug.substring(0, 6))
 
-     console.log(data)
-
     return (
       <div>
-        <Box sx={{ width: "30%", margin: "auto", marginTop: "15rem" }}>
+        <Box sx={{ width: "30%", margin: "auto", marginTop: "15rem", display: "flex", justifyContent: "center" }}>
           <Paper elevation={10} square={false}>
             <Box padding={2}>
                 <Typography variant="h4" padding={1}>Class Details</Typography>
                 <Box>
-                    <Typography variant="body1" padding={1}>Class Name: {data[0].class_name}</Typography>
-                    <Typography variant="body1" padding={1}>Class Code: {data[0].code}</Typography>
+                    <Typography variant="body1" padding={1}>Class Name: <b>{data[0].class_name}</b></Typography>
+                    <Typography variant="body1" padding={1}>Class Code: <b>{data[0].code}</b></Typography>
                 </Box>
             </Box>
           </Paper>

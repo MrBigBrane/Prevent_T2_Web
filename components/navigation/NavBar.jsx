@@ -49,20 +49,18 @@ export default async function NavBar() {
   let unreadAnnouncements;
 
   if(profiles){
-    
+    totalAnnouncements = await supabase
+      .from("announcements")
+      .select()
+      .eq("class_code", data[0].class_codes);
 
-  totalAnnouncements = await supabase 
-    .from('announcements')
-    .select()
-    .eq('class_code', data[0].class_codes)
-  
-  readAnnouncements = await supabase
-  .from('notification_counter')
-  .select()
-  .eq('user', user.id)
+    readAnnouncements = await supabase
+      .from("notification_counter")
+      .select()
+      .eq("user", user.id);
 
-
-  unreadAnnouncements = totalAnnouncements?.data.length - readAnnouncements?.data[0].counter
+    unreadAnnouncements =
+      totalAnnouncements?.data.length - readAnnouncements?.data[0].counter;
   }
 
   

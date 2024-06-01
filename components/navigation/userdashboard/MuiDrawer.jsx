@@ -39,8 +39,8 @@ function ResponsiveDrawer({ main, ...props }) {
     ["Add Activity", "/dashboard/activities/addactivity"],
   ].map((text, index) => (
     <ListItem key={text} disablePadding>
-      <Link href={text[1]} style={{ width: "100%" }}>
-        <ListItemButton>
+      <Link key={text} href={text[1]} style={{ width: "100%" }}>
+        <ListItemButton sx={{ pl: 4 }}>
           <ListItemIcon>
             {index === 0 && <InsightsIcon />}
             {index === 1 && <ViewListIcon />}
@@ -59,7 +59,7 @@ function ResponsiveDrawer({ main, ...props }) {
   ].map((text, index) => (
     <ListItem key={text} disablePadding>
       <Link href={text[1]} style={{ width: "100%" }}>
-        <ListItemButton>
+        <ListItemButton sx={{ pl: 4 }}>
           <ListItemIcon>
             {index === 0 && <InsightsIcon />}
             {index === 1 && <ViewListIcon />}
@@ -77,7 +77,7 @@ function ResponsiveDrawer({ main, ...props }) {
   ].map((text, index) => (
     <ListItem key={text} disablePadding>
       <Link href={text[1]} style={{ width: "100%" }}>
-        <ListItemButton>
+        <ListItemButton sx={{ pl: 4 }}>
           <ListItemIcon>
             {index === 0 && <RestaurantIcon />}
             {index === 1 && <AddBoxIcon />}
@@ -94,7 +94,7 @@ function ResponsiveDrawer({ main, ...props }) {
   ].map((text, index) => (
     <ListItem key={text} disablePadding>
       <Link href={text[1]} style={{ width: "100%" }}>
-        <ListItemButton>
+        <ListItemButton sx={{ pl: 4 }}>
           <ListItemIcon>
             {index === 0 && <DirectionsRunIcon />}
             {index === 1 && <AddBoxIcon />}
