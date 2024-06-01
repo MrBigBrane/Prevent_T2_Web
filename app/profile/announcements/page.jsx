@@ -40,7 +40,7 @@ export default async function Announcements() {
         <Grid width={"90%"}>
             <Typography variant="h5" style={{ textAlign: "center", marginBottom: "1rem" }}>Announcements</Typography>
             {data[0] && data.map((item) => {
-                return <MuiCard key={item.id} id={item.id} date={`${item.created_at.substring(0, 10)} ${item.created_at.substring(11, 19)}`} title={item.title} body={item.message} />
+                return <MuiCard key={item.id} id={item.id} date={`${item.created_at.substring(0, 10)} ${item.created_at.substring(11, 19)}`} title={item.title} body={item.message} coach={false}/>
             })}
             {!data[0] && <Typography variant="h6" style={{ textAlign: "center", marginTop: "1rem" }}>No announcements yet!</Typography>}
         </Grid>

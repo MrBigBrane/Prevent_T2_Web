@@ -29,17 +29,17 @@ export default async function ActionPlanPage({ searchParams }) {
         <Box display="flex" alignContent="center">
           {searchParams?.add && (
             <MuiSuccess severity="success">
-              Meal Plan Successfully Added!
+              Action Plan Successfully Added!
             </MuiSuccess>
           )}
           {searchParams?.delete && (
             <MuiSuccess severity="success">
-              Meal Plan Successfully Deleted!
+              Action Plan Successfully Deleted!
             </MuiSuccess>
           )}
           {searchParams?.edit && (
             <MuiSuccess severity="success">
-              Meal Plan Successfully Edited!
+              Action Plan Successfully Edited!
             </MuiSuccess>
           )}
           {data &&

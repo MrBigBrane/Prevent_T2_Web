@@ -23,21 +23,22 @@ export default function CollapseList({ main, category, icon }) {
     };
   
     return (
-      <>
+      <List sx={{ width: "100%", bgcolor: "background.paper" }}
+      component="nav">
         <ListItem disablePadding>
           <ListItemButton onClick={handleClick}>
-            <ListItemIcon>
-              {icon}
-            </ListItemIcon>
+            <ListItemIcon>{icon}</ListItemIcon>
             <ListItemText primary={category} />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>
 
         <Collapse in={open} timeout="auto" unmountOnExit>
-          {main}
+          <List component="div" disablePadding>
+            {main}
+          </List>
         </Collapse>
-      </>
+      </List>
     );
   }
   

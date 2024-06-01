@@ -5,7 +5,7 @@ import codeGen from '@/components/serverfunctions/coach/codeGen.js'
 import MuiTextField from '@/components/inputs/MuiTextField'
 import { useFormState } from "react-dom";
 import { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, LinearProgress, Typography } from "@mui/material";
 
 export default function AddClassCoach({ click, children }) {
     const [state, formAction] = useFormState(codeGen, { message: null })
@@ -37,6 +37,7 @@ export default function AddClassCoach({ click, children }) {
                 defaultValue=""
                 type=""
                 color="success"
+                style={{ padding: "auto"}}
               />
               <br />
               <MuiButton

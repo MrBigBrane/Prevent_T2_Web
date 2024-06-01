@@ -40,7 +40,7 @@ export default function JoinClassPage({ searchParams }) {
         {/* Render the Join Class page header */}
 
         {/* Render the Join Class form */}
-        <Box style={{ width: "30%", margin: "auto", marginTop: "15rem" }}>
+        <Box sx={{ width: "30%", margin: "auto", display: "flex", justifyContent: "center" }}>
           <Paper elevation={10} square={false}>
             <Box padding={2}>
               <Typography variant="h5" padding={1}>

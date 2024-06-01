@@ -26,6 +26,8 @@ export default async function tableAction(prevState, formData) {
     console.log(error)
 
     if(!error) redirect('?add=true'); 
+
+    else redirect('?notadd=true');
     
     
 }

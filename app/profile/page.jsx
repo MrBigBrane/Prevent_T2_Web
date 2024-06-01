@@ -17,39 +17,48 @@ export default async function ProfilePage() {
   } = await supabase.auth.getUser();
 
     return (
-      <>
-        <Paper elevation={10} style={{ width: "45%", marginTop: '2rem' }}>
-          <Box display="flex" padding={5}>
-            <Box display="inline-flex">
-              <IconButton>
-                <MuiAvatar
-                  name={`${user.user_metadata.first_name} ${user.user_metadata.last_name}`}
-                  style={{ width: 90, height: 90 }}
-                />
-              </IconButton>
-              <Typography
-                variant="h4"
-                style={{ textAlign: "center", marginTop: "2rem" }}
-              >
-                {user.user_metadata.first_name}
-                {user.user_metadata.last_name}
-              </Typography>
-              <NameModal
-                firstName={user.user_metadata.first_name}
-                lastName={user.user_metadata.last_name}
-              />
-            </Box>
-
-            <Box marginLeft={"auto"} sx={{ marginTop: '1rem'}}>
-              <Box marginLeft={5}>
-                <EmailReset email={user.user_metadata.email} />
+      <Box
+        sx={{
+          width: "100%",
+          justifyContent: "center",
+          display: "inline-flex",
+          margin: "auto",
+          padding: "2rem",
+        }}
+      >
+        <Box sx={{ width: "100%" }} marginTop={5}>
+          <Paper elevation={10} style={{ width: "45%", marginTop: "2rem" }}>
+            <Box display="flex" padding={5}>
+              <Box display="inline-flex">
+                <IconButton>
+                  <MuiAvatar
+                    name={`${user.user_metadata.first_name} ${user.user_metadata.last_name}`}
+                    style={{ width: 90, height: 90 }}
+                  />
+                </IconButton>
+                <Box display={"inline-flex"} alignSelf={"center"}>
+                  <Typography variant="h4" style={{ textAlign: "center" }}>
+                    {user.user_metadata.first_name}{" "}
+                    {user.user_metadata.last_name}
+                  </Typography>
+                  <NameModal
+                    firstName={user.user_metadata.first_name}
+                    lastName={user.user_metadata.last_name}
+                  />
+                  <EmailReset email={user.user_metadata.email} />
+                </Box>
+                  {/* <Box marginLeft={5}> */}
+                    
+                  {/* </Box> */}
               </Box>
             </Box>
-          </Box>
-        </Paper>
+          </Paper>
+        </Box>
 
         <Box style={{ width: "45%" }} marginTop={5}>
-          <Typography variant="h4" sx={{ marginBottom: '5px' }}>Forms</Typography>
+          <Typography variant="h4" sx={{ marginBottom: "5px" }}>
+            Forms
+          </Typography>
           <Grid container spacing={3} justifyContent={"center"}>
             <Grid item xs={6}>
               <Paper elevation={10}>
@@ -86,7 +95,9 @@ export default async function ProfilePage() {
           </Grid>
         </Box>
         <Box marginTop={5} width={"45%"}>
-          <Typography variant="h4" sx={{ marginBottom: '5px' }}>Security</Typography>
+          <Typography variant="h4" sx={{ marginBottom: "5px" }}>
+            Security
+          </Typography>
           <Box>
             <Paper elevation={10}>
               <Box sx={{ padding: "20px" }}>
@@ -98,6 +109,6 @@ export default async function ProfilePage() {
             </Paper>
           </Box>
         </Box>
-      </>
+      </Box>
     );
 }

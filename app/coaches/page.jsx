@@ -4,7 +4,6 @@ import coachUserList from '@/components/serverfunctions/coach/coachUserList'
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
 import { redirect } from 'next/navigation';
-import AddClassModal from '@/components/forms/coaching/AddClassModal'
 import { DialogContentText, Typography } from '@mui/material';
 
 export default async function CoachesPage({ searchParams }) {
@@ -34,6 +33,8 @@ export default async function CoachesPage({ searchParams }) {
             {searchParams?.classcreated &&  <MuiSuccess severity="success">Class Created!</MuiSuccess>}
             {searchParams?.userdeleted &&  <MuiSuccess severity="success">User Deleted!</MuiSuccess>}
             {searchParams?.fake &&  <MuiSuccess severity="warning">Class does not exist!</MuiSuccess>}
+            {searchParams?.classdeleted &&  <MuiSuccess severity="success">Class Deleted!</MuiSuccess>}
+            {searchParams?.edit &&  <MuiSuccess severity="success">Class Name Edited!</MuiSuccess>}
             <Typography variant="h6">Welcome to coaches page!</Typography>
             <Typography variant="p">Get started by creating a class! If you already have one then go on and checkout
             how your students are doing!</Typography>

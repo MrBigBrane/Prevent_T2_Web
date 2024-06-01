@@ -45,7 +45,7 @@ export default async function YourCoachPage({ searchParams }) {
             You Are Already in a Class!
           </MuiSuccess>
         )}
-        <Box sx={{ width: "30%", margin: "auto", marginTop: "15rem" }}>
+        <Box sx={{ width: "30%", margin: "auto", display: "flex", justifyContent: "center" }}>
           <Paper elevation={10} square={false}>
             <Box padding={2}>
               <LinkButton

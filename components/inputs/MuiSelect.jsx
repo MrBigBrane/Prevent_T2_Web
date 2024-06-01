@@ -30,6 +30,8 @@ export default function BasicSelect({ name, field, field1, field2, field3, field
           name={name}
           required={required ? required : null}
           {...props}
+          fullWidth
+          style={{ width: "97%" }}
         >
           <MenuItem value={field1}>{field1}</MenuItem>
           <MenuItem value={field2}>{field2}</MenuItem>

@@ -36,7 +36,7 @@ export default function CommonlyUsedComponents({ name, ...props }) {
           'DateTimePicker',
           'DateRangePicker',
         ]}
-        sx={{ width: '19.6%', marginLeft: '8px', paddingBottom: '2rem' }}
+        sx={{ width: '95%', marginLeft: '8px', paddingBottom: '2rem' }}
       >
         <DemoItem
           label={<Label componentName="Date and Time" valueType="date time" />}
