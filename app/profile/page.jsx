@@ -8,13 +8,18 @@ import PasswordModal from '../../components/forms/reset/passwordchange/PasswordM
 import { createClient } from "@/utils/supabase/server";
 import LaunchIcon from '@mui/icons-material/Launch';
 import NameModal from '../../components/forms/reset/username/NameModal';
+import { redirect } from 'next/navigation';
 
 export default async function ProfilePage() {
     const supabase = createClient();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    const {
+        data: { user },
+    } = await supabase.auth.getUser();
+
+    if(!user?.id){
+        redirect('/login?message=Unauthorized access! Please login first.')
+    }
 
     return (
       <Box

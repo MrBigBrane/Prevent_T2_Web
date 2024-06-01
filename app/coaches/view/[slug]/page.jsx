@@ -29,6 +29,16 @@ export default async function UserPage({ searchParams, params }) {
     else if(!classCopy[0]){
         redirect('/profile/becomecoach?unauthorized=true')
     }
+    let matches = false;
+    for(let i = 0; i < classCopy.length; i++){
+        if(classCopy[i].code === params.slug.substring(0, 6)){
+            matches = true
+            break;
+        }
+      }
+    if(!matches){
+        redirect('/coaches?fake=true')
+    }
     
     return (
       <>

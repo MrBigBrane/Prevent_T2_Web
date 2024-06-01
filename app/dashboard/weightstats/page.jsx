@@ -4,8 +4,19 @@ import MuiDrawer from '@/components/navigation/userdashboard/MuiDrawer'
 import { Box, Paper, Typography } from '@mui/material'
 
 import WeightGraph from '@/components/graph/WeightGraph';
+import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
 
 export default async function TesterPage() {
+    const supabase = createClient();
+
+    const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if(!user?.id){
+        redirect('/login?message=Unauthorized access! Please login first.')
+    }
 
     return (
       <>

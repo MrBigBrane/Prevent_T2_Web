@@ -1,15 +1,38 @@
 'use server';
 
+import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
 import { createClient } from '@/utils/supabase/server';
 import { Box, Paper, Typography } from '@mui/material';
+import { redirect } from 'next/navigation';
 
 export default async function Invite({ params }) {
+    let classCopy = Array.from(await fetchCoach('coach_codes'));
+
+    if(classCopy.user === false){
+        redirect('/login?message=Unauthorized access! Please login first.')
+    }
+    else if(!classCopy[0]){
+        redirect('/profile/becomecoach?unauthorized=true')
+    }
+    let matches = false;
+    for(let i = 0; i < classCopy.length; i++){
+        if(classCopy[i].code === params.slug.substring(0, 6)){
+            matches = true
+            break;
+        }
+      }
+    if(!matches){
+        redirect('/coaches?fake=true')
+    }
+
     const supabase = createClient();
 
     const { data, error } = await supabase
     .from('coach_codes')
      .select()
      .eq('code', params.slug.substring(0, 6))
+
+
 
     return (
       <div>

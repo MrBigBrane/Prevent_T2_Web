@@ -35,10 +35,16 @@ export default async function UserPage({ params }) {
     else if(!classCopy[0]){
         redirect('/profile/becomecoach?unauthorized=true')
     }
-    
-
-    console.log('yo')
-    console.log(!user.id)
+    let matches = false;
+    for(let i = 0; i < classCopy.length; i++){
+        if(classCopy[i].code === data[0].class_codes.substring(0, 6)){
+            matches = true
+            break;
+        }
+      }
+    if(!matches){
+        redirect('/coaches?fake=true')
+    }
 
     return (
       <Box width={"100%"}>

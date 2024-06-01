@@ -5,8 +5,28 @@ import { createClient } from '@/utils/supabase/server';
 import MuiCard from "@/components/display/announcements/MuiCard"
 import AddAnnouncement from "@/components/forms/coaching/announcements/AddAnnouncement"
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
+import fetchCoach from "@/components/serverfunctions/coach/fetchCoach";
 
 export default async function Announcements({ searchParams, params }) {
+    let classCopy = Array.from(await fetchCoach('coach_codes'));
+
+    if(classCopy.user === false){
+        redirect('/login?message=Unauthorized access! Please login first.')
+    }
+    else if(!classCopy[0]){
+        redirect('/profile/becomecoach?unauthorized=true')
+    }
+    let matches = false;
+    for(let i = 0; i < classCopy.length; i++){
+        if(classCopy[i].code === params.slug.substring(0, 6)){
+            matches = true
+            break;
+        }
+      }
+    if(!matches){
+        redirect('/coaches?fake=true')
+    }
+
     const supabase = createClient();
 
     const {
