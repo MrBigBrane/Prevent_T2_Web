@@ -73,7 +73,7 @@ function ResponsiveDrawer({ main, ...props }) {
 
   const mealPlans = [
     ["Meal Plans", "/dashboard/plans/mealplan"],
-    ["Add Meal Plan", "/dashboard/plans/mealplan/addmealplan"],
+    ["Add Meal", "/dashboard/plans/mealplan/addmealplan"],
   ].map((text, index) => (
     <ListItem key={text} disablePadding>
       <Link href={text[1]} style={{ width: "100%" }}>

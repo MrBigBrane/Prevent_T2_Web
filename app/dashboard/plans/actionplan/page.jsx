@@ -3,7 +3,7 @@
 import { createClient } from '@/utils/supabase/server';
 import MuiCard from "@/components/display/MuiCard";
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess';
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { redirect } from "next/navigation";
 
 export default async function ActionPlanPage({ searchParams }) {
@@ -42,20 +42,22 @@ export default async function ActionPlanPage({ searchParams }) {
               Action Plan Successfully Edited!
             </MuiSuccess>
           )}
-          {data &&
-            data.map((item) => {
-              return (
-                <Box key={item.id} m={2}>
-                  <MuiCard
-                    id={item.id}
-                    date={item.created_at}
-                    q1={item.q1}
-                    q2={item.q2}
-                    q3={item.q3}
-                  />
-                </Box>
-              );
-            })}
+          <Grid container spacing={2}>
+            {data &&
+              data.map((item) => (
+                <Grid item xs={12} sm={12} md={6} lg={4} xl={3} key={item.id}>
+                  <Box m={2}>
+                    <MuiCard
+                      id={item.id}
+                      date={item.created_at}
+                      q1={item.q1}
+                      q2={item.q2}
+                      q3={item.q3}
+                    />
+                  </Box>
+                </Grid>
+              ))}
+          </Grid>
         </Box>
       </>
     );

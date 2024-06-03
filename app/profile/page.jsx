@@ -98,7 +98,7 @@ export default async function ProfilePage() {
                     Description
                   </Typography>
                   <Link href="/profile/becomecoach">
-                    <Button endIcon={<LaunchIcon />} variant="contained">
+                    <Button endIcon={<LaunchIcon />} variant="contained" color='success'>
                       Become a Coach
                     </Button>
                   </Link>

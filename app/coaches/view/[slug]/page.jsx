@@ -52,7 +52,7 @@ export default async function UserPage({ searchParams, params }) {
           searchValue={params.slug.substring(0, 6)}
           style={{ position: "absolute", right: "3rem", bottom: "2rem" }}
         />
-        <EditClass code={params.slug.substring(0, 6)} className={data[0].class_name} sx={{ position: "fixed", top: 64, justifyContent: "center"}}  />
+        <EditClass code={params.slug.substring(0, 6)} className={data[0].class_name} sx={{ position: "absolute", top: 64, justifyContent: "center"}}  />
         <Box
           sx={{
             width: "100%",

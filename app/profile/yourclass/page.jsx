@@ -22,6 +22,11 @@ export default async function YourCoachPage({ searchParams }) {
     .select('class_codes')
     .eq("id", user?.id);
 
+    const className = await supabase
+    .from('coach_codes')
+    .select('class_name')
+    .eq("code", data[0].class_codes.substring(0, 6));
+
     let datum;
 
     if(!user.id){
@@ -58,6 +63,12 @@ export default async function YourCoachPage({ searchParams }) {
               <Typography variant="h6" padding={1}>
                 Your Class
               </Typography>
+              <Chip
+                label={className?.data[0]?.class_name}
+                variant="outlined"
+                sx={{ padding: "1rem", marginBottom: "8px" }}
+              />
+              <br />
               <Chip
                 label={datum}
                 variant="outlined"
