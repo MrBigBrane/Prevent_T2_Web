@@ -13,7 +13,7 @@ export default function HomePage({ searchValue, ...props }) {
       const a = document.createElement('a');
       a.style.display = 'none';
       a.href = url;
-      a.download = 'data.csv';
+      a.download = 'CDCEntries.csv';
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);

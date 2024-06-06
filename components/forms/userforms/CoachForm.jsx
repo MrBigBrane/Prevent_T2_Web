@@ -6,10 +6,11 @@ import { useFormState } from 'react-dom';
 import editTableAction from '@/lib/users/editCoachTableAction.jsx';
 import tableAction from '@/lib/users/lifestyleTableAction';
 import MuiButton from '@/components/buttons/MuiButton';
+import MuiDateTime from '@/components/inputs/MuiDateTime';
 import { useState } from 'react';
 import { Box, LinearProgress } from '@mui/material';
 
-export default function LifestyleCoachLogPage({ field1, field2, field3, rowId, click }) {
+export default function LifestyleCoachLogPage({ field1, field2, field3, minutes1, minutes2, rowId, click }) {
     const [state, formAction] = useFormState(rowId ?  editTableAction : tableAction, { message: null })
     const [loading, setLoading] = useState(false);
 
@@ -25,19 +26,19 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, rowId, c
           </Box>
         ) : null}
         <form action={formAction}>
-          {field3 ? (
-            <MuiTextField
-              defaultValue={field3}
-              name="minutesShown"
+          {minutes1 ? (
+            <MuiSelect
+              name="minutesshown"
               id="minutesShown"
-              label="Exercise Minutes"
-              variant="outlined"
-              type="number"
-              disabled={true}
+              field={"Week's Exercise Minutes"}
+              field1={`This week's exercise time (min): ${minutes1}`}
+              field2={`Last week's exercise time (min): ${minutes2}`}
               required
               color="success"
+              style={{ width: "19.6%" }}
             />
           ) : null}
+          <MuiDateTime name="date" />
           <MuiTextField
             defaultValue={field1}
             name="weight"
@@ -53,9 +54,23 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, rowId, c
               defaultValue={field2}
               name="attendance"
               field="Attendance"
-              field1="Yes"
-              field2="No"
-              field3="Online"
+              field1="1 In-person"
+              field2="2 Online"
+              field3="3 Distance Learning"
+              required={true}
+              color="success"
+              style={{ width: "19.6%" }}
+            />
+            <MuiSelect
+              defaultValue={field2}
+              name="sesstype"
+              field="Session Type"
+              field1="C Core Session"
+              field2="CM Core Maintenance Session"
+              field3="OM Ongoing Maintenance Session"
+              field4="MU-C Make up session in core phase"
+              field5="MU-OM Make up session in ongoing phase"
+              field6="MU-CM Make up session in core maintenance phase"
               required={true}
               color="success"
               style={{ width: "19.6%" }}

@@ -17,9 +17,11 @@ export async function GET(request) {
     }
 
     const { data, error } = await supabase
-      .from("profiles") // replace with your table name
-      .select("*")
-      .eq('class_codes', filterValue);
+      .from("cdcdata") // replace with your table name
+      .select(
+        "ORGCODE, PARTICIP, COHORTID, COACHID, ENROLLMOT, ENROLLHC, PAYERSOURCE, STATE, GLUCTEST, A1C, GDM, RISKTEST, AGE, ETHNIC, AIAN, ASIAN, BLACK, NHOPI, WHITE, SEX, GENDER, HEIGHT, EDU, DMODE, SESSTYPE, DATE, WEIGHT, PA"
+      )
+      .eq("class_code", filterValue);
 
     if (error) {
       return new Response(JSON.stringify({ error: error.message }), {
@@ -50,7 +52,7 @@ export async function GET(request) {
       status: 200,
       headers: {
         "Content-Type": "text/csv",
-        "Content-Disposition": "attachment; filename=data.csv",
+        "Content-Disposition": "attachment; filename=CDCEntries.csv",
       },
     });
 }
