@@ -68,13 +68,12 @@ export default async function ProfilePage() {
               item
               xs={12}
               spacing={2}
-              justifyContent="center"
               display={"flex"}
             >
               <Grid item xs={6}>
                 <Paper
                   elevation={10}
-                  style={{ padding: 16, textAlign: "center", margin: "auto" }}
+                  style={{ padding: 16, margin: "auto" }}
                 >
                   <Typography variant="h5">Onboarding Form</Typography>
                   <Typography variant="body2" marginBottom={2}>
@@ -91,7 +90,7 @@ export default async function ProfilePage() {
               <Grid item xs={6}>
                 <Paper
                   elevation={10}
-                  style={{ padding: 16, textAlign: "center", margin: "auto" }}
+                  style={{ padding: 16, margin: "auto" }}
                 >
                   <Typography variant="h5">Coach Registration Form</Typography>
                   <Typography variant="body2" marginBottom={2}>

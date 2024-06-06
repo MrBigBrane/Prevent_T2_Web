@@ -4,6 +4,7 @@ import CoachLog from '@/components/forms/userforms/CoachForm'
 import { createClient } from '@/utils/supabase/server';
 import { Box, Paper, Typography } from '@mui/material'
 import { redirect } from 'next/navigation';
+import minutesPerWeek from '@/components/serverfunctions/minutesPerWeek'
 
 export default async function AddCoachLog() {
     const supabase = createClient();
@@ -17,7 +18,6 @@ export default async function AddCoachLog() {
     }
 
     let minutesData = Array.from(await minutesPerWeek())
-    console.log(minutesData[1][minutesData[1].length - 1])
 
     return (
       <>

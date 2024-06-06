@@ -40,6 +40,39 @@ export default function AddClassCoach({ click, children }) {
                 style={{ padding: "auto"}}
               />
               <br />
+              <MuiTextField
+                id="coachid"
+                label="Coach ID (If any)"
+                variant="outlined"
+                name="coachid"
+                defaultValue=""
+                type=""
+                color="success"
+                style={{ padding: "auto"}}
+              />
+              <br />
+              <MuiTextField
+                id="cohortid"
+                label="Cohort ID (If any)"
+                variant="outlined"
+                name="cohortid"
+                defaultValue=""
+                type=""
+                color="success"
+                style={{ padding: "auto"}}
+              />
+              <br />
+              <MuiTextField
+                id="orgcode"
+                label="Org Code (If any)"
+                variant="outlined"
+                name="orgcode"
+                defaultValue=""
+                type=""
+                color="success"
+                style={{ padding: "auto"}}
+              />
+              <br />
               <MuiButton
                 click={click ? click : handleLoading}
                 type="submit"

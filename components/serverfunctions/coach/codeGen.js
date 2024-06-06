@@ -22,7 +22,10 @@ export default async function codeGen(prevState, formData) {
     .insert({ 
         code: result,
         coach_user: user.id,
-        class_name: formData.get('classname')
+        class_name: formData.get('classname'),
+        orgcode: formData.get('orgcode'),
+        coachid: formData.get('coachid'),
+        cohortid: formData.get('cohortid'),
      })
      .select()
 

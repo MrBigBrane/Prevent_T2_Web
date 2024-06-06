@@ -24,7 +24,7 @@ export default async function OnboardingPage() {
           label="Back"
           type={null}
           startIcon={<ArrowBackIcon />}
-          style={{ position: "absolute", top: "5rem", left: "1rem" }}
+          style={{ position: "absolute", top: "7.5rem", left: "1rem" }}
         />
         <Onboard />
       </>
