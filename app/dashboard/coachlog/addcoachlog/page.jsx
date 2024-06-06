@@ -27,7 +27,7 @@ export default async function AddCoachLog() {
               <Typography variant="h4" padding={1}>
                 Add Coach Log
               </Typography>
-              <CoachLog minutes1={minutesData[1][minutesData.length - 1]} minutes2={minutesData[1][minutesData.length - 2]}/>
+              <CoachLog minutes1={minutesData[1][minutesData[1].length - 1]} minutes2={minutesData[1][minutesData[1].length - 2]}/>
             </Box>
           </Paper>
         </Box>

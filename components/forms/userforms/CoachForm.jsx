@@ -26,7 +26,7 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, minutes1
           </Box>
         ) : null}
         <form action={formAction}>
-          {minutes1 ? (
+          {minutes1 || minutes1 === 0 ? (
             <MuiSelect
               name="minutesshown"
               id="minutesShown"

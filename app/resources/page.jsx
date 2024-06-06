@@ -72,7 +72,7 @@ export default function ResourcesPage() {
                   <Typography variant="h6">
                     <b>NRIVA's Nutrition Guide</b>
                   </Typography>
-                  <Typography variant="h6">description</Typography>
+                  {/* <Typography variant="h6">description</Typography> */}
                   <Button
                     type={null}
                     variant="contained"
