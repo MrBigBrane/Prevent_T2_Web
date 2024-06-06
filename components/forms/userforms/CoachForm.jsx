@@ -25,10 +25,9 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, rowId, c
           </Box>
         ) : null}
         <form action={formAction}>
-          {field3 ? (
-            <MuiTextField
-              defaultValue={field3}
-              name="minutesShown"
+          {minutes1 || minutes1 === 0 ? (
+            <MuiSelect
+              name="minutesshown"
               id="minutesShown"
               label="Exercise Minutes"
               variant="outlined"
