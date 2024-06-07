@@ -17,6 +17,8 @@ export default async function tableAction(prevState, formData) {
       .insert({
         current_weight: formData.get('weight'),
         attendance: formData.get("attendance"),
+        created_at: formData.get("date"),
+        sesstype: formData.get("sesstype"),
         user: user.id
       })
       .select();

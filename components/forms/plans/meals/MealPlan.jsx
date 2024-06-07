@@ -38,10 +38,7 @@ export default function MealPlan({ click, mealType, item, amount, calories, rowI
             />
           ) : null}
           {rowId ? <br /> : <MuiDateTime name="date" />}
-          <Box marginLeft={"8px"} paddingBottom={2}>
-            <h4>
-              <b>Meal Plan</b>
-            </h4>
+          <Box sx={{ paddingLeft: 1, marginTop: 2, marginBottom: 1 }}>
             <MuiSelect
               name="mealType"
               field="Meal Type?"
