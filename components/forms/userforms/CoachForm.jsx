@@ -26,20 +26,22 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, minutes1
           </Box>
         ) : null}
         <form action={formAction}>
+          {rowId ? null : <MuiDateTime name="date" />}
           {minutes1 || minutes1 === 0 ? (
-            <MuiSelect
-              name="minutesshown"
-              id="minutesShown"
-              field={"Week's Exercise Minutes"}
-              field1={`This week's exercise time (min): ${minutes1}`}
-              field2={`Last week's exercise time (min): ${minutes2}`}
-              required
-              color="success"
-              style={{ width: "19.6%" }}
-            />
+            <Box sx={{ paddingLeft: 1, marginTop: 2 }}>
+              <MuiSelect
+                name="minutesshown"
+                id="minutesShown"
+                field={"Week's Exercise Minutes"}
+                field1={`This week's exercise time (min): ${minutes1}`}
+                field2={`Last week's exercise time (min): ${minutes2}`}
+                required
+                color="success"
+              />
+            </Box>
           ) : null}
-          <MuiDateTime name="date" />
-          <MuiTextField
+          <Box sx={{ marginTop: 1 }}>
+            <MuiTextField
             defaultValue={field1}
             name="weight"
             id="weight"
@@ -49,7 +51,9 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, minutes1
             required={true}
             color="success"
           />
-          <Box marginLeft={"8px"} paddingBottom={2} paddingTop={1}>
+          </Box>
+          
+          <Box sx={{ paddingLeft: 1, marginTop: 1 }}>
             <MuiSelect
               defaultValue={field2}
               name="attendance"
@@ -59,10 +63,15 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, minutes1
               field3="3 Distance Learning"
               required={true}
               color="success"
-              style={{ width: "19.6%" }}
+              // style={{
+              //   width: "19.6%"
+              // }}
             />
+          </Box>
+
+          <Box sx={{ paddingLeft: 1, marginTop: 2 }}>
             <MuiSelect
-              defaultValue={field2}
+              defaultValue={field3}
               name="sesstype"
               field="Session Type"
               field1="C Core Session"
@@ -73,7 +82,6 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, minutes1
               field6="MU-CM Make up session in core maintenance phase"
               required={true}
               color="success"
-              style={{ width: "19.6%" }}
             />
           </Box>
 
@@ -82,7 +90,11 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, minutes1
             type="submit"
             startIcon={null}
             click={click ? click : handleLoading}
-            style={{ marginLeft: "8px", marginBottom: "1rem" }}
+            style={{
+              marginLeft: "8px",
+              marginBottom: "1rem",
+              marginTop: "1rem",
+            }}
             color="success"
           />
           <MuiTextField
