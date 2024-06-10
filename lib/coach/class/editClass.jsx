@@ -6,17 +6,17 @@ import { redirect } from 'next/navigation';
 
 export default async function tableAction(prevState, formData) {
     const supabase = createClient();
-
-    console.log(formData.get('className'))
-    console.log(formData.get('rowId'))
     
     const { data, error } = await supabase
     .from('coach_codes')
     .update({ 
-        class_name: formData.get('className'),
+        class_name: formData.get('classname'),
+        orgcode: formData.get('orgcode'),
+        coachid: formData.get('coachid'),
+        cohortid: formData.get('cohortid')
      })
      .select()
-     .eq('code', formData.get('rowIdinput'))
+     .eq('code', formData.get('codeinput'))
 
      if(error) console.log(error);
 

@@ -15,6 +15,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import PersonIcon from '@mui/icons-material/Person';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 export default function NestedList({ cohortName, code }) {
   const [open, setOpen] = useState(false);
@@ -68,6 +69,14 @@ export default function NestedList({ cohortName, code }) {
                 <PersonAddAlt1Icon />
               </ListItemIcon>
               <ListItemText primary="Invite" />
+            </ListItemButton>
+          </Link>
+          <Link href={`/coaches/view/${code}class/settings`} style={{ width: "100%" }}>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <SettingsIcon />
+              </ListItemIcon>
+              <ListItemText primary="Settings" />
             </ListItemButton>
           </Link>
         </List>

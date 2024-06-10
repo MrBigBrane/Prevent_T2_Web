@@ -82,7 +82,7 @@ export default function ResourcesPage() {
                   >
                     <a
                       className="block hover:underline"
-                      href="https://www.verywellfit.com/lose-weight-calculator"
+                      href="https://drive.google.com/file/d/1ciZHPCOOi-_-LhbSlqpLU7TXtonOwhhH/view"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
