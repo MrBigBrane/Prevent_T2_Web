@@ -32,7 +32,7 @@ export default async function ProfilePage() {
         style={{ height: "100vh" }} // Full viewport height
       >
         <Grid container item xs={12} justifyContent="center" marginTop={5}>
-          <Grid item xs={10} sm={10} md={8}>
+          <Grid item xs={8} sm={6} md={3}>
             <Paper
               elevation={10}
               style={{ padding: 16, textAlign: "center", margin: "auto" }}
@@ -52,9 +52,6 @@ export default async function ProfilePage() {
                   lastName={user.user_metadata.last_name}
                 />
               </Grid>
-              <Grid display={"flex"} justifyContent={"center"}>
-                <EmailReset email={user.user_metadata.email} />
-              </Grid>
             </Paper>
           </Grid>
         </Grid>
@@ -63,21 +60,12 @@ export default async function ProfilePage() {
             <Typography variant="h4" sx={{ marginBottom: "5px" }}>
               Forms
             </Typography>
-            <Grid
-              container
-              item
-              xs={12}
-              spacing={2}
-              display={"flex"}
-            >
+            <Grid container item xs={12} spacing={2} display={"flex"}>
               <Grid item xs={6}>
-                <Paper
-                  elevation={10}
-                  style={{ padding: 16, margin: "auto" }}
-                >
+                <Paper elevation={10} style={{ padding: 16, margin: "auto" }}>
                   <Typography variant="h5">Onboarding Form</Typography>
                   <Typography variant="body2" marginBottom={2}>
-                    Description
+                    If you are an NRIVA DPP member, fill out the onboarding form to get started!
                   </Typography>
                   <LinkButton
                     href="/profile/onboarding?section1=true"
@@ -88,16 +76,17 @@ export default async function ProfilePage() {
                 </Paper>
               </Grid>
               <Grid item xs={6}>
-                <Paper
-                  elevation={10}
-                  style={{ padding: 16, margin: "auto" }}
-                >
+                <Paper elevation={10} style={{ padding: 16, margin: "auto" }}>
                   <Typography variant="h5">Coach Registration Form</Typography>
                   <Typography variant="body2" marginBottom={2}>
-                    Description
+                    Sign up to become a coach today! 
                   </Typography>
                   <Link href="/profile/becomecoach">
-                    <Button endIcon={<LaunchIcon />} variant="contained" color='success'>
+                    <Button
+                      endIcon={<LaunchIcon />}
+                      variant="contained"
+                      color="success"
+                    >
                       Become a Coach
                     </Button>
                   </Link>
@@ -112,12 +101,31 @@ export default async function ProfilePage() {
               Security
             </Typography>
             <Grid item xs={12}>
-            <Paper elevation={10} style={{ padding: 16, textAlign: "center", margin: "auto" }}>
-              <Typography variant="h5" marginBottom={2}>
-                Change Password
-              </Typography>
-              <PasswordModal />
-            </Paper>
+              <Paper
+                elevation={10}
+                style={{
+                  padding: 16,
+                  textAlign: "center",
+                  margin: "auto",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Grid container justifyContent="center" spacing={25}>
+                  <Grid item>
+                    <Typography variant="h5" marginBottom={2}>
+                      Change Email
+                    </Typography>
+                    <EmailReset email={user.user_metadata.email} />
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="h5" marginBottom={2}>
+                      Change Password
+                    </Typography>
+                    <PasswordModal />
+                  </Grid>
+                </Grid>
+              </Paper>
             </Grid>
           </Grid>
         </Grid>

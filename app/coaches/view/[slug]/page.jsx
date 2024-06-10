@@ -6,10 +6,8 @@ import CoachUserTable from '@/components/tables/coachview/classview/CoachUserTab
 
 import { redirect } from "next/navigation";
 import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
-import EditClass from '@/components/forms/coaching/class/EditClass'
 import { Box, Typography } from "@mui/material";
 import CsvButton from '@/components/buttons/download/CsvButton'
-import DeleteClassModal from '@/components/forms/coaching/class/DeleteClassModal'
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 
 export default async function UserPage({ searchParams, params }) {
@@ -43,23 +41,19 @@ export default async function UserPage({ searchParams, params }) {
     return (
       <>
         {searchParams?.edit &&  <MuiSuccess severity="success">Class Name Edited!</MuiSuccess>}
-
-        <DeleteClassModal
-          code={params.slug.substring(0, 6)}
-          style={{ position: "absolute", right: "1rem", top: "5rem" }}
-        />
+        <Typography variant="h5" style={{ textAlign: "center" }}>{data[0].class_name}</Typography>
         <CsvButton
           searchValue={params.slug.substring(0, 6)}
           style={{ position: "absolute", right: "3rem", bottom: "2rem" }}
         />
-        <EditClass code={params.slug.substring(0, 6)} className={data[0].class_name} sx={{ position: "absolute", top: 64, justifyContent: "center"}}  />
+     
         <Box
           sx={{
             width: "100%",
             textAlign: "center",
             padding: "20px",
             bottompadding: "0px",
-            marginTop: "3rem",
+            // marginTop: "3rem",
           }}
         >
           <CoachUserTable code={params.slug.substring(0, 6)} />

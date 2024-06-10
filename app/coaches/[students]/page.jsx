@@ -40,9 +40,6 @@ export default async function StudentsPage({ params }) {
     if(!matches){
         redirect('/coaches?fake=true')
     }
-    if(!data[0]){
-        redirect('/coaches?fake=true')
-    }
     if(!user.id){
         redirect('/login?message=Unauthorized access! Please login first.')
     }
@@ -87,6 +84,7 @@ export default async function StudentsPage({ params }) {
           
         ))}
         </Grid>
+        {!data[0] && <Typography variant="h6" style={{ textAlign: "center" }}>No students in your class yet!</Typography>}
       </>
     );
 }

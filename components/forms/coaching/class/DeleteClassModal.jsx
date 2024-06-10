@@ -8,7 +8,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import DeleteButton from './DeleteButton'
-import { DeleteButtonIcon } from './DeleteButton';
+import { RemoveButton } from './DeleteButton';
 
 
 export default function DeleteModal({ code, ...props }) {
@@ -24,7 +24,7 @@ export default function DeleteModal({ code, ...props }) {
 
   return (
     <>
-      <DeleteButtonIcon
+      <RemoveButton
         click={handleClickOpen}
         {...props}
       />
