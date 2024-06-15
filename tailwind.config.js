@@ -7,6 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        customPurple: "#DC55F0",
+        customGradientStart: '#DC55F0',
+        customGradientEnd: '#FF0000',
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         btn: {
