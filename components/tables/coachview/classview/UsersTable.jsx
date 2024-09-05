@@ -11,9 +11,10 @@ export default function MuiTable({
 
   
     columns = [
-      { field: "created_at", headerName: "Joined", width: 150 },
-      { field: "first_name", headerName: "First Name", width: 150 },
-      { field: "last_name", headerName: "Last Name", width: 150 },
+      { field: "joined_class_at", headerName: "Joined", width: 150 },
+      // { field: "first_name", headerName: "First Name", width: 150 },
+      // { field: "last_name", headerName: "Last Name", width: 150 },
+      { field: "name", headerName: "Name", width: 150 },
       { field: "bmi", headerName: "BMI", width: 150 },
       { field: "minutes", headerName: "Last Week's Activity Minutes", width: 250 },
       { field: 'id', headerName: 'id', width: 150 }
@@ -24,6 +25,7 @@ export default function MuiTable({
     <div style={{ height: 500, width: "100%" }}>
       <DataGrid
         disableColumnSelector
+        disableRowSelectionOnClick
         columnVisibilityModel={{
           id: false,
         }}

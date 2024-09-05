@@ -8,7 +8,13 @@ export default async function fetcher(table, filter, userId) {
     .from(table)
     .select(filter)
     .eq("id", userId)
-    .order('created_at', { ascending: true });
+    .order('user_created_at', { ascending: true });
+
+    if(error) {
+      console.error(error);
+    //   console.log("hello");
+    }
+
 
     return data;
     

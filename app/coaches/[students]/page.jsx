@@ -21,8 +21,6 @@ export default async function StudentsPage({ params }) {
 
     let classCopy = Array.from(await fetchCoach('coach_codes'));
     // add check for if coach owns that class
-    
-    console.log(user.id ? 'yes' : 'no')
 
     if(classCopy.user === false){
         redirect('/login?message=Unauthorized access! Please login first.')
@@ -67,16 +65,14 @@ export default async function StudentsPage({ params }) {
               >
                   <IconButton size="large" style={{ textAlign: "center" }} aria-haspopup="true">
                     <MuiAvatar
-                      name={`${row.first_name} ${row.last_name}`}
+                      name={row.name}
                       style={{ width: 75, height: 75 }}
                     />
                   </IconButton>
               </Link>
               </Box>
               <Typography variant="h6" style={{ textAlign: "center" }}>
-                {row.first_name}
-                <br />
-                {row.last_name}
+                {row.name}
               </Typography>
             </Paper>
         </Grid>

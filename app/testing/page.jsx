@@ -1,33 +1,43 @@
 'use server';
 
-import CoachDashboard from '@/components/navigation/userdashboard/CoachDashboard';
-import MuiList from '@/components/display/cohorts/MuiList'
-import coachUserList from '@/components/serverfunctions/coach/coachUserList'
-import { Box } from '@mui/material';
-import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
+import { Box, Grid } from '@mui/material';
+import ActivityCard from '../../components/tables/users/activities/ActivityCard';
+
+import { createClient } from '@/utils/supabase/server';
 
 
 export default async function TestPage() {
-    
-    let coach = Object.assign({}, await fetchCoach())
-    let coachUserData;
-    if(coach.user != false){
-        coachUserData = Array.from(await coachUserList())
-    }
+  const supabase = createClient();
 
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-    let tree = coachUserData[1].map((row) => {
-      return <MuiList cohortName={row.label} code={row.id}/>
-    })
+    const { data, error } = await supabase
+      .from('activity_log')
+      // try with {} if doesn't work without
+      .select()
+      .eq("user", user.id)
+      .order('created_at', { ascending: true });
 
-    console.log(tree)
 
   return (
-    <Box width={"100%"}>
-      {coachUserData ? <CoachDashboard
-        main={<div>Hello</div>}
-        tree={tree}
-      /> : null}
-    </Box>
+    <Grid container>
+      {data &&
+        data.map((row) => (
+          <Grid item minWidth={150} xs={6} sm={2} md={4} padding={2} alignContent={"center"} key={row.id}>
+          <ActivityCard
+            key={row.id}
+            title={row.activity}
+            title1="Exercise Type"
+            title2="Duration"
+            title3="Difficulty"
+            field1={row.exercise_type.title}
+            field2={row.minutes}
+            field3={row.difficulty.title}
+          />
+          </Grid>
+        ))}
+    </Grid>
   );
 }

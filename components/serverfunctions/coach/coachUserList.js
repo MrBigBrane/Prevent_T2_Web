@@ -57,7 +57,9 @@ export default async function coachUserList() {
             .from('profiles')
             .select()
             .eq("class_codes", classData[i].id)
-            .order('created_at', { ascending: true });
+            .order('joined_class_at', { ascending: true });
+
+        console.log(error)
 
         data.map((row) => {
             const label = `${row.first_name} ${row.last_name}`
