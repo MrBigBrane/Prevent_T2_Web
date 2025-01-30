@@ -4,32 +4,17 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Box, Grid, Icon, IconButton } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 import MuiModal from '@/components/forms/userforms/MuiModal';
 import MuiDeleteModal from '@/components/buttons/MuiDeleteModal';
 
-export default function ActivityCard({ title, title1, field1, title2, field2, title3, field3, date, id }) {
+export default function CoachCard({ title, title1, field1, title2, field2, title3, field3, id }) {
 
   return (
     <Card style={{ width: "100%" }}>
       <CardContent>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            padding: 1,
-          }}
-        >
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {date}
-          </Typography>
-        </Box>
-
+        <Typography gutterBottom variant="h5" component="div">
+          {title}
+        </Typography>
         <Box
           sx={{
             display: "flex",
@@ -76,13 +61,17 @@ export default function ActivityCard({ title, title1, field1, title2, field2, ti
       <CardActions>
         <MuiModal
           edit={true}
-          title={"Activity Logger"}
           rowId={id}
-          field1={title}
+          field1={field1}
           field2={field2}
           field3={field3}
+          field4={title}
         />
-        <MuiDeleteModal table={"activity_log"} rowId={id} page={"activities?delete=true"} />
+        <MuiDeleteModal
+          table={"lifestyles_coach_log"}
+          rowId={id}
+          page={"coachlog?delete=true"}
+        />
       </CardActions>
     </Card>
   );

@@ -26,7 +26,7 @@ function Label({ componentName, valueType, isProOnly }) {
   return content;
 }
 
-export default function CommonlyUsedComponents({ name, ...props }) {
+export default function CommonlyUsedComponents({ defaultValue, name, ...props }) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer
@@ -41,7 +41,7 @@ export default function CommonlyUsedComponents({ name, ...props }) {
         <DemoItem
           label={<Label componentName="Date and Time" valueType="date time" />}
         >
-          <DateTimePicker name={name} {...props}/>
+          <DateTimePicker name={name} defaultValue={defaultValue} {...props}/>
         </DemoItem>
       </DemoContainer>
     </LocalizationProvider>

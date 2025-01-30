@@ -6,7 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
-import EditButton from '../../buttons/EditButton';
+import EditButton from '@/components/buttons/EditButton';
 import MealPlan from '@/components/forms/plans/meals/MealPlan';
 
 export default function FormDialog({ rowId, field1, field2, field3, field4, ...props }) {

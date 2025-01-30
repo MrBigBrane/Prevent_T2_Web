@@ -9,7 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import MuiModal from '@/components/forms/userforms/MuiModal';
 import MuiDeleteModal from '@/components/buttons/MuiDeleteModal';
 
-export default function ActivityCard({ title, title1, field1, title2, field2, title3, field3, date, id }) {
+export default function StudentCard({ title, title1, field1, title2, field2, title3, field3, date, id }) {
 
   return (
     <Card style={{ width: "100%" }}>
@@ -73,7 +73,7 @@ export default function ActivityCard({ title, title1, field1, title2, field2, ti
           </Box>
         </Box>
       </CardContent>
-      <CardActions>
+      {/* <CardActions>
         <MuiModal
           edit={true}
           title={"Activity Logger"}
@@ -83,7 +83,7 @@ export default function ActivityCard({ title, title1, field1, title2, field2, ti
           field3={field3}
         />
         <MuiDeleteModal table={"activity_log"} rowId={id} page={"activities?delete=true"} />
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }

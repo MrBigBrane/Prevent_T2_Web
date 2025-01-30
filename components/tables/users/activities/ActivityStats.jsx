@@ -1,66 +1,69 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import MuiTable from '../../MuiTable';
-import { Box, Button, Grid, TextField } from '@mui/material';
+import { Box, Button, Grid, IconButton, TextField } from '@mui/material';
 import ActivityCard from './ActivityCard';
 import MuiTextField from '@/components/inputs/MuiTextField';
 import MuiText from './MuiText';
 
-export default async function ActivityTable({ data }) {
+export default function ActivityTable({ data }) {
   const [cardMode, setCardMode] = useState(true);
-
-  const [dataExtracted, setDataExtracted] = useState([]);
 
   const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    let dataExtracted = Object.assign([], data);
+  let dataEx = Object.assign([], data);
 
-    dataExtracted = dataExtracted.map((row) => {
-      let createdAt = new Date(row.created_at);
-      row.created_at = createdAt.toISOString().substring(0, 10);
-      return {
-        id: row.id,
-        created_at: row.created_at,
-        activity: row.activity,
-        minutes: row.minutes,
-        difficulty: row.difficulty.title,
-        exercise_type: row.exercise_type.title,
-      };
-    });
-
-    setDataExtracted(dataExtracted);
-  }, [data]);
-  
-
+  dataEx = dataEx.map((row) => {
+    let createdAt = new Date(row.created_at);
+    row.created_at = createdAt.toISOString().substring(0, 10);
+    return {
+      id: row.id,
+      created_at: row.created_at,
+      activity: row.activity,
+      minutes: row.minutes,
+      difficulty: row.difficulty.title,
+      exercise_type: row.exercise_type.title,
+    };
+  });
 
   function cardModeChange() {
     setCardMode((cardMode) => !cardMode);
-  };
+  }
 
-      return (
+  return (
+    <>
+      <Button
+        onClick={cardModeChange}
+        variant="contained"
+        style={{ margin: "1rem" }}
+      >
+        {cardMode ? "Table View" : "Card View"}
+      </Button>
+
+      {cardMode ? (
         <>
-          <Button
-            onClick={cardModeChange}
-            variant="contained"
-            style={{ margin: "1rem" }}
-          >
-            {cardMode ? "Table Mode" : "Card Mode"}
-          </Button>
-          {/* <MuiText field="Activity" /> */}
-          <MuiTextField id="outlined-basic" label="Search" variant="outlined" />
-          <MuiText field="Activity" />
-          <TextField id="outlined-basic" label="Search" variant="outlined" value={search} onChange={(e) => setSearch(e.target.value)}/>
-          {/* {cardMode ? ( */}
-            <>
-              <Grid container>
-                {dataExtracted &&
-                  dataExtracted.map((row) => (
+          <TextField
+            id="outlined-basic"
+            label="Search"
+            variant="outlined"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <Grid container>
+            {dataEx &&
+              dataEx.map((row) => {
+                if (
+                  search === "" ||
+                  row.activity.toUpperCase().includes(search) ||
+                  row.activity.toLowerCase().includes(search) ||
+                  row.activity.includes(search)
+                ) {
+                  return (
                     <Grid
                       item
-                      minWidth={150}
-                      xs={6}
+                      minWidth={300}
+                      xs={12}
                       sm={2}
                       md={4}
                       padding={2}
@@ -76,26 +79,31 @@ export default async function ActivityTable({ data }) {
                         field1={row.exercise_type}
                         field2={row.minutes}
                         field3={row.difficulty}
+                        date={row.created_at}
+                        id={row.id}
                       />
                     </Grid>
-                  ))}
-              </Grid>
-            </>
-          {/* ) : (
-            <MuiTable
-              page="activities?delete=true"
-              title="Activity Logger"
-              table={"activity_log"}
-              data={dataExtracted}
-              field1="activity"
-              title1="Activity Name"
-              field2="minutes"
-              title2="Minutes"
-              field3="difficulty"
-              title3="Perceived Difficulty"
-            />
-          )} */}
+                  );
+                }
+              })}
+          </Grid>
         </>
-      );
-    
+      ) : (
+        <MuiTable
+          page="activities?delete=true"
+          title="Activity Logger"
+          table={"activity_log"}
+          data={dataEx}
+          field1="activity"
+          title1="Activity Name"
+          field2="exercise_type"
+          title2="Exercise Type"
+          field3="minutes"
+          title3="Minutes"
+          field4="difficulty"
+          title4="Perceived Difficulty"
+        />
+      )}
+    </>
+  );
 }

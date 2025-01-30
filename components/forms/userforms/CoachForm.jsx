@@ -10,7 +10,7 @@ import MuiDateTime from '@/components/inputs/MuiDateTime';
 import { useState } from 'react';
 import { Box, LinearProgress } from '@mui/material';
 
-export default function LifestyleCoachLogPage({ field1, field2, field3, minutes1, minutes2, rowId, click }) {
+export default function LifestyleCoachLogPage({ date, field1, field2, field3, minutes1, minutes2, rowId, click }) {
     const [state, formAction] = useFormState(rowId ?  editTableAction : tableAction, { message: null })
     const [loading, setLoading] = useState(false);
 
@@ -26,7 +26,7 @@ export default function LifestyleCoachLogPage({ field1, field2, field3, minutes1
           </Box>
         ) : null}
         <form action={formAction}>
-          {rowId ? null : <MuiDateTime name="date" />}
+          <MuiDateTime name="date" defaultValue={date} />
           {minutes1 || minutes1 === 0 ? (
             <Box sx={{ paddingLeft: 1, marginTop: 2 }}>
               <MuiSelect

@@ -10,7 +10,7 @@ import { useState } from 'react';
 import DeleteButton from './DeleteButton'
 import { DeleteButtonIcon } from './DeleteButton';
 
-export default function DeleteModal({ table, rowId, page }) {
+export default function MuiDeleteModal({ table, rowId, page }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {

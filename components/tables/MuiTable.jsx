@@ -55,6 +55,7 @@ export default function MuiTable({
 
   function Footer() {
     const [rowId, setRowId] = useState('');
+    const [createdAt, setCreatedAt] = useState('');
     const [firstField, setFirstField] = useState('')
     const [secondField, setSecondField] = useState('')
     const [thirdField, setThirdField] = useState('')
@@ -62,6 +63,7 @@ export default function MuiTable({
   
     const handleRowClick = (params) => {
       setRowId(params.row.id);
+      setCreatedAt(params.row.created_at);
       setFirstField(params.row[field1])
       setSecondField(params.row[field2])
       setThirdField(params.row[field3])
@@ -74,7 +76,7 @@ export default function MuiTable({
         <GridFooter />
         {rowId && (
           <>
-            <MuiModal edit={true} title={title} rowId={rowId} field1={firstField} field2={secondField} field3={thirdField}  />
+            <MuiModal edit={true} title={title} rowId={rowId} field1={firstField} field2={secondField} field3={thirdField} field4={createdAt} />
             <MuiDeleteModal table={table} rowId={rowId} page={page} />
           </>
         )}

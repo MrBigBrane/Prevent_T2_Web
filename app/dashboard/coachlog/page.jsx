@@ -1,16 +1,17 @@
 'use server';
 
-import MuiModal from '@/components/forms/userforms/MuiModal';
-import LinkButton from '@/components/buttons/LinkButton';
-import CoachTable from '@/components/tables/users/CoachTable';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CoachStats from '@/components/tables/users/coach/CoachStats';
 import minutesPerWeek from '@/components/serverfunctions/minutesPerWeek';
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess';
 import getCurrentUser from '@/components/serverfunctions/getCurrentUser';
 import { Box, Typography } from '@mui/material';
-import LinkAddButton from '@/components/buttons/linkbuttons/LinkAddButton';
+import { createClient } from '@/utils/supabase/server';
+import { redirect } from "next/navigation";
 
 export default async function CoachPage({ searchParams }) {
+
+  const supabase = createClient();
+
   const user = Object.assign({}, await getCurrentUser())
 
   // If the user is not logged in, redirect them to the login page
@@ -18,8 +19,12 @@ export default async function CoachPage({ searchParams }) {
     redirect('/login?message=Please login before trying to access user data.')
   }
 
-  let minutesData = Array.from(await minutesPerWeek())
-  let weeksMinutes = minutesData[1][minutesData[1].length - 1].toString()
+  const { data, error } = await supabase
+  .from("lifestyle_coach_log")
+  // try with {} if doesn't work without
+  .select()
+  .eq("user", user.id)
+  .order('created_at', { ascending: true });
 
     return (
       <>
@@ -43,7 +48,7 @@ export default async function CoachPage({ searchParams }) {
           marginLeft={1}
           marginRight={1}
         >
-          <CoachTable table="lifestyle_coach_log" />
+          <CoachStats data={data} />
         </Box>
       </>
     );

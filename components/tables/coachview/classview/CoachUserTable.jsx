@@ -6,6 +6,8 @@ import minutesPerWeek from '../../../serverfunctions/coach/coachview/minutesPerW
 import fetchUserData from '../../../serverfunctions/coach/coachview/fetchUserData'
 
 import { createClient } from '@/utils/supabase/server';
+import MuiButton from '@/components/buttons/MuiButton';
+import { Button } from '@mui/material';
 
 export default async function CoachUserTable({ code }) {
     const supabase = createClient();
@@ -51,6 +53,7 @@ export default async function CoachUserTable({ code }) {
 
     return (
         <>
+            <Button variant="contained" onClick={() => window.location.reload()}>Refresh</Button>
             <UsersTable data={data}/>
         </>
     )
