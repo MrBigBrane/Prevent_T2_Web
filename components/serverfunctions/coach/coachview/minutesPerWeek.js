@@ -1,18 +1,26 @@
-import fetchUserData from './fetchUserData'
-
 import { createClient } from "@/utils/supabase/server";
 
 
 export default async function dateCreator(userId) {
     const supabase = createClient();
 
-    let creationDate = Object.assign({}, await fetchUserData('profiles', 'user_created_at', userId))
+    let { data: creationDate, error: creationDateError } = await supabase
+      .from("profiles")
+      .select()
+      .eq("id", userId)
+      .order("user_created_at", { ascending: true });
 
     let { data, error } = await supabase.rpc("get_weekly_activity", {
         user_id: userId,
         user_creation_date: creationDate[0].user_created_at
     });
-    if (error) console.error(error);
+
+    if (error) {
+        console.log("what's up")
+        console.log(error);
+    console.log('hello')
+
+    }
 
     let minuteGraph = data;
 

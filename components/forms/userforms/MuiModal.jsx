@@ -11,7 +11,7 @@ import EditButton from '../../buttons/EditButton';
 import CoachForm from './CoachForm'
 import AddButton from '../../buttons/AddButton';
 
-export default function FormDialog({ edit, title, rowId, field1, field2, field3, search, ...props }) {
+export default function MuiModal({ edit, title, rowId, field1, field2, field3, field4, search, ...props }) {
   
   const [open, setOpen] = useState(search);
 
@@ -45,6 +45,7 @@ export default function FormDialog({ edit, title, rowId, field1, field2, field3,
               field1={field1}
               field2={field2}
               field3={field3}
+              field4={field4}
               rowId={rowId}
               click={handleClose}
             />

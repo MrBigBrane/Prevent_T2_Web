@@ -2,7 +2,7 @@
 
 
 import { createClient } from '@/utils/supabase/server';
-import MuiTable from './MuiTable';
+import MuiTable from '@/components/tables/MuiTable';
 
 
 export default async function CoachTable() {

@@ -3,7 +3,7 @@
 import { DataGrid, GridFooter, useGridApiContext, useGridApiEventHandler } from '@mui/x-data-grid';
 import { useState } from 'react';
 import MuiModal from './MuiModal'
-import MuiDeleteModal from '../../buttons/MuiDeleteModal'
+import MuiDeleteModal from '@/components/buttons/MuiDeleteModal'
 
 export default function MuiTable({
   page,

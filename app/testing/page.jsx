@@ -1,33 +1,24 @@
-'use server';
+'use client';
 
-import CoachDashboard from '@/components/navigation/userdashboard/CoachDashboard';
-import MuiList from '@/components/display/cohorts/MuiList'
-import coachUserList from '@/components/serverfunctions/coach/coachUserList'
-import { Box } from '@mui/material';
-import fetchCoach from '@/components/serverfunctions/coach/fetchCoach';
-
-
-export default async function TestPage() {
-    
-    let coach = Object.assign({}, await fetchCoach())
-    let coachUserData;
-    if(coach.user != false){
-        coachUserData = Array.from(await coachUserList())
-    }
+import { Box, Button, Grid, Typography } from '@mui/material';
+import ActivityCard from '../../components/tables/users/activities/ActivityCard';
+import { useState } from 'react';
+import MuiButton from '@/components/buttons/MuiButton';
 
 
-    let tree = coachUserData[1].map((row) => {
-      return <MuiList cohortName={row.label} code={row.id}/>
-    })
+export default function TestPage() {
+  const [data, setData] = useState(0);
 
-    console.log(tree)
+  function handleClick() {
+    setData((prev) => prev + 1)
+  }
+
 
   return (
-    <Box width={"100%"}>
-      {coachUserData ? <CoachDashboard
-        main={<div>Hello</div>}
-        tree={tree}
-      /> : null}
-    </Box>
+    <>
+      <MuiButton click={handleClick} label="Add Row" />
+      <Typography variant="h4" style={{ textAlign: "center" }}>Testing: {data}</Typography>
+    </>
+      
   );
 }
