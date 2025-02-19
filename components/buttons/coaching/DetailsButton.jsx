@@ -7,10 +7,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
-import DeleteButton from '../../../buttons/DeleteButton'
-import { DeleteButtonIcon } from '../../../buttons/DeleteButton';
+import { DeleteButtonIcon } from '../DeleteButton';
+import Link from 'next/link';
+import LinkButton from '../LinkButton';
 
-export default function DeleteModal({ rowId }) {
+export default function DetailsButton({ name, minutes, bmi, viewmore, joindate }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -23,26 +24,26 @@ export default function DeleteModal({ rowId }) {
 
   return (
     <>
-      <DeleteButtonIcon
-        click={handleClickOpen}
-      />
+      <Button onClick={handleClickOpen}>Details</Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Are you sure you want to delete this?"}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{name}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            This action cannot be undone.
+            Minutes: {minutes}
+            <br />
+            BMI: {bmi}
+            <br />
+            Joined: {joindate}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <DeleteButton table="action_plans" page="/dashboard/plans/actionplan?delete=success" rowId={rowId} />
+          <Button onClick={handleClose}>Close</Button>
+          <LinkButton href={viewmore} onClick={handleClose} label={"View More"} variant="text"/>
         </DialogActions>
       </Dialog>
     </>

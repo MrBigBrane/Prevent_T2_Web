@@ -64,6 +64,7 @@ export default async function Announcements({ searchParams, params }) {
                     body={item.message}
                     classCode={params.slug.substring(0, 6)}
                     coach={true}
+                    edit={item.edited}
                   />
                 );
             })}

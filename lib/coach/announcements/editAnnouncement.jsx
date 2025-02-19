@@ -14,6 +14,7 @@ export default async function tableAction(prevState, formData) {
     .update({ 
         title: myText,
         message: formData.get('announcement'),
+        edited: true
      })
      .select()
      .eq('id', formData.get('rowIdinput'))

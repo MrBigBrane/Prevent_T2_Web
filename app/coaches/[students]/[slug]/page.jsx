@@ -10,6 +10,7 @@ import LinkButton from "@/components/buttons/LinkButton";
 import { redirect } from "next/navigation";
 import fetchCoach from "@/components/serverfunctions/coach/fetchCoach";
 import { Box, Paper, Typography } from "@mui/material";
+import CoachStats from "@/components/tables/users/coach/CoachStats";
 
 
 export default async function UserPage({ params }) {
@@ -25,6 +26,13 @@ export default async function UserPage({ params }) {
     .eq("id", params.slug);
 
     let classCopy = Array.from(await fetchCoach('coach_codes'));
+
+    const coachLog = await supabase
+      .from("lifestyle_coach_log")
+      // try with {} if doesn't work without
+      .select()
+      .eq("user", params.slug)
+      .order("created_at", { ascending: true });
 
     if(!user){
         redirect('/login?message=Unauthorized access! Please login first.')
@@ -86,7 +94,14 @@ export default async function UserPage({ params }) {
           </Paper>
         </Box>
 
-        <CoachTable id={params.slug} />
+        <Box
+          style={{ width: "95%", textAlign: "center" }}
+          marginTop={4}
+          marginLeft={1}
+          marginRight={1}
+        >
+          <CoachStats data={coachLog.data} />
+        </Box>
       </Box>
     );
 }

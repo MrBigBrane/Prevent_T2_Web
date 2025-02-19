@@ -1,7 +1,7 @@
 'use server'
 
 import MealTable from "@/components/tables/users/meal/MealTable";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import MuiSuccess from '@/components/buttons/alerts/MuiSuccess'
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
@@ -43,7 +43,6 @@ export default async function MealPlanPage({ searchParams }) {
         <Typography variant="h5" style={{ textAlign: "center" }}>
           Meal Plan
         </Typography>
-        <MealTable />
         <Box
           style={{ width: "95%", textAlign: "center" }}
           marginTop={4}

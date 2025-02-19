@@ -7,8 +7,10 @@ import { Box, Grid, Icon, IconButton } from '@mui/material';
 import MuiModal from '@/components/forms/userforms/MuiModal';
 import MuiDeleteModal from '@/components/buttons/MuiDeleteModal';
 
-export default function CoachCard({ title, title1, field1, title2, field2, title3, field3, id }) {
+export default function CoachCard({ title, title1, field1, title2, field2, title3, field3, field4, id }) {
+  console.log(field4)
 
+  
   return (
     <Card style={{ width: "100%" }}>
       <CardContent>
@@ -42,7 +44,7 @@ export default function CoachCard({ title, title1, field1, title2, field2, title
               {title2}
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              {field2}
+              {field2.substring(2)}
             </Typography>
           </Box>
           <Box sx={{ textAlign: "center" }}>
@@ -53,7 +55,7 @@ export default function CoachCard({ title, title1, field1, title2, field2, title
               {title3}
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              {field3}
+              {field3.substring(0, field3.indexOf(" "))}
             </Typography>
           </Box>
         </Box>
@@ -65,10 +67,10 @@ export default function CoachCard({ title, title1, field1, title2, field2, title
           field1={field1}
           field2={field2}
           field3={field3}
-          field4={title}
+          field4={field4}
         />
         <MuiDeleteModal
-          table={"lifestyles_coach_log"}
+          table={"lifestyle_coach_log"}
           rowId={id}
           page={"coachlog?delete=true"}
         />

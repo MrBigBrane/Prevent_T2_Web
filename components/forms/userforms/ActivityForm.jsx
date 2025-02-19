@@ -10,9 +10,21 @@ import { Box, LinearProgress } from '@mui/material';
 import { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 
-export default function ActivityLogPage({ field1, field2, field3, rowId, click }) {
+export default function ActivityLogPage({ field1, field2, field3, field4, rowId, click }) {
     const [loading, setLoading] = useState(false)
     const [state, formAction] = useFormState(rowId ? editTableAction : tableAction, { message: null })
+
+    const exerciseTypes = [
+      { icon: "run", title: "Run" },
+      { icon: "walk", title: "Walk" },
+      { icon: "swim", title: "Swim" },
+      { icon: "weight", title: "Weight Training" },
+      { icon: "yoga", title: "Pilates" },
+      { icon: "bike", title: "Bike" },
+      { icon: "jump-rope", title: "Crossfit" },
+      { icon: "human", title: "Calisthenics" },
+      { icon: "adjust", title: "Other" },
+    ]
 
     function handleLoading() {
         setLoading(true);
@@ -36,6 +48,25 @@ export default function ActivityLogPage({ field1, field2, field3, rowId, click }
             required={true}
             color="success"
           />
+          <Box marginLeft={"8px"} paddingBottom={2} paddingTop={1}>
+            <MuiSelect
+              defaultValue={field4}
+              name="exercisetype"
+              field="Exercise Type"
+              field1={exerciseTypes[0].title}
+              field2={exerciseTypes[1].title}
+              field3={exerciseTypes[2].title}
+              field4={exerciseTypes[3].title}
+              field5={exerciseTypes[4].title}
+              field6={exerciseTypes[5].title}
+              field7={exerciseTypes[6].title}
+              field8={exerciseTypes[7].title}
+              field9={exerciseTypes[8].title}
+              required={true}
+              style={{ width: "19.6%" }}
+              color="success"
+            />
+          </Box>
           <MuiTextField
             defaultValue={field2}
             name="minutes"

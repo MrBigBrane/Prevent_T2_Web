@@ -81,6 +81,7 @@ export default function ActivityCard({ title, title1, field1, title2, field2, ti
           field1={title}
           field2={field2}
           field3={field3}
+          field4={field1}
         />
         <MuiDeleteModal table={"activity_log"} rowId={id} page={"activities?delete=true"} />
       </CardActions>

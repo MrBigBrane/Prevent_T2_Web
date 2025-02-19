@@ -10,7 +10,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import DeleteClassModal from '../class/DeleteClassModal'
 
-export default function AddClassCoach({ data, children }) {
+export default function AddClassCoach({ data, image, children }) {
     const [state, formAction] = useFormState(editClass, { message: null })
     const [loading, setLoading] = useState(false);
     const [locked, setLocked] = useState(true);
@@ -33,15 +33,17 @@ export default function AddClassCoach({ data, children }) {
           justifyContent: "center",
         }}
       >
+        
         <Paper>
+          {image ? <img src={image} alt="" /> : null}
           {loading ? (
             <Box width={"100%"}>
               <LinearProgress color="success" />
             </Box>
           ) : null}
-
           <form action={formAction}>
             <Box padding={2}>
+              
               <Box display={"flex"} justifyContent={"space-between"}>
                 <Typography variant="h6" padding={1}>
                   {children}
@@ -105,6 +107,18 @@ export default function AddClassCoach({ data, children }) {
                   variant="outlined"
                   name="orgcode"
                   defaultValue={data.orgcode}
+                  type=""
+                  color="success"
+                  style={{ padding: "auto" }}
+                  disabled={locked}
+                />
+                <br />
+                <MuiTextField
+                  id="meetinglink"
+                  label="Meet Link (If any)"
+                  variant="outlined"
+                  name="meetinglink"
+                  defaultValue={data.meet_link ? data.meet_link : null}
                   type=""
                   color="success"
                   style={{ padding: "auto" }}

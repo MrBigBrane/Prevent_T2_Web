@@ -10,13 +10,14 @@ import MuiDateTime from '@/components/inputs/MuiDateTime';
 import { useState } from 'react';
 import { Box, LinearProgress } from '@mui/material';
 
-export default function LifestyleCoachLogPage({ date, field1, field2, field3, minutes1, minutes2, rowId, click }) {
+export default function LifestyleCoachLogPage({ date, field1, field2, field3, field4, minutes1, minutes2, rowId, click }) {
     const [state, formAction] = useFormState(rowId ?  editTableAction : tableAction, { message: null })
     const [loading, setLoading] = useState(false);
 
     function handleLoading() {
         setLoading(true);
     }
+
 
     return (
       <>
@@ -26,7 +27,7 @@ export default function LifestyleCoachLogPage({ date, field1, field2, field3, mi
           </Box>
         ) : null}
         <form action={formAction}>
-          <MuiDateTime name="date" defaultValue={date} />
+          {rowId ? null : <MuiDateTime name="date" defaultValue={date} />}
           {minutes1 || minutes1 === 0 ? (
             <Box sx={{ paddingLeft: 1, marginTop: 2 }}>
               <MuiSelect
@@ -58,9 +59,9 @@ export default function LifestyleCoachLogPage({ date, field1, field2, field3, mi
               defaultValue={field2}
               name="attendance"
               field="Attendance"
-              field1="1 In-person"
+              field1="1 In-Person"
               field2="2 Online"
-              field3="3 Distance Learning"
+              field3="3 None"
               required={true}
               color="success"
               // style={{
@@ -77,9 +78,9 @@ export default function LifestyleCoachLogPage({ date, field1, field2, field3, mi
               field1="C Core Session"
               field2="CM Core Maintenance Session"
               field3="OM Ongoing Maintenance Session"
-              field4="MU-C Make up session in core phase"
-              field5="MU-OM Make up session in ongoing phase"
-              field6="MU-CM Make up session in core maintenance phase"
+              field4="MU-C Make Up Session in Core Phase"
+              field5="MU-OM Make Up Session in Ongoing Phase"
+              field6="MU-CM Make Up Session in Core Maintenance Phase"
               required={true}
               color="success"
             />

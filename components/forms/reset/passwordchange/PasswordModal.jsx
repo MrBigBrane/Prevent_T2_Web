@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import PasswordChange from './PasswordChange';
 
-export default function FormDialog({ edit, title, rowId, field1, field2, field3, search, ...props }) {
+export default function PasswordModal({ edit, title, rowId, field1, field2, field3, search, ...props }) {
   
   const [open, setOpen] = useState(search);
 
