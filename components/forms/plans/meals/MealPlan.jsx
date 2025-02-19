@@ -37,7 +37,7 @@ export default function MealPlan({ click, mealType, item, amount, calories, rowI
               color="success"
             />
           ) : null}
-          {rowId ? <br /> : <MuiDateTime name="date" />}
+          {rowId ? null : <MuiDateTime name="date" />}
           <Box sx={{ paddingLeft: 1, marginTop: 2, marginBottom: 1 }}>
             <MuiSelect
               name="mealType"
@@ -46,12 +46,15 @@ export default function MealPlan({ click, mealType, item, amount, calories, rowI
               field2="Lunch"
               field3="Dinner"
               field4="Snack"
+              field5="Drink"
+              field6="Other"
               variant="outlined"
               defaultValue={mealType ? mealType : null}
               required={true}
               style={{ width: "19.6%" }}
               color="success"
             />
+            
           </Box>
 
           <MuiTextField

@@ -17,7 +17,7 @@ import CampaignIcon from '@mui/icons-material/Campaign';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-export default function NestedList({ cohortName, code }) {
+export default function MuiList({ cohortName, code }) {
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -39,14 +39,14 @@ export default function NestedList({ cohortName, code }) {
 
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <Link href={`/coaches/view/${code}class`} style={{ width: "100%" }}>
+          {/* <Link href={`/coaches/view/${code}class`} style={{ width: "100%" }}>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
                 <GroupsIcon />
               </ListItemIcon>
               <ListItemText primary="View Class" />
             </ListItemButton>
-          </Link>
+          </Link> */}
           <Link href={`/coaches/${code}student`} style={{ width: "100%" }}>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>

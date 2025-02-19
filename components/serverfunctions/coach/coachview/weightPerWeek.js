@@ -2,7 +2,7 @@ import fetchUserData from './fetchUserData'
 
 import { createClient } from "@/utils/supabase/server";
 
-export default async function weightCreator(userId) {
+export default async function weightPerWeek(userId) {
     const supabase = createClient();
 
     let creationDate = Object.assign({}, await fetchUserData('profiles', 'user_created_at', userId))

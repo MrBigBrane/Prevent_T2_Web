@@ -13,7 +13,8 @@ export default async function tableAction(prevState, formData) {
         class_name: formData.get('classname'),
         orgcode: formData.get('orgcode'),
         coachid: formData.get('coachid'),
-        cohortid: formData.get('cohortid')
+        cohortid: formData.get('cohortid'),
+        meet_link: formData.get('meetinglink')
      })
      .select()
      .eq('code', formData.get('codeinput'))

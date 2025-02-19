@@ -1,7 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 
 
-export default async function dateCreator(userId) {
+export default async function minutesPerWeek(userId) {
     const supabase = createClient();
 
     let { data: creationDate, error: creationDateError } = await supabase

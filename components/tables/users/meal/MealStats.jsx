@@ -23,7 +23,7 @@ export default function MealStats({ data }) {
       return {
         id: row.id,
         created_at: row.created_at,
-        meal_type: row.meal_type,
+        meal_type: row.meal_type.title,
         item: row.item,
         amount: row.amount,
         calories: row.calories,
@@ -77,7 +77,7 @@ export default function MealStats({ data }) {
                       return (
                         <Grid
                           item
-                          minWidth={150}
+                          minWidth={200}
                           xs={6}
                           sm={2}
                           md={4}

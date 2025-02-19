@@ -55,6 +55,9 @@ export default function MealCard({ title, title1, field1, title2, field2, title3
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
               {field3}
             </Typography>
+            
+          </Box>
+          <Box sx={{ textAlign: "center" }}>
             <Typography
               variant="body2"
               sx={{ color: "text.secondary", fontWeight: "bold" }}
@@ -71,6 +74,7 @@ export default function MealCard({ title, title1, field1, title2, field2, title3
         <MuiModal
           edit={true}
           rowId={id}
+          title={"Meal Plan"}
           field1={field1}
           field2={field2}
           field3={field3}

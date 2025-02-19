@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import MuiTable from '../../MuiTable';
-import { Box, Button, Grid, TextField } from '@mui/material';
+import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 import CoachCard from './CoachCard';
 import MuiTextField from '@/components/inputs/MuiTextField';
 
@@ -22,13 +22,11 @@ export default function CoachStats({ data }) {
       row.created_at = createdAt.toISOString().substring(0, 10);
       return {
         id: row.id,
-        created_at: row.created_at,
+        created_at: row.created_at_string,
+        created_at_date: createdAt,
         current_weight: row.current_weight,
         attendance: row.attendance.title,
-        sesstype: row.sesstype.title.substring(
-          0,
-          row.sesstype.title.indexOf(" ")
-        ),
+        sesstype: row.sesstype.title
       };
     });
 
@@ -61,6 +59,7 @@ export default function CoachStats({ data }) {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
+
               <Grid container>
                 {dataExtracted &&
                   dataExtracted.map((row) => {
@@ -89,13 +88,14 @@ export default function CoachStats({ data }) {
                         >
                           <CoachCard
                             key={row.id}
-                            title={row.created_at.substring(0, 10)}
+                            title={row.created_at}
                             title1="Weight"
                             title2="Attendance"
                             title3="Session Type"
                             field1={row.current_weight}
                             field2={row.attendance}
                             field3={row.sesstype}
+                            field4={row.created_at_date}
                             id={row.id}
                           />
                         </Grid>
@@ -103,6 +103,7 @@ export default function CoachStats({ data }) {
                     }
                   })}
               </Grid>
+              {dataExtracted.length == 0 && <Typography variant="h6">No entries to display</Typography>}
             </>
           ) : (
             <MuiTable
