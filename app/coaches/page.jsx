@@ -35,8 +35,8 @@ export default async function CoachesPage({ searchParams }) {
             {searchParams?.fake &&  <MuiSuccess severity="warning">Class does not exist or you do not have access!</MuiSuccess>}
             {searchParams?.classdeleted &&  <MuiSuccess severity="success">Class Deleted!</MuiSuccess>}
             {searchParams?.edit &&  <MuiSuccess severity="success">Class Name Edited!</MuiSuccess>}
-            <Typography variant="h6">Welcome to coaches page!</Typography>
-            <Typography variant="p">Get started by creating a class! If you already have one then go on and checkout
+            <Typography variant="h6">Welcome to the coaches dashboard!</Typography>
+            <Typography variant="p">If you're ready to help your patients then get started by creating a class! If you already have one then go on and check out
             how your students are doing!</Typography>
         </>
     )
